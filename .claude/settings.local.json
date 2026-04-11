@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python3 -c \"from PIL import Image; Image.new\\('RGB', \\(1080, 1920\\), \\(70, 130, 200\\)\\).save\\('/tmp/test_screen.png'\\)\")",
+      "Bash(python3 -m pytest test_resizer.py -q)"
+    ]
+  }
+}

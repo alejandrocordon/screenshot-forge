@@ -2,7 +2,7 @@
 
 Resize and crop screenshots for Google Play and Apple App Store. Accepts a single file or an entire folder and generates every required size in one pass.
 
-CLI and GUI. Works directly with Python or inside Docker.
+CLI, GUI, and web interface. Works directly with Python or inside Docker.
 
 ## Features
 
@@ -11,7 +11,8 @@ CLI and GUI. Works directly with Python or inside Docker.
 - All official sizes built in: iPhone 6.7", 6.5", 5.5", iPad 12.9", Android phone, tablet, Chromebook
 - Organized output by platform and device
 - Portrait and landscape orientations
-- CLI for scripting and CI/CD, GUI for quick manual jobs
+- CLI for scripting and CI/CD, GUI for desktop, web for the browser
+- Web interface with drag-and-drop and ZIP download
 
 ## Supported sizes
 
@@ -82,6 +83,27 @@ python forge_gui.py
 2. Pick which platforms and devices you want
 3. Click Forge
 4. Open the output folder when it finishes
+
+## Usage (Web)
+
+```bash
+python forge_web.py
+```
+
+Open http://localhost:8642 in your browser.
+
+1. Drag and drop your screenshots onto the page (or click to browse)
+2. Check the platforms and devices you want
+3. Click Forge
+4. A ZIP file downloads automatically with the results
+
+Also works with Docker Compose:
+
+```bash
+docker compose up web
+```
+
+Then open http://localhost:8642.
 
 ## Usage (Docker)
 
@@ -156,6 +178,7 @@ No letterboxing. No stretching.
 - [x] CLI
 - [x] GUI (Tkinter)
 - [x] Docker
+- [x] Web interface (Flask + drag-and-drop)
 - [ ] Device frame overlays (iPhone/Pixel mockups)
 - [ ] Text overlays (title + subtitle per screenshot)
 - [ ] Fastlane integration
@@ -169,6 +192,7 @@ No letterboxing. No stretching.
 | Imaging   | Pillow   |
 | GUI       | Tkinter  |
 | CLI       | argparse |
+| Web       | Flask    |
 | Container | Docker   |
 
 ## License

@@ -5,3 +5,14 @@ services:
       - ./input:/data/input
       - ./output:/data/output
     command: ["-i", "/data/input", "-o", "/data/output"]
+
+  web:
+    build: .
+    ports:
+      - "8642:8642"
+    volumes:
+      - ./output:/data/output
+    environment:
+      - OUTPUT_DIR=/data/output
+    entrypoint: ["python", "forge_web.py"]
+    command: []

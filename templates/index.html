@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Forge</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e1e4e8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #8b949e;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    /* Sección genérica */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #8b949e;
+      margin-bottom: 10px;
+    }
+
+    /* Zona de drop */
+    .dropzone {
+      border: 2px dashed #30363d;
+      border-radius: 10px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .dropzone:hover,
+    .dropzone.active {
+      border-color: #58a6ff;
+      background: rgba(88, 166, 255, 0.05);
+    }
+
+    .dropzone-text {
+      font-size: 15px;
+      color: #8b949e;
+    }
+
+    .dropzone-text span {
+      color: #58a6ff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Lista de archivos */
+    .file-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+
+    .file-item img {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .file-remove {
+      background: none;
+      border: none;
+      color: #f85149;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0 2px;
+      line-height: 1;
+    }
+
+    .file-remove:hover { opacity: 0.7; }
+
+    /* Checkboxes de targets */
+    .platform-group {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 8px;
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .platform-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .device-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .device-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: #c9d1d9;
+      cursor: pointer;
+    }
+
+    .device-checkbox input {
+      accent-color: #58a6ff;
+      cursor: pointer;
+    }
+
+    /* Botón forge */
+    .forge-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: #238636;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .forge-btn:hover { background: #2ea043; }
+
+    .forge-btn:disabled {
+      background: #21262d;
+      color: #484f58;
+      cursor: not-allowed;
+    }
+
+    /* Estado */
+    .status {
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      color: #8b949e;
+      display: none;
+    }
+
+    .status.visible { display: block; }
+
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #30363d;
+      border-top-color: #58a6ff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .status-done { color: #3fb950; }
+    .status-error { color: #f85149; }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      body { padding: 20px 12px; }
+      .dropzone { padding: 28px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Screenshot Forge</h1>
+    <p class="subtitle">Drag your screenshots, pick the sizes, download the ZIP.</p>
+
+    <!-- Drop zone -->
+    <div class="section">
+      <div class="section-title">Images</div>
+      <div class="dropzone" id="dropzone">
+        <div class="dropzone-text">
+          Drop images here or <span id="browse-link">browse</span>
+        </div>
+        <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg" hidden>
+      </div>
+      <div class="file-list" id="file-list"></div>
+    </div>
+
+    <!-- Target selection -->
+    <div class="section">
+      <div class="section-title">Output sizes</div>
+      <div id="targets-container"></div>
+    </div>
+
+    <!-- Forge button -->
+    <div class="section">
+      <button class="forge-btn" id="forge-btn" disabled>Forge</button>
+    </div>
+
+    <!-- Status -->
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const dropzone = document.getElementById("dropzone");
+    const fileInput = document.getElementById("file-input");
+    const browseLink = document.getElementById("browse-link");
+    const fileList = document.getElementById("file-list");
+    const targetsContainer = document.getElementById("targets-container");
+    const forgeBtn = document.getElementById("forge-btn");
+    const statusEl = document.getElementById("status");
+
+    let selectedFiles = [];
+
+    // -- Cargar targets del servidor --
+
+    fetch("/api/targets")
+      .then(r => r.json())
+      .then(targets => {
+        for (const [platform, devices] of Object.entries(targets)) {
+          const group = document.createElement("div");
+          group.className = "platform-group";
+
+          const header = document.createElement("div");
+          header.className = "platform-header";
+
+          const toggle = document.createElement("input");
+          toggle.type = "checkbox";
+          toggle.checked = true;
+          toggle.dataset.platform = platform;
+
+          const name = document.createElement("span");
+          name.className = "platform-name";
+          name.textContent = platform.toUpperCase();
+
+          header.appendChild(toggle);
+          header.appendChild(name);
+          group.appendChild(header);
+
+          const list = document.createElement("div");
+          list.className = "device-list";
+
+          for (const device of devices) {
+            const label = document.createElement("label");
+            label.className = "device-checkbox";
+
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = true;
+            cb.dataset.platform = platform;
+            cb.dataset.device = device;
+
+            label.appendChild(cb);
+            label.appendChild(document.createTextNode(device));
+            list.appendChild(label);
+          }
+
+          group.appendChild(list);
+          targetsContainer.appendChild(group);
+
+          // Toggle de plataforma activa/desactiva todos sus devices
+          toggle.addEventListener("change", () => {
+            list.querySelectorAll("input").forEach(cb => {
+              cb.checked = toggle.checked;
+            });
+          });
+        }
+      });
+
+    // -- Drag and drop --
+
+    dropzone.addEventListener("dragover", e => {
+      e.preventDefault();
+      dropzone.classList.add("active");
+    });
+
+    dropzone.addEventListener("dragleave", () => {
+      dropzone.classList.remove("active");
+    });
+
+    dropzone.addEventListener("drop", e => {
+      e.preventDefault();
+      dropzone.classList.remove("active");
+      addFiles(e.dataTransfer.files);
+    });
+
+    browseLink.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", () => {
+      addFiles(fileInput.files);
+      fileInput.value = "";
+    });
+
+    function addFiles(fileListObj) {
+      const validExt = [".png", ".jpg", ".jpeg"];
+      for (const f of fileListObj) {
+        const ext = "." + f.name.split(".").pop().toLowerCase();
+        if (validExt.includes(ext) && !selectedFiles.some(s => s.name === f.name)) {
+          selectedFiles.push(f);
+        }
+      }
+      renderFiles();
+    }
+
+    function renderFiles() {
+      fileList.innerHTML = "";
+      for (let i = 0; i < selectedFiles.length; i++) {
+        const f = selectedFiles[i];
+        const item = document.createElement("div");
+        item.className = "file-item";
+
+        const thumb = document.createElement("img");
+        thumb.src = URL.createObjectURL(f);
+
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = f.name;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "file-remove";
+        removeBtn.textContent = "\u00d7";
+        removeBtn.addEventListener("click", () => {
+          selectedFiles.splice(i, 1);
+          renderFiles();
+        });
+
+        item.appendChild(thumb);
+        item.appendChild(nameSpan);
+        item.appendChild(removeBtn);
+        fileList.appendChild(item);
+      }
+
+      forgeBtn.disabled = selectedFiles.length === 0;
+    }
+
+    // -- Forge --
+
+    forgeBtn.addEventListener("click", async () => {
+      if (selectedFiles.length === 0) return;
+
+      // Recopilar targets seleccionados
+      const selected = {};
+      targetsContainer.querySelectorAll("input[data-device]").forEach(cb => {
+        if (cb.checked) {
+          const p = cb.dataset.platform;
+          const d = cb.dataset.device;
+          if (!selected[p]) selected[p] = [];
+          selected[p].push(d);
+        }
+      });
+
+      if (Object.keys(selected).length === 0) {
+        showStatus("Select at least one device.", "error");
+        return;
+      }
+
+      // Construir FormData
+      const form = new FormData();
+      for (const f of selectedFiles) {
+        form.append("images", f);
+      }
+      form.append("targets", JSON.stringify(selected));
+
+      // Estado de carga
+      forgeBtn.disabled = true;
+      showStatus('<span class="spinner"></span> Forging...', "");
+
+      try {
+        const res = await fetch("/forge", { method: "POST", body: form });
+
+        if (!res.ok) {
+          const err = await res.json();
+          showStatus(err.error || "Something went wrong.", "error");
+          forgeBtn.disabled = false;
+          return;
+        }
+
+        // Descargar ZIP
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "screenshots-forged.zip";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+
+        showStatus("Done. ZIP downloaded.", "done");
+      } catch (e) {
+        showStatus("Connection error: " + e.message, "error");
+      }
+
+      forgeBtn.disabled = false;
+    });
+
+    function showStatus(html, type) {
+      statusEl.innerHTML = html;
+      statusEl.className = "status visible";
+      if (type === "done") statusEl.classList.add("status-done");
+      if (type === "error") statusEl.classList.add("status-error");
+    }
+  </script>
+</body>
+</html>
