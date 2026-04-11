@@ -1,0 +1,12 @@
+.git
+__pycache__
+.pytest_cache
+output/
+input/
+*.pyc
+forge_gui.py
+test_resizer.py
+ARCHITECTURE.md
+README.md
+LICENSE
+.DS_Store

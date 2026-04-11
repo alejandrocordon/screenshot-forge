@@ -1,0 +1,7 @@
+services:
+  forge:
+    build: .
+    volumes:
+      - ./input:/data/input
+      - ./output:/data/output
+    command: ["-i", "/data/input", "-o", "/data/output"]
