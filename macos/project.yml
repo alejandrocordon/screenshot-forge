@@ -1,0 +1,36 @@
+# XcodeGen spec — generates ScreenshotForge.xcodeproj from these files.
+#   brew install xcodegen
+#   cd macos && xcodegen generate && open ScreenshotForge.xcodeproj
+#
+# (You can also skip XcodeGen: create a macOS App in Xcode, add the local
+#  ForgeCore package, and drop the files in App/ into the target. See README.)
+name: ScreenshotForge
+options:
+  bundleIdPrefix: com.alejandrocordon
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+packages:
+  ForgeCore:
+    path: ForgeCore
+
+targets:
+  ScreenshotForge:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+    dependencies:
+      - package: ForgeCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alejandrocordon.screenshotforge
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+        ENABLE_HARDENED_RUNTIME: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
+        # Set your Development Team in Xcode (Signing & Capabilities) before running.
+        CODE_SIGN_STYLE: Automatic

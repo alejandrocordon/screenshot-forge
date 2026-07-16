@@ -1,0 +1,13 @@
+# Xcode / SwiftPM build artifacts
+.build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+xcuserdata/
+
+# XcodeGen output (regenerate from project.yml)
+ScreenshotForge.xcodeproj/
+
+.swiftpm/
+Package.resolved
