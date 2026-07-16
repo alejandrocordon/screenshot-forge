@@ -54,11 +54,6 @@ TARGETS: dict[str, dict[str, list[tuple[int, int]]]] = {
 # Extensiones de imagen soportadas (en minúsculas, con punto)
 SUPPORTED_EXTENSIONS: set[str] = {".png", ".jpg", ".jpeg"}
 
-# Extensiones de video soportadas para los App Preview de la App Store.
-# Los videos sólo se recortan a los tamaños de Apple/iOS (ver ``resizer``),
-# que es donde la App Store admite previews de video.
-SUPPORTED_VIDEO_EXTENSIONS: set[str] = {".mp4", ".mov", ".m4v"}
-
 
 def get_targets(
     platform: str | None = None,

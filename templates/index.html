@@ -94,27 +94,11 @@
       font-size: 13px;
     }
 
-    .file-item img,
-    .file-item .file-thumb {
+    .file-item img {
       width: 32px;
       height: 32px;
       object-fit: cover;
       border-radius: 4px;
-    }
-
-    /* Placeholder para archivos de video (no se previsualizan como imagen) */
-    .file-item .file-thumb {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #21262d;
-      font-size: 16px;
-    }
-
-    .hint {
-      font-size: 12px;
-      color: #8b949e;
-      margin-top: 8px;
     }
 
     .file-remove {
@@ -230,19 +214,17 @@
 <body>
   <div class="container">
     <h1>Screenshot Forge</h1>
-    <p class="subtitle">Drag your screenshots or videos, pick the sizes, download the ZIP.</p>
+    <p class="subtitle">Drag your screenshots, pick the sizes, download the ZIP.</p>
 
     <!-- Drop zone -->
     <div class="section">
-      <div class="section-title">Images &amp; videos</div>
+      <div class="section-title">Images</div>
       <div class="dropzone" id="dropzone">
         <div class="dropzone-text">
-          Drop images or videos here or <span id="browse-link">browse</span>
+          Drop images here or <span id="browse-link">browse</span>
         </div>
-        <input type="file" id="file-input" multiple
-               accept=".png,.jpg,.jpeg,.mp4,.mov,.m4v" hidden>
+        <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg" hidden>
       </div>
-      <div class="hint" id="video-hint">Videos are cropped to the Apple / iOS sizes only (needs ffmpeg on the server).</div>
       <div class="file-list" id="file-list"></div>
     </div>
 
@@ -350,17 +332,10 @@
       fileInput.value = "";
     });
 
-    const IMAGE_EXT = [".png", ".jpg", ".jpeg"];
-    const VIDEO_EXT = [".mp4", ".mov", ".m4v"];
-
-    function fileExt(name) {
-      return "." + name.split(".").pop().toLowerCase();
-    }
-
     function addFiles(fileListObj) {
-      const validExt = [...IMAGE_EXT, ...VIDEO_EXT];
+      const validExt = [".png", ".jpg", ".jpeg"];
       for (const f of fileListObj) {
-        const ext = fileExt(f.name);
+        const ext = "." + f.name.split(".").pop().toLowerCase();
         if (validExt.includes(ext) && !selectedFiles.some(s => s.name === f.name)) {
           selectedFiles.push(f);
         }
@@ -375,16 +350,8 @@
         const item = document.createElement("div");
         item.className = "file-item";
 
-        let thumb;
-        if (VIDEO_EXT.includes(fileExt(f.name))) {
-          // Los videos no se previsualizan como imagen: usar un icono.
-          thumb = document.createElement("div");
-          thumb.className = "file-thumb";
-          thumb.textContent = "🎬";  // 🎬
-        } else {
-          thumb = document.createElement("img");
-          thumb.src = URL.createObjectURL(f);
-        }
+        const thumb = document.createElement("img");
+        thumb.src = URL.createObjectURL(f);
 
         const nameSpan = document.createElement("span");
         nameSpan.textContent = f.name;

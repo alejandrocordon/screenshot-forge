@@ -299,26 +299,15 @@ archivos, creación de carpetas, resize, guardado y reporte.
 |----------------------|---------------------------------------|------------------------------------|
 | `TARGETS`            | `dict[str, dict[str, list[tuple]]]`   | Todos los tamaños por plataforma   |
 | `SUPPORTED_EXTENSIONS`| `set[str]`                           | `.png`, `.jpg`, `.jpeg`            |
-| `SUPPORTED_VIDEO_EXTENSIONS`| `set[str]`                     | `.mp4`, `.mov`, `.m4v`             |
 | `get_targets()`      | `function`                            | Filtra por plataforma y/o device   |
 
 ### `resizer.py`
 
-| Elemento                | Tipo          | Descripción                                     |
-|-------------------------|---------------|-------------------------------------------------|
-| `BatchResult`           | `dataclass`   | Resumen: processed, errors, paths, etc.         |
-| `resize_and_crop()`     | `function`    | Scale-to-cover + center-crop una imagen (Pillow)|
-| `resize_and_crop_video()`| `function`   | Scale-to-cover + center-crop un video (ffmpeg)  |
-| `ffmpeg_available()`    | `function`    | ¿Está ffmpeg en el PATH?                        |
-| `FFmpegNotFoundError`   | `exception`   | ffmpeg requerido y ausente                      |
-| `process_batch()`       | `function`    | Procesa lote (imágenes + videos) con callbacks  |
-
-> **Videos.** `process_batch` recorta imágenes a todos los targets, pero los
-> videos sólo a los tamaños de **Apple/iOS** (los App Preview de la App Store).
-> El recorte usa `ffmpeg` vía `subprocess`, con el mismo criterio
-> *scale-to-cover + center-crop* que las imágenes
-> (`scale=…:force_original_aspect_ratio=increase` + `crop`). Si no hay ffmpeg,
-> las imágenes siguen funcionando y cada video se reporta como error controlado.
+| Elemento             | Tipo          | Descripción                              |
+|----------------------|---------------|------------------------------------------|
+| `BatchResult`        | `dataclass`   | Resumen: processed, errors, paths, etc.  |
+| `resize_and_crop()`  | `function`    | Scale-to-cover + center-crop una imagen  |
+| `process_batch()`    | `function`    | Procesa lote completo con callbacks      |
 
 ### `forge.py`
 

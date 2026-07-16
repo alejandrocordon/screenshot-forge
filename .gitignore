@@ -10,3 +10,21 @@ venv/
 output/
 input/
 .DS_Store
+
+# Screenshots y App Preview de video (entradas/salidas — no versionar)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.heic
+*.heif
+*.bmp
+*.tif
+*.tiff
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.avi
+*.mkv
