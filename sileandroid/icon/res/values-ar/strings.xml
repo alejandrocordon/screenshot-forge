@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">زر سريع لملاحظة جديدة</string>
+    <string name="widget_medium_description">أحدث الملاحظات والإجراءات السريعة</string>
+    <string name="widget_large_description">أحدث الملاحظات مع معاينة</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">ملاحظات</string>
+    <string name="tab_health">الصحة</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">الإعدادات</string>
+
+    <!-- Common -->
+    <string name="done">تم</string>
+    <string name="cancel">إلغاء</string>
+    <string name="close">إغلاق</string>
+    <string name="delete">حذف</string>
+    <string name="save">حفظ</string>
+    <string name="create">إنشاء</string>
+    <string name="search">بحث</string>
+    <string name="error">خطأ</string>
+    <string name="ok">حسناً</string>
+    <string name="name">الاسم</string>
+    <string name="password">كلمة المرور</string>
+
+    <!-- Notes -->
+    <string name="search_notes">البحث في الملاحظات…</string>
+    <string name="your_mind_encrypted">عقلك، مشفّر.</string>
+    <string name="start_writing">ابدأ الكتابة.</string>
+    <string name="no_results">لا توجد نتائج</string>
+    <string name="new_note">ملاحظة جديدة</string>
+    <string name="record_voice">تسجيل صوتي</string>
+    <string name="scan_document">مسح مستند</string>
+    <string name="use_template">استخدام قالب</string>
+    <string name="untitled">بدون عنوان</string>
+    <string name="archive">أرشفة</string>
+    <string name="pin">تثبيت</string>
+    <string name="unpin">إلغاء التثبيت</string>
+    <string name="delete_note">حذف الملاحظة</string>
+    <string name="action_cannot_be_undone">لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="notes_cd_open_note">فتح ملاحظة</string>
+    <string name="notes_cd_graph">الرسم البياني</string>
+    <string name="notes_cd_folders">المجلدات</string>
+    <string name="notes_cd_filters">المرشحات</string>
+    <string name="notes_cd_create">إنشاء</string>
+    <string name="notes_fab_rich_text">ملاحظة نص غني</string>
+    <string name="notes_fab_markdown">ملاحظة Markdown</string>
+    <string name="notes_fab_receive_note">استقبال ملاحظة</string>
+    <string name="notes_filter_title">المرشحات</string>
+    <string name="notes_filter_folders">المجلدات</string>
+    <string name="notes_filter_no_folders">لا توجد مجلدات</string>
+    <string name="notes_filter_tags">الوسوم</string>
+    <string name="notes_filter_no_tags">لا توجد وسوم</string>
+    <string name="notes_filter_clear">مسح المرشحات</string>
+
+    <!-- Editor -->
+    <string name="add_tag">إضافة وسم…</string>
+    <string name="summarize">تلخيص</string>
+    <string name="extract_tasks">استخراج المهام</string>
+    <string name="suggest_tags">اقتراح أوسمة</string>
+    <string name="chat_with_note">الدردشة مع الملاحظة</string>
+    <string name="translate_note">ترجمة الملاحظة</string>
+    <string name="analyze_contract">تحليل العقد</string>
+    <string name="details">التفاصيل</string>
+    <string name="save_as_template">حفظ كقالب</string>
+    <string name="reminder">تذكير</string>
+    <string name="export_pdf">تصدير PDF</string>
+    <string name="processing_with_ai">جارٍ المعالجة بـ AI…</string>
+    <string name="editor_back_cd">رجوع</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">فتح ملاحظة</string>
+    <string name="editor_share_cd">مشاركة</string>
+    <string name="editor_more_menu_cd">المزيد</string>
+    <string name="editor_export_markdown">تصدير بتنسيق Markdown</string>
+    <string name="editor_title_placeholder">عنوان المقال</string>
+    <string name="editor_body_placeholder_markdown">ابدأ الكتابة بـ Markdown…</string>
+    <string name="editor_body_placeholder_rich">ابدأ كتابة مقالك…</string>
+    <string name="editor_open_wiki_link">فتح [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">إزالة</string>
+    <string name="editor_add_tag_action">إضافة</string>
+    <string name="editor_metadata_created">تاريخ الإنشاء</string>
+    <string name="editor_metadata_edited">تاريخ التعديل</string>
+    <string name="editor_metadata_source">المصدر</string>
+    <string name="editor_metadata_words">الكلمات</string>
+    <string name="editor_metadata_characters">الأحرف</string>
+    <string name="editor_ai_result_title">نتيجة AI</string>
+    <string name="editor_ai_add_tags">إضافة أوسمة</string>
+    <string name="editor_ai_insert_in_note">إدراج في الملاحظة</string>
+    <string name="editor_ai_error_title">خطأ AI</string>
+    <string name="editor_export_chooser_title">تصدير</string>
+    <string name="editor_toolbar_heading_cd">عنوان</string>
+    <string name="editor_toolbar_heading1">عنوان 1</string>
+    <string name="editor_toolbar_heading2">عنوان 2</string>
+    <string name="editor_toolbar_heading3">عنوان 3</string>
+    <string name="editor_toolbar_bold_cd">عريض</string>
+    <string name="editor_toolbar_italic_cd">مائل</string>
+    <string name="editor_toolbar_strikethrough_cd">يتوسطه خط</string>
+    <string name="editor_toolbar_code_cd">كود</string>
+    <string name="editor_toolbar_quote_cd">اقتباس</string>
+    <string name="editor_toolbar_list_cd">قائمة</string>
+    <string name="editor_toolbar_numbered_list_cd">قائمة مرقّمة</string>
+    <string name="editor_toolbar_checklist_cd">قائمة اختيار</string>
+    <string name="editor_toolbar_link_cd">رابط</string>
+    <string name="editor_toolbar_wiki_link_cd">رابط ويكي</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">الآن</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">منذ دقيقة واحدة</item>
+        <item quantity="two">منذ دقيقتين</item>
+        <item quantity="few">منذ %d دقائق</item>
+        <item quantity="many">منذ %d دقيقة</item>
+        <item quantity="other">منذ %d دقيقة</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">منذ ساعة واحدة</item>
+        <item quantity="two">منذ ساعتين</item>
+        <item quantity="few">منذ %d ساعات</item>
+        <item quantity="many">منذ %d ساعة</item>
+        <item quantity="other">منذ %d ساعة</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">منذ يوم واحد</item>
+        <item quantity="two">منذ يومين</item>
+        <item quantity="few">منذ %d أيام</item>
+        <item quantity="many">منذ %d يومًا</item>
+        <item quantity="other">منذ %d يوم</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">منذ أسبوع واحد</item>
+        <item quantity="two">منذ أسبوعين</item>
+        <item quantity="few">منذ %d أسابيع</item>
+        <item quantity="many">منذ %d أسبوعًا</item>
+        <item quantity="other">منذ %d أسبوع</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">مثبّتة</string>
+    <string name="quickswitcher_title">فتح ملاحظة</string>
+    <string name="quickswitcher_search_placeholder">البحث بالعنوان…</string>
+    <string name="quickswitcher_create_note">إنشاء \"%1$s\"</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">إلغاء القفل</string>
+    <string name="lock_or_enter_pin">أو أدخل رمز PIN</string>
+    <string name="lock_pin_incorrect">رمز PIN غير صحيح</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">حفظ في Sile</string>
+    <string name="quickcapture_content_label">المحتوى</string>
+    <string name="quickcapture_tags_label">الوسوم</string>
+    <string name="quickcapture_saving">جارٍ الحفظ…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">العنوان</string>
+    <string name="bubble_content_placeholder">ملاحظة سريعة…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">عقلك، مشفّر.\nابدأ الكتابة.</string>
+    <string name="widget_no_notes_yet">لا توجد ملاحظات بعد</string>
+    <string name="widget_action_note">ملاحظة</string>
+    <string name="widget_action_voice">صوت</string>
+    <string name="widget_action_scan">مسح</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">حفظ في Sile</string>
+    <string name="vault_share_target_label">حفظ في Vault ‏(Sile)</string>
+    <string name="tile_new_note_label">ملاحظة جديدة</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">افتح القفل للوصول إلى ملاحظاتك</string>
+    <string name="biometric_use_pin">استخدام رمز PIN</string>
+
+    <!-- Settings -->
+    <string name="appearance">المظهر</string>
+    <string name="dark">داكن</string>
+    <string name="light">فاتح</string>
+    <string name="system">النظام</string>
+    <string name="security">الأمان</string>
+    <string name="storage">التخزين</string>
+    <string name="import_export">استيراد / تصدير</string>
+    <string name="about_sile">حول Sile</string>
+    <string name="version">الإصدار</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="terms_of_use">شروط الاستخدام</string>
+    <string name="delete_all_data">حذف جميع البيانات</string>
+    <string name="settings_transcription">النسخ</string>
+    <string name="settings_export_section">تصدير</string>
+    <string name="settings_dark_theme">السمة الداكنة</string>
+    <string name="settings_biometric_lock">القفل البيومتري</string>
+    <string name="settings_change_pin">تغيير رمز PIN</string>
+    <string name="settings_setup_backup_pin">إعداد رمز PIN احتياطي</string>
+    <string name="settings_pin_digits">٦ أرقام</string>
+    <string name="settings_preferred_language">اللغة المفضلة</string>
+    <string name="settings_attachments">المرفقات</string>
+    <string name="settings_export_notes_markdown">تصدير الملاحظات بصيغة Markdown</string>
+    <string name="settings_danger_zone">منطقة الخطر</string>
+    <string name="settings_delete_all_confirm_text">سيتم حذف جميع ملاحظاتك وتسجيلاتك وإعداداتك. لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="settings_are_you_sure">هل أنت متأكد؟</string>
+    <string name="settings_delete_all_final_text">هذا هو التأكيد الأخير. ستُفقد جميع البيانات بشكل دائم.</string>
+    <string name="settings_delete_all_caps">حذف الكل</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">المجلدات الذكية</string>
+    <string name="folders_empty_hint">أنشئ مجلداً لتنظيم ملاحظاتك</string>
+
+    <!-- Graph -->
+    <string name="graph_title">مخطط الملاحظات</string>
+    <string name="graph_no_connections">لا توجد اتصالات</string>
+    <string name="graph_no_connections_hint">استخدم [[اسم الملاحظة]] لربط الملاحظات</string>
+
+    <!-- Health -->
+    <string name="calendar">التقويم</string>
+    <string name="timeline">الجدول الزمني</string>
+    <string name="insights">رؤى</string>
+    <string name="health_entry">سجل صحي</string>
+    <string name="how_are_you_feeling">كيف تشعر؟</string>
+    <string name="mood">المزاج</string>
+    <string name="energy">الطاقة</string>
+    <string name="sleep">النوم</string>
+    <string name="symptoms">الأعراض</string>
+    <string name="medication">الدواء</string>
+    <string name="health_tab_timeline">الجدول الزمني</string>
+    <string name="health_tab_insights">رؤى</string>
+    <string name="health_today">اليوم</string>
+    <string name="health_prev_month">الشهر السابق</string>
+    <string name="health_next_month">الشهر التالي</string>
+    <string name="health_mood_very_bad">سيء جداً</string>
+    <string name="health_mood_bad">سيء</string>
+    <string name="health_mood_neutral">عادي</string>
+    <string name="health_mood_good">جيد</string>
+    <string name="health_mood_very_good">جيد جداً</string>
+    <string name="health_day_mon">ن</string>
+    <string name="health_day_tue">ث</string>
+    <string name="health_day_wed">ر</string>
+    <string name="health_day_thu">خ</string>
+    <string name="health_day_fri">ج</string>
+    <string name="health_day_sat">س</string>
+    <string name="health_day_sun">ح</string>
+    <string name="health_mood_section">المزاج</string>
+    <string name="health_notes_section">ملاحظات</string>
+    <string name="health_hours_label">ساعات:</string>
+    <string name="health_quality_label">الجودة:</string>
+    <string name="health_add_symptom_hint">إضافة عرض…</string>
+    <string name="health_add_cd">إضافة</string>
+    <string name="health_add_medication_hint">إضافة دواء…</string>
+    <string name="health_notes_placeholder">هل هناك شيء آخر تريد تدوينه؟</string>
+    <string name="health_saving">جارٍ الحفظ…</string>
+    <string name="health_insights_title">رؤى الصحة</string>
+    <string name="health_last_30_days">آخر 30 يوماً</string>
+    <string name="health_avg_mood">متوسط المزاج</string>
+    <string name="health_avg_energy">متوسط الطاقة</string>
+    <string name="health_avg_sleep">متوسط النوم</string>
+    <string name="health_most_frequent_symptoms">الأعراض الأكثر شيوعاً</string>
+    <string name="health_days_count">%1$d أيام</string>
+    <string name="health_entries_registered">%1$d سجلات مسجّلة</string>
+    <string name="health_no_data">لا توجد بيانات كافية</string>
+    <string name="health_no_data_hint">سجّل صحتك لمدة أسبوع على الأقل لرؤية الرؤى.</string>
+    <string name="health_ai_insights">رؤى الذكاء الاصطناعي</string>
+    <string name="health_ai_description">يحلّل Gemma 4 بياناتك للبحث عن أنماط وارتباطات وتنبيهات.</string>
+    <string name="health_analyzing">جارٍ التحليل…</string>
+    <string name="health_ai_analysis">تحليل الذكاء الاصطناعي</string>
+    <string name="health_regenerate">إعادة التوليد</string>
+    <string name="health_generate_insights">توليد الرؤى</string>
+    <string name="health_timeline_title">الجدول الزمني للصحة</string>
+    <string name="health_no_entries">لا توجد سجلات بعد</string>
+    <string name="health_no_entries_hint">سجّل يومك الأول من التقويم</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">انقر للتسجيل</string>
+    <string name="recording">جارٍ التسجيل…</string>
+    <string name="transcribing">جارٍ النسخ…</string>
+    <string name="transcription_complete">اكتمل النسخ</string>
+    <string name="voice_error_start_recording">تعذّر بدء التسجيل: %1$s</string>
+    <string name="voice_error_no_audio_file">ملف الصوت غير موجود</string>
+    <string name="voice_error_no_model">لم يُنزَّل أي نموذج صوتي. نزِّل أحدها من الإعدادات.</string>
+    <string name="voice_error_no_text_detected">لم يُكتشف أي نص في التسجيل</string>
+    <string name="voice_error_transcription">خطأ في النسخ</string>
+    <string name="voice_error_download_model">خطأ في تنزيل النموذج: %1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">مشاركة الملاحظة</string>
+    <string name="receive_note">استلام ملاحظة</string>
+    <string name="import_note">استيراد ملاحظة</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">اختر طريقة</string>
+    <string name="share_method_p2p_title">مشاركة عبر P2P</string>
+    <string name="share_method_p2p_subtitle">إرسال مشفّر إلى جهاز قريب</string>
+    <string name="share_method_vault_title">حفظ في Vault</string>
+    <string name="share_method_vault_subtitle">تشفير وتخزين في خزنتك الخاصة</string>
+    <string name="share_state_preparing">جارٍ التحضير…</string>
+    <string name="share_state_connecting">جارٍ الاتصال…</string>
+    <string name="share_state_sending">جارٍ إرسال الملاحظة المشفّرة…</string>
+    <string name="share_state_completed_title">تم إرسال الملاحظة</string>
+    <string name="share_state_completed_subtitle">تم إرسال الملاحظة بشكل مشفّر.</string>
+    <string name="share_qr_cd">رمز QR للمشاركة</string>
+    <string name="share_qr_hint">اطلب من المستلم مسح رمز QR هذا</string>
+    <string name="share_sharing_label">جارٍ مشاركة: %1$s</string>
+    <string name="share_conn_advertising">في انتظار المستلم…</string>
+    <string name="share_conn_discovering">جارٍ البحث…</string>
+    <string name="share_conn_connected">متصل</string>
+    <string name="share_conn_transferring">جارٍ النقل…</string>
+    <string name="share_conn_completed">اكتمل</string>
+    <string name="share_conn_error">خطأ في الاتصال</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + اتصال مباشر</string>
+    <string name="share_sheet_qr_subtitle">امسح رمز QR وأرسل عبر Wi-Fi Direct</string>
+    <string name="share_sheet_nfc_subtitle">أقرّب الأجهزة للمشاركة</string>
+    <string name="share_sheet_file_title">ملف .sile</string>
+    <string name="share_sheet_file_subtitle">صدّر مشفّرًا بكلمة مرور وشارك</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">استلام ملاحظة مشتركة</string>
+    <string name="receive_idle_subtitle">امسح رمز QR الخاص بالمرسل أو افتح ملف .sile</string>
+    <string name="receive_scan_qr">مسح رمز QR</string>
+    <string name="receive_open_file">فتح ملف .sile</string>
+    <string name="receive_state_scanning">جارٍ مسح رمز QR…</string>
+    <string name="receive_state_waiting">في انتظار اتصال المرسل…</string>
+    <string name="receive_keep_app_open">ابقِ التطبيق مفتوحًا</string>
+    <string name="receive_state_receiving">جارٍ استلام الملاحظة…</string>
+    <string name="receive_state_decrypting">جارٍ فكّ التشفير…</string>
+    <string name="receive_state_completed">تم استلام الملاحظة</string>
+    <string name="receive_open_note">فتح الملاحظة</string>
+    <string name="receive_protected_file_title">ملف محمي</string>
+    <string name="receive_protected_file_hint">أدخل كلمة مرور ملف .sile</string>
+    <string name="receive_decrypt_action">فكّ التشفير</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">مسح ضوئي</string>
+    <string name="scanner_state_preparing">جارٍ تحضير الماسح…</string>
+    <string name="scanner_state_processing">جارٍ معالجة المستند…</string>
+    <string name="scanner_state_completed">تم مسح المستند</string>
+    <string name="scanner_edit_note">تعديل الملاحظة</string>
+    <string name="scanner_back_to_notes">العودة إلى الملاحظات</string>
+    <string name="scanner_retry">حاول مجددًا</string>
+    <string name="scanner_progress_loading">جارٍ تحميل الصور…</string>
+    <string name="scanner_progress_ocr">جارٍ استخراج النص (OCR)…</string>
+    <string name="scanner_progress_encrypting">جارٍ تشفير الصور…</string>
+    <string name="scanner_error_load_images">تعذّر تحميل الصور الممسوحة</string>
+    <string name="scanner_error_no_text">لم يُكتشف نص في المستند الممسوح</string>
+    <string name="scanner_error_processing">خطأ في معالجة المستند</string>
+    <string name="scanner_note_title">مستند — %1$s</string>
+    <string name="scanner_summary_one_page">%1$d صفحة · %2$d حرف</string>
+    <string name="scanner_summary_pages">%1$d صفحات · %2$d حرف</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">تحليل: %1$s</string>
+    <string name="contract_note_tag">تحليل</string>
+    <string name="abusive_clause_detector">كاشف البنود التعسفية</string>
+    <string name="analysis_complete">اكتمل التحليل</string>
+    <string name="executive_summary">ملخص تنفيذي</string>
+    <string name="red_flags">إشارات تحذيرية</string>
+    <string name="real_intent">النية الحقيقية</string>
+    <string name="recommendations">التوصيات</string>
+    <string name="simplified_language">لغة مبسطة</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">أنشئ Vault الخاص بك</string>
+    <string name="vault_create_subtitle">عيّن رمز PIN من 6 أرقام لحماية ملفاتك الخاصة.\nيتطلب Vault أيضًا المصادقة البيومترية.</string>
+    <string name="vault_choose_pin">اختر رمز PIN</string>
+    <string name="vault_confirm_pin">أكّد رمز PIN</string>
+    <string name="vault_pins_no_match">رمزا PIN غير متطابقين. حاول مرة أخرى.</string>
+    <string name="vault_start_over">البدء من جديد</string>
+    <string name="vault_locked">Vault مقفل</string>
+    <string name="vault_identity_verified">تم التحقق من الهوية</string>
+    <string name="vault_enter_pin">أدخل رمز PIN</string>
+    <string name="vault_authenticate_biometrics">المصادقة بالبصمة الحيوية</string>
+    <string name="vault_preparing_pin">جارٍ تجهيز إدخال رمز PIN…</string>
+    <string name="vault_enter_pin_unlock">أدخل رمز PIN المكوّن من 6 أرقام لإلغاء القفل</string>
+    <string name="vault_unlock_biometrics">إلغاء القفل بالبصمة الحيوية</string>
+    <string name="vault_biometric_verified">تم التحقق بالبصمة الحيوية</string>
+    <string name="vault_too_many_attempts">محاولات كثيرة جدًا. حاول مجددًا بعد %1$d ث</string>
+    <string name="vault_incorrect_pin">رمز PIN غير صحيح</string>
+    <string name="vault_enter_your_pin">أدخل رمز PIN الخاص بك</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">رجوع</string>
+    <string name="vault_lock_vault_cd">قفل Vault</string>
+    <string name="vault_create_folder_cd">إنشاء مجلد</string>
+    <string name="vault_add_file_cd">إضافة ملف</string>
+    <string name="vault_search_files">البحث في الملفات</string>
+    <string name="vault_filter_all">الكل</string>
+    <string name="vault_folder_empty">هذا المجلد فارغ</string>
+    <string name="vault_vault_empty">Vault فارغ</string>
+    <string name="vault_tap_add_files">اضغط + لإضافة ملفات خاصة</string>
+    <string name="vault_encrypting">جارٍ التشفير…</string>
+    <string name="vault_delete_item_title">حذف العنصر؟</string>
+    <string name="vault_delete_item_text">سيُحذف \"%1$s\" نهائيًا.</string>
+    <string name="vault_delete_folder_title">حذف المجلد؟</string>
+    <string name="vault_delete_folder_text">سيُحذف \"%1$s\". ستُنقل العناصر الداخلية إلى الجذر.</string>
+    <string name="vault_new_folder_title">مجلد جديد</string>
+    <string name="vault_folder_name_placeholder">اسم المجلد</string>
+    <string name="vault_move_to_folder_title">النقل إلى مجلد</string>
+    <string name="vault_root_no_folder">الجذر (بدون مجلد)</string>
+    <string name="vault_no_folders_yet">لا توجد مجلدات بعد. أنشئ واحدًا أولاً.</string>
+    <string name="vault_size">Vault: %1$s</string>
+    <string name="vault_items_count">%1$d عناصر</string>
+    <string name="vault_migration_title">ترقية أمان Vault</string>
+    <string name="vault_migration_subtitle">يتطلب Vault الآن رمز PIN مكوّنًا من 6 أرقام\nوالمصادقة البيومترية.</string>
+    <string name="vault_current_password_label">كلمة مرور Vault الحالية</string>
+    <string name="vault_incorrect_password">كلمة المرور غير صحيحة</string>
+    <string name="vault_migration_failed">فشل الترحيل: %1$s. كلمة مرورك الحالية لا تزال تعمل — أدخلها للمحاولة مجددًا.</string>
+    <string name="vault_continue">متابعة</string>
+    <string name="vault_choose_new_pin">اختر رمز PIN الجديد</string>
+    <string name="vault_confirm_new_pin">أكّد رمز PIN الجديد</string>
+    <string name="vault_reencrypting">جارٍ إعادة تشفير ملفات Vault…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">حفظ في Vault</string>
+    <string name="vault_close_cd">إغلاق</string>
+    <string name="vault_encrypting_saving">جارٍ التشفير والحفظ…</string>
+    <string name="vault_files_count">%1$d ملفات</string>
+    <string name="vault_saved_title">تم الحفظ في Vault</string>
+    <string name="vault_saved_subtitle">تم التشفير والتخزين بأمان.</string>
+    <string name="vault_saved_multiple">تم حفظ %1$d ملفات</string>
+    <string name="vault_error_unknown">خطأ غير معروف</string>
+    <string name="vault_retry">إعادة المحاولة</string>
+    <string name="vault_error_import">خطأ في الاستيراد</string>
+    <string name="vault_viewer_decrypting">جارٍ فك التشفير…</string>
+    <string name="vault_viewer_error_title">خطأ</string>
+    <string name="vault_viewer_item_not_found">العنصر غير موجود</string>
+    <string name="vault_viewer_failed_load">فشل تحميل الملف</string>
+    <string name="vault_viewer_back_cd">رجوع</string>
+    <string name="vault_viewer_info_cd">معلومات</string>
+    <string name="vault_viewer_share_cd">مشاركة</string>
+    <string name="vault_info_file_section">الملف</string>
+    <string name="vault_info_image_section">الصورة</string>
+    <string name="vault_info_camera_section">الكاميرا</string>
+    <string name="vault_info_exposure_section">التعريض الضوئي</string>
+    <string name="vault_info_location_section">الموقع</string>
+    <string name="vault_info_name">الاسم</string>
+    <string name="vault_info_size">الحجم</string>
+    <string name="vault_info_type">النوع</string>
+    <string name="vault_info_added">تاريخ الإضافة</string>
+    <string name="vault_info_dimensions">الأبعاد</string>
+    <string name="vault_info_make">الماركة</string>
+    <string name="vault_info_model">الموديل</string>
+    <string name="vault_info_lens">العدسة</string>
+    <string name="vault_info_software">البرنامج</string>
+    <string name="vault_info_aperture">فتحة العدسة</string>
+    <string name="vault_info_shutter">سرعة الغالق</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">البعد البؤري</string>
+    <string name="vault_info_flash">الفلاش</string>
+    <string name="vault_info_white_balance">توازن الأبيض</string>
+    <string name="vault_info_coordinates">الإحداثيات</string>
+    <string name="vault_info_altitude">الارتفاع</string>
+    <string name="vault_info_date_taken">تاريخ الالتقاط</string>
+    <string name="vault_viewer_cannot_decode">تعذّر فك ترميز الصورة</string>
+    <string name="vault_viewer_play_cd">تشغيل</string>
+    <string name="vault_viewer_pause_cd">إيقاف مؤقت</string>
+    <string name="vault_viewer_preview_unavailable">المعاينة غير متاحة لهذا النوع من الملفات</string>
+    <string name="vault_flash_fired">انطلق</string>
+    <string name="vault_flash_off">مطفأ</string>
+    <string name="vault_white_balance_auto">تلقائي</string>
+    <string name="vault_white_balance_manual">يدوي</string>
+    <string name="vault_viewer_title">العارض</string>
+    <string name="vault_share_chooser_title">مشاركة الملف</string>
+
+    <!-- مسجّل الصوت -->
+    <string name="voice_title">تسجيل صوتي</string>
+    <string name="voice_back_cd">رجوع</string>
+    <string name="voice_mic_permission_required">إذن الميكروفون مطلوب</string>
+    <string name="voice_grant_permission">منح الإذن</string>
+    <string name="voice_stop_cd">إيقاف</string>
+    <string name="voice_record_cd">تسجيل</string>
+    <string name="voice_create_note">إنشاء ملاحظة</string>
+    <string name="voice_retry">إعادة المحاولة</string>
+    <string name="voice_generic_error">خطأ</string>
+
+    <!-- محلل العقود -->
+    <string name="contract_analyze_title">تحليل المستند</string>
+    <string name="contract_back_cd">رجوع</string>
+    <string name="contract_document_type_label">نوع المستند</string>
+    <string name="contract_document_text_label">نص المستند</string>
+    <string name="contract_document_text_placeholder">الصق العقد أو البريد الإلكتروني أو النص المراد تحليله…</string>
+    <string name="contract_char_count">%1$d حرف</string>
+    <string name="contract_analyze_btn">تحليل</string>
+    <string name="contract_preparing">جارٍ التحضير…</string>
+    <string name="contract_analyzing">تحليل القسم %1$d من %2$d…</string>
+    <string name="contract_parsing">إنشاء التقرير…</string>
+    <string name="contract_retry_btn">إعادة المحاولة</string>
+    <string name="contract_error_empty_text">أدخل النص المراد تحليله</string>
+    <string name="contract_report_title">تقرير التحليل</string>
+    <string name="contract_copy_summary_cd">نسخ الملخص</string>
+    <string name="contract_save_report_cd">حفظ التحليل</string>
+    <string name="contract_no_report">لا يوجد تقرير متاح</string>
+    <string name="contract_executive_summary_section">الملخص التنفيذي</string>
+    <string name="contract_red_flags_section">تحذيرات (%1$d)</string>
+    <string name="contract_no_red_flags">لم يتم اكتشاف أي تحذيرات.</string>
+    <string name="contract_real_intention_section">النية الحقيقية</string>
+    <string name="contract_no_real_intention">تعذّر تحديد النية.</string>
+    <string name="contract_recommendations_section">التوصيات</string>
+    <string name="contract_no_recommendations">لا توجد توصيات محددة.</string>
+    <string name="contract_simplified_section">النسخة المبسّطة</string>
+    <string name="contract_not_available">غير متاح.</string>
+    <string name="contract_collapse_cd">طيّ</string>
+    <string name="contract_expand_cd">توسيع</string>
+    <string name="contract_severity_high">عالٍ</string>
+    <string name="contract_severity_medium">متوسط</string>
+    <string name="contract_severity_low">منخفض</string>
+    <string name="contract_type_contract">عقد</string>
+    <string name="contract_type_corporate_email">بريد إلكتروني للشركات</string>
+    <string name="contract_type_terms">الشروط والأحكام</string>
+    <string name="contract_type_bureaucracy">بيروقراطية</string>
+    <string name="contract_type_other">أخرى</string>
+
+    <!-- الدردشة مع الملاحظة -->
+    <string name="chat_translated_message">تمت ترجمة الملاحظة إلى %1$s وحفظها كملاحظة جديدة.</string>
+    <string name="chat_translation_tag">ترجمة</string>
+    <string name="chat_error_response">تعذّر إنشاء رد.</string>
+    <string name="chat_title">الدردشة مع الملاحظة</string>
+    <string name="chat_back_cd">رجوع</string>
+    <string name="chat_more_cd">المزيد</string>
+    <string name="chat_translate_note">ترجمة الملاحظة</string>
+    <string name="chat_generate_email">إنشاء بريد إلكتروني</string>
+    <string name="chat_generate_executive_summary">إنشاء ملخص تنفيذي</string>
+    <string name="chat_clear_chat">مسح الدردشة</string>
+    <string name="chat_empty_title">اسأل عن ملاحظتك</string>
+    <string name="chat_empty_hint">\"ما رأيك في هذه الفكرة؟\" \"ما الذي ينقصني؟\" \"اطرح عليّ أسئلة\"</string>
+    <string name="chat_thinking">جارٍ التفكير…</string>
+    <string name="chat_message_placeholder">اكتب رسالة…</string>
+    <string name="chat_send_cd">إرسال</string>
+
+    <!-- عمليات الذكاء الاصطناعي -->
+    <string name="ai_op_summarize">ملخص</string>
+    <string name="ai_op_extract_todos">المهام المستخرجة</string>
+    <string name="ai_op_suggest_tags">وسوم مقترحة</string>
+
+    <!-- مصدر الملاحظة -->
+    <string name="source_typed">مكتوبة</string>
+    <string name="source_voice">صوتية</string>
+    <string name="source_scanned">ممسوحة ضوئياً</string>
+    <string name="source_imported">مستوردة</string>
+
+    <!-- تصدير PDF -->
+    <string name="pdf_footer">أنشئ بواسطة Sile</string>
+
+    <!-- مطالبة بيومترية للـ Vault -->
+    <string name="vault_biometric_prompt_title">فتح الـ Vault</string>
+    <string name="vault_biometric_prompt_subtitle">المصادقة للوصول إلى Vault الخاص بك</string>
+    <string name="vault_camera_capture_cd">التقاط صورة</string>
+    <string name="vault_camera_record_cd">تسجيل فيديو</string>
+    <string name="vault_camera_stop_cd">إيقاف التسجيل</string>
+    <string name="vault_camera_flip_cd">تبديل الكاميرا</string>
+    <string name="vault_camera_flash_cd">الفلاش</string>
+    <string name="vault_camera_close_cd">إغلاق الكاميرا</string>
+    <string name="vault_camera_mode_photo">صورة</string>
+    <string name="vault_camera_mode_video">فيديو</string>
+    <string name="vault_camera_permission_rationale">يحتاج Sile إلى الوصول إلى الكاميرا للالتقاط مباشرةً في Vault الخاص بك. لا يتم حفظ أي شيء في معرض الصور.</string>
+    <string name="vault_camera_mic_rationale">يلزم الوصول إلى الميكروفون لتسجيل فيديو بالصوت.</string>
+    <string name="vault_camera_error_save">تعذّر حفظ اللقطة.</string>
+</resources>

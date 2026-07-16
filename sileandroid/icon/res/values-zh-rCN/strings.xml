@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">新笔记快捷按钮</string>
+    <string name="widget_medium_description">最新笔记和快捷操作</string>
+    <string name="widget_large_description">带预览的最新笔记</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">笔记</string>
+    <string name="tab_health">健康</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">设置</string>
+
+    <!-- Common -->
+    <string name="done">完成</string>
+    <string name="cancel">取消</string>
+    <string name="close">关闭</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="create">创建</string>
+    <string name="search">搜索</string>
+    <string name="error">错误</string>
+    <string name="ok">好的</string>
+    <string name="name">名称</string>
+    <string name="password">密码</string>
+
+    <!-- Notes -->
+    <string name="search_notes">搜索笔记…</string>
+    <string name="your_mind_encrypted">你的思想，已加密。</string>
+    <string name="start_writing">开始写作。</string>
+    <string name="no_results">无结果</string>
+    <string name="new_note">新笔记</string>
+    <string name="record_voice">录音</string>
+    <string name="scan_document">扫描文档</string>
+    <string name="use_template">使用模板</string>
+    <string name="untitled">无标题</string>
+    <string name="archive">归档</string>
+    <string name="pin">置顶</string>
+    <string name="unpin">取消置顶</string>
+    <string name="delete_note">删除笔记</string>
+    <string name="action_cannot_be_undone">此操作无法撤销。</string>
+    <string name="notes_cd_open_note">打开笔记</string>
+    <string name="notes_cd_graph">关系图</string>
+    <string name="notes_cd_folders">文件夹</string>
+    <string name="notes_cd_filters">筛选</string>
+    <string name="notes_cd_create">创建</string>
+    <string name="notes_fab_rich_text">富文本笔记</string>
+    <string name="notes_fab_markdown">Markdown 笔记</string>
+    <string name="notes_fab_receive_note">接收笔记</string>
+    <string name="notes_filter_title">筛选</string>
+    <string name="notes_filter_folders">文件夹</string>
+    <string name="notes_filter_no_folders">没有文件夹</string>
+    <string name="notes_filter_tags">标签</string>
+    <string name="notes_filter_no_tags">没有标签</string>
+    <string name="notes_filter_clear">清除筛选</string>
+
+    <!-- Editor -->
+    <string name="add_tag">添加标签…</string>
+    <string name="summarize">摘要</string>
+    <string name="extract_tasks">提取任务</string>
+    <string name="suggest_tags">建议标签</string>
+    <string name="chat_with_note">与笔记对话</string>
+    <string name="translate_note">翻译笔记</string>
+    <string name="analyze_contract">分析合同</string>
+    <string name="details">详情</string>
+    <string name="save_as_template">保存为模板</string>
+    <string name="reminder">提醒</string>
+    <string name="export_pdf">导出 PDF</string>
+    <string name="processing_with_ai">AI 处理中…</string>
+    <string name="editor_back_cd">返回</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">打开笔记</string>
+    <string name="editor_share_cd">分享</string>
+    <string name="editor_more_menu_cd">更多</string>
+    <string name="editor_export_markdown">导出为 Markdown</string>
+    <string name="editor_title_placeholder">文章标题</string>
+    <string name="editor_body_placeholder_markdown">开始用 Markdown 写作…</string>
+    <string name="editor_body_placeholder_rich">开始写文章…</string>
+    <string name="editor_open_wiki_link">打开 [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">移除</string>
+    <string name="editor_add_tag_action">添加</string>
+    <string name="editor_metadata_created">创建于</string>
+    <string name="editor_metadata_edited">编辑于</string>
+    <string name="editor_metadata_source">来源</string>
+    <string name="editor_metadata_words">字数</string>
+    <string name="editor_metadata_characters">字符数</string>
+    <string name="editor_ai_result_title">AI 结果</string>
+    <string name="editor_ai_add_tags">添加标签</string>
+    <string name="editor_ai_insert_in_note">插入笔记</string>
+    <string name="editor_ai_error_title">AI 错误</string>
+    <string name="editor_export_chooser_title">导出</string>
+    <string name="editor_toolbar_heading_cd">标题</string>
+    <string name="editor_toolbar_heading1">标题 1</string>
+    <string name="editor_toolbar_heading2">标题 2</string>
+    <string name="editor_toolbar_heading3">标题 3</string>
+    <string name="editor_toolbar_bold_cd">加粗</string>
+    <string name="editor_toolbar_italic_cd">斜体</string>
+    <string name="editor_toolbar_strikethrough_cd">删除线</string>
+    <string name="editor_toolbar_code_cd">代码</string>
+    <string name="editor_toolbar_quote_cd">引用</string>
+    <string name="editor_toolbar_list_cd">列表</string>
+    <string name="editor_toolbar_numbered_list_cd">有序列表</string>
+    <string name="editor_toolbar_checklist_cd">清单</string>
+    <string name="editor_toolbar_link_cd">链接</string>
+    <string name="editor_toolbar_wiki_link_cd">Wiki 链接</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">刚刚</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="other">%d 分钟前</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="other">%d 小时前</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="other">%d 天前</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="other">%d 周前</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">已置顶</string>
+    <string name="quickswitcher_title">打开笔记</string>
+    <string name="quickswitcher_search_placeholder">按标题搜索…</string>
+    <string name="quickswitcher_create_note">创建"%1$s"</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">解锁</string>
+    <string name="lock_or_enter_pin">或输入 PIN 码</string>
+    <string name="lock_pin_incorrect">PIN 码错误</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">保存到 Sile</string>
+    <string name="quickcapture_content_label">内容</string>
+    <string name="quickcapture_tags_label">标签</string>
+    <string name="quickcapture_saving">正在保存…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">标题</string>
+    <string name="bubble_content_placeholder">快速笔记…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">你的思想，已加密。\n开始写作。</string>
+    <string name="widget_no_notes_yet">暂无笔记</string>
+    <string name="widget_action_note">笔记</string>
+    <string name="widget_action_voice">语音</string>
+    <string name="widget_action_scan">扫描</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">保存到 Sile</string>
+    <string name="vault_share_target_label">保存到 Vault（Sile）</string>
+    <string name="tile_new_note_label">新建笔记</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">解锁以访问您的笔记</string>
+    <string name="biometric_use_pin">使用 PIN</string>
+
+    <!-- Settings -->
+    <string name="appearance">外观</string>
+    <string name="dark">深色</string>
+    <string name="light">浅色</string>
+    <string name="system">系统</string>
+    <string name="security">安全</string>
+    <string name="storage">存储</string>
+    <string name="import_export">导入 / 导出</string>
+    <string name="about_sile">关于 Sile</string>
+    <string name="version">版本</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="terms_of_use">使用条款</string>
+    <string name="delete_all_data">删除所有数据</string>
+    <string name="settings_transcription">转录</string>
+    <string name="settings_export_section">导出</string>
+    <string name="settings_dark_theme">深色主题</string>
+    <string name="settings_biometric_lock">生物识别锁定</string>
+    <string name="settings_change_pin">更改 PIN</string>
+    <string name="settings_setup_backup_pin">设置备用 PIN</string>
+    <string name="settings_pin_digits">6 位数字</string>
+    <string name="settings_preferred_language">首选语言</string>
+    <string name="settings_attachments">附件</string>
+    <string name="settings_export_notes_markdown">将笔记导出为 Markdown</string>
+    <string name="settings_danger_zone">危险区域</string>
+    <string name="settings_delete_all_confirm_text">您的所有笔记、录音和设置将被删除。此操作无法撤销。</string>
+    <string name="settings_are_you_sure">您确定吗？</string>
+    <string name="settings_delete_all_final_text">这是最后一次确认。所有数据将永久丢失。</string>
+    <string name="settings_delete_all_caps">删除全部</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">智能文件夹</string>
+    <string name="folders_empty_hint">创建文件夹以整理您的笔记</string>
+
+    <!-- Graph -->
+    <string name="graph_title">笔记图谱</string>
+    <string name="graph_no_connections">无连接</string>
+    <string name="graph_no_connections_hint">使用 [[笔记名称]] 链接笔记</string>
+
+    <!-- Health -->
+    <string name="calendar">日历</string>
+    <string name="timeline">时间线</string>
+    <string name="insights">洞察</string>
+    <string name="health_entry">健康记录</string>
+    <string name="how_are_you_feeling">你今天感觉如何？</string>
+    <string name="mood">心情</string>
+    <string name="energy">精力</string>
+    <string name="sleep">睡眠</string>
+    <string name="symptoms">症状</string>
+    <string name="medication">药物</string>
+    <string name="health_tab_timeline">时间线</string>
+    <string name="health_tab_insights">洞察</string>
+    <string name="health_today">今天</string>
+    <string name="health_prev_month">上个月</string>
+    <string name="health_next_month">下个月</string>
+    <string name="health_mood_very_bad">非常差</string>
+    <string name="health_mood_bad">差</string>
+    <string name="health_mood_neutral">一般</string>
+    <string name="health_mood_good">好</string>
+    <string name="health_mood_very_good">非常好</string>
+    <string name="health_day_mon">一</string>
+    <string name="health_day_tue">二</string>
+    <string name="health_day_wed">三</string>
+    <string name="health_day_thu">四</string>
+    <string name="health_day_fri">五</string>
+    <string name="health_day_sat">六</string>
+    <string name="health_day_sun">日</string>
+    <string name="health_mood_section">心情</string>
+    <string name="health_notes_section">备注</string>
+    <string name="health_hours_label">小时：</string>
+    <string name="health_quality_label">质量：</string>
+    <string name="health_add_symptom_hint">添加症状…</string>
+    <string name="health_add_cd">添加</string>
+    <string name="health_add_medication_hint">添加药物…</string>
+    <string name="health_notes_placeholder">还有什么要记录的吗？</string>
+    <string name="health_saving">保存中…</string>
+    <string name="health_insights_title">健康洞察</string>
+    <string name="health_last_30_days">最近30天</string>
+    <string name="health_avg_mood">平均心情</string>
+    <string name="health_avg_energy">平均精力</string>
+    <string name="health_avg_sleep">平均睡眠</string>
+    <string name="health_most_frequent_symptoms">最常见症状</string>
+    <string name="health_days_count">%1$d 天</string>
+    <string name="health_entries_registered">已记录 %1$d 条</string>
+    <string name="health_no_data">数据不足</string>
+    <string name="health_no_data_hint">至少记录一周的健康状况才能查看洞察。</string>
+    <string name="health_ai_insights">AI 洞察</string>
+    <string name="health_ai_description">Gemma 4 分析您的数据，寻找规律、关联和提醒。</string>
+    <string name="health_analyzing">分析数据中…</string>
+    <string name="health_ai_analysis">AI 分析</string>
+    <string name="health_regenerate">重新生成</string>
+    <string name="health_generate_insights">生成洞察</string>
+    <string name="health_timeline_title">健康时间线</string>
+    <string name="health_no_entries">暂无记录</string>
+    <string name="health_no_entries_hint">从日历记录您的第一天</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">点击录音</string>
+    <string name="recording">录音中…</string>
+    <string name="transcribing">转录中…</string>
+    <string name="transcription_complete">转录完成</string>
+    <string name="voice_error_start_recording">无法开始录音：%1$s</string>
+    <string name="voice_error_no_audio_file">找不到音频文件</string>
+    <string name="voice_error_no_model">未下载语音模型。请在设置中下载一个。</string>
+    <string name="voice_error_no_text_detected">录音中未检测到文字</string>
+    <string name="voice_error_transcription">转录错误</string>
+    <string name="voice_error_download_model">下载模型时出错：%1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">分享笔记</string>
+    <string name="receive_note">接收笔记</string>
+    <string name="import_note">导入笔记</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">选择方式</string>
+    <string name="share_method_p2p_title">通过 P2P 分享</string>
+    <string name="share_method_p2p_subtitle">加密发送至附近设备</string>
+    <string name="share_method_vault_title">保存到 Vault</string>
+    <string name="share_method_vault_subtitle">加密并存储在你的私密 Vault 中</string>
+    <string name="share_state_preparing">准备中…</string>
+    <string name="share_state_connecting">连接中…</string>
+    <string name="share_state_sending">正在发送加密笔记…</string>
+    <string name="share_state_completed_title">笔记已发送</string>
+    <string name="share_state_completed_subtitle">笔记已以加密形式发送。</string>
+    <string name="share_qr_cd">分享用 QR 码</string>
+    <string name="share_qr_hint">请让接收方扫描此 QR 码</string>
+    <string name="share_sharing_label">正在分享：%1$s</string>
+    <string name="share_conn_advertising">等待接收方…</string>
+    <string name="share_conn_discovering">搜索中…</string>
+    <string name="share_conn_connected">已连接</string>
+    <string name="share_conn_transferring">传输中…</string>
+    <string name="share_conn_completed">已完成</string>
+    <string name="share_conn_error">连接错误</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + 直连</string>
+    <string name="share_sheet_qr_subtitle">扫描 QR 码并通过 Wi-Fi Direct 发送</string>
+    <string name="share_sheet_nfc_subtitle">将设备靠近以进行分享</string>
+    <string name="share_sheet_file_title">.sile 文件</string>
+    <string name="share_sheet_file_subtitle">用密码加密导出并分享</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">接收共享笔记</string>
+    <string name="receive_idle_subtitle">扫描发送方的 QR 码或打开 .sile 文件</string>
+    <string name="receive_scan_qr">扫描 QR 码</string>
+    <string name="receive_open_file">打开 .sile 文件</string>
+    <string name="receive_state_scanning">正在扫描 QR…</string>
+    <string name="receive_state_waiting">等待发送方连接…</string>
+    <string name="receive_keep_app_open">请保持应用开启</string>
+    <string name="receive_state_receiving">正在接收笔记…</string>
+    <string name="receive_state_decrypting">正在解密…</string>
+    <string name="receive_state_completed">笔记已接收</string>
+    <string name="receive_open_note">打开笔记</string>
+    <string name="receive_protected_file_title">受保护的文件</string>
+    <string name="receive_protected_file_hint">请输入 .sile 文件的密码</string>
+    <string name="receive_decrypt_action">解密</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">扫描</string>
+    <string name="scanner_state_preparing">正在准备扫描仪…</string>
+    <string name="scanner_state_processing">正在处理文档…</string>
+    <string name="scanner_state_completed">文档已扫描</string>
+    <string name="scanner_edit_note">编辑笔记</string>
+    <string name="scanner_back_to_notes">返回笔记</string>
+    <string name="scanner_retry">再试一次</string>
+    <string name="scanner_progress_loading">正在加载图像…</string>
+    <string name="scanner_progress_ocr">正在提取文字（OCR）…</string>
+    <string name="scanner_progress_encrypting">正在加密图像…</string>
+    <string name="scanner_error_load_images">无法加载扫描图像</string>
+    <string name="scanner_error_no_text">未在扫描文档中检测到文字</string>
+    <string name="scanner_error_processing">处理文档时出错</string>
+    <string name="scanner_note_title">文档 — %1$s</string>
+    <string name="scanner_summary_one_page">%1$d 页 · %2$d 个字符</string>
+    <string name="scanner_summary_pages">%1$d 页 · %2$d 个字符</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">分析：%1$s</string>
+    <string name="contract_note_tag">分析</string>
+    <string name="abusive_clause_detector">滥用条款检测器</string>
+    <string name="analysis_complete">分析完成</string>
+    <string name="executive_summary">执行摘要</string>
+    <string name="red_flags">危险信号</string>
+    <string name="real_intent">真实意图</string>
+    <string name="recommendations">建议</string>
+    <string name="simplified_language">简化语言</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">创建你的 Vault</string>
+    <string name="vault_create_subtitle">设置 6 位 PIN 码以保护你的私密文件。\nVault 还需要生物识别验证。</string>
+    <string name="vault_choose_pin">选择你的 PIN 码</string>
+    <string name="vault_confirm_pin">确认你的 PIN 码</string>
+    <string name="vault_pins_no_match">PIN 码不一致，请重试。</string>
+    <string name="vault_start_over">重新开始</string>
+    <string name="vault_locked">Vault 已锁定</string>
+    <string name="vault_identity_verified">身份已验证</string>
+    <string name="vault_enter_pin">输入 PIN 码</string>
+    <string name="vault_authenticate_biometrics">使用生物识别验证</string>
+    <string name="vault_preparing_pin">正在准备 PIN 输入…</string>
+    <string name="vault_enter_pin_unlock">输入 6 位 PIN 码以解锁</string>
+    <string name="vault_unlock_biometrics">使用生物识别解锁</string>
+    <string name="vault_biometric_verified">生物识别已验证</string>
+    <string name="vault_too_many_attempts">尝试次数过多。请在 %1$d 秒后重试</string>
+    <string name="vault_incorrect_pin">PIN 码不正确</string>
+    <string name="vault_enter_your_pin">输入你的 PIN 码</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">返回</string>
+    <string name="vault_lock_vault_cd">锁定 Vault</string>
+    <string name="vault_create_folder_cd">创建文件夹</string>
+    <string name="vault_add_file_cd">添加文件</string>
+    <string name="vault_search_files">搜索文件</string>
+    <string name="vault_filter_all">全部</string>
+    <string name="vault_folder_empty">此文件夹为空</string>
+    <string name="vault_vault_empty">你的 Vault 为空</string>
+    <string name="vault_tap_add_files">点击 + 添加私密文件</string>
+    <string name="vault_encrypting">加密中…</string>
+    <string name="vault_delete_item_title">删除项目？</string>
+    <string name="vault_delete_item_text">\"%1$s\"将被永久删除。</string>
+    <string name="vault_delete_folder_title">删除文件夹？</string>
+    <string name="vault_delete_folder_text">\"%1$s\"将被删除。其中的项目将移至根目录。</string>
+    <string name="vault_new_folder_title">新建文件夹</string>
+    <string name="vault_folder_name_placeholder">文件夹名称</string>
+    <string name="vault_move_to_folder_title">移动到文件夹</string>
+    <string name="vault_root_no_folder">根目录（无文件夹）</string>
+    <string name="vault_no_folders_yet">暂无文件夹，请先创建一个。</string>
+    <string name="vault_size">Vault：%1$s</string>
+    <string name="vault_items_count">%1$d 个项目</string>
+    <string name="vault_migration_title">Vault 安全升级</string>
+    <string name="vault_migration_subtitle">Vault 现在需要 6 位 PIN 码\n和生物识别验证。</string>
+    <string name="vault_current_password_label">当前 Vault 密码</string>
+    <string name="vault_incorrect_password">密码不正确</string>
+    <string name="vault_migration_failed">迁移失败：%1$s。你的当前密码仍然有效 — 输入后重试。</string>
+    <string name="vault_continue">继续</string>
+    <string name="vault_choose_new_pin">选择新 PIN 码</string>
+    <string name="vault_confirm_new_pin">确认新 PIN 码</string>
+    <string name="vault_reencrypting">正在重新加密 Vault 文件…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">保存到 Vault</string>
+    <string name="vault_close_cd">关闭</string>
+    <string name="vault_encrypting_saving">加密并保存中…</string>
+    <string name="vault_files_count">%1$d 个文件</string>
+    <string name="vault_saved_title">已保存到 Vault</string>
+    <string name="vault_saved_subtitle">已加密并安全存储。</string>
+    <string name="vault_saved_multiple">已保存 %1$d 个文件</string>
+    <string name="vault_error_unknown">未知错误</string>
+    <string name="vault_retry">重试</string>
+    <string name="vault_error_import">导入失败</string>
+    <string name="vault_viewer_decrypting">解密中…</string>
+    <string name="vault_viewer_error_title">错误</string>
+    <string name="vault_viewer_item_not_found">未找到项目</string>
+    <string name="vault_viewer_failed_load">文件加载失败</string>
+    <string name="vault_viewer_back_cd">返回</string>
+    <string name="vault_viewer_info_cd">信息</string>
+    <string name="vault_viewer_share_cd">分享</string>
+    <string name="vault_info_file_section">文件</string>
+    <string name="vault_info_image_section">图像</string>
+    <string name="vault_info_camera_section">相机</string>
+    <string name="vault_info_exposure_section">曝光</string>
+    <string name="vault_info_location_section">位置</string>
+    <string name="vault_info_name">名称</string>
+    <string name="vault_info_size">大小</string>
+    <string name="vault_info_type">类型</string>
+    <string name="vault_info_added">添加日期</string>
+    <string name="vault_info_dimensions">尺寸</string>
+    <string name="vault_info_make">品牌</string>
+    <string name="vault_info_model">型号</string>
+    <string name="vault_info_lens">镜头</string>
+    <string name="vault_info_software">软件</string>
+    <string name="vault_info_aperture">光圈</string>
+    <string name="vault_info_shutter">快门速度</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">焦距</string>
+    <string name="vault_info_flash">闪光灯</string>
+    <string name="vault_info_white_balance">白平衡</string>
+    <string name="vault_info_coordinates">坐标</string>
+    <string name="vault_info_altitude">海拔</string>
+    <string name="vault_info_date_taken">拍摄日期</string>
+    <string name="vault_viewer_cannot_decode">无法解码图像</string>
+    <string name="vault_viewer_play_cd">播放</string>
+    <string name="vault_viewer_pause_cd">暂停</string>
+    <string name="vault_viewer_preview_unavailable">此文件类型不支持预览</string>
+    <string name="vault_flash_fired">已触发</string>
+    <string name="vault_flash_off">关闭</string>
+    <string name="vault_white_balance_auto">自动</string>
+    <string name="vault_white_balance_manual">手动</string>
+    <string name="vault_viewer_title">查看器</string>
+    <string name="vault_share_chooser_title">分享文件</string>
+
+    <!-- 语音录音机 -->
+    <string name="voice_title">录音</string>
+    <string name="voice_back_cd">返回</string>
+    <string name="voice_mic_permission_required">需要麦克风权限</string>
+    <string name="voice_grant_permission">授予权限</string>
+    <string name="voice_stop_cd">停止</string>
+    <string name="voice_record_cd">录音</string>
+    <string name="voice_create_note">创建笔记</string>
+    <string name="voice_retry">重试</string>
+    <string name="voice_generic_error">错误</string>
+
+    <!-- 合同分析器 -->
+    <string name="contract_analyze_title">分析文档</string>
+    <string name="contract_back_cd">返回</string>
+    <string name="contract_document_type_label">文档类型</string>
+    <string name="contract_document_text_label">文档文本</string>
+    <string name="contract_document_text_placeholder">粘贴要分析的合同、电子邮件或文本…</string>
+    <string name="contract_char_count">%1$d 个字符</string>
+    <string name="contract_analyze_btn">分析</string>
+    <string name="contract_preparing">正在准备分析…</string>
+    <string name="contract_analyzing">正在分析第 %1$d/%2$d 节…</string>
+    <string name="contract_parsing">正在生成报告…</string>
+    <string name="contract_retry_btn">重试</string>
+    <string name="contract_error_empty_text">请输入要分析的文本</string>
+    <string name="contract_report_title">分析报告</string>
+    <string name="contract_copy_summary_cd">复制摘要</string>
+    <string name="contract_save_report_cd">保存分析</string>
+    <string name="contract_no_report">暂无报告</string>
+    <string name="contract_executive_summary_section">执行摘要</string>
+    <string name="contract_red_flags_section">风险标记（%1$d）</string>
+    <string name="contract_no_red_flags">未发现风险标记。</string>
+    <string name="contract_real_intention_section">真实意图</string>
+    <string name="contract_no_real_intention">无法确定意图。</string>
+    <string name="contract_recommendations_section">建议</string>
+    <string name="contract_no_recommendations">没有具体建议。</string>
+    <string name="contract_simplified_section">简化版本</string>
+    <string name="contract_not_available">不可用。</string>
+    <string name="contract_collapse_cd">收起</string>
+    <string name="contract_expand_cd">展开</string>
+    <string name="contract_severity_high">高</string>
+    <string name="contract_severity_medium">中</string>
+    <string name="contract_severity_low">低</string>
+    <string name="contract_type_contract">合同</string>
+    <string name="contract_type_corporate_email">企业邮件</string>
+    <string name="contract_type_terms">条款与条件</string>
+    <string name="contract_type_bureaucracy">行政文件</string>
+    <string name="contract_type_other">其他</string>
+
+    <!-- 与笔记聊天 -->
+    <string name="chat_translated_message">笔记已翻译为%1$s并保存为新笔记。</string>
+    <string name="chat_translation_tag">翻译</string>
+    <string name="chat_error_response">无法生成回复。</string>
+    <string name="chat_title">与笔记聊天</string>
+    <string name="chat_back_cd">返回</string>
+    <string name="chat_more_cd">更多</string>
+    <string name="chat_translate_note">翻译笔记</string>
+    <string name="chat_generate_email">生成邮件</string>
+    <string name="chat_generate_executive_summary">生成执行摘要</string>
+    <string name="chat_clear_chat">清除聊天</string>
+    <string name="chat_empty_title">询问有关笔记的问题</string>
+    <string name="chat_empty_hint">「你觉得这个想法怎么样？」「我遗漏了什么？」「请问我问题」</string>
+    <string name="chat_thinking">思考中…</string>
+    <string name="chat_message_placeholder">写一条消息…</string>
+    <string name="chat_send_cd">发送</string>
+
+    <!-- AI 操作 -->
+    <string name="ai_op_summarize">摘要</string>
+    <string name="ai_op_extract_todos">提取的任务</string>
+    <string name="ai_op_suggest_tags">建议标签</string>
+
+    <!-- 笔记来源标签 -->
+    <string name="source_typed">手动输入</string>
+    <string name="source_voice">语音</string>
+    <string name="source_scanned">扫描</string>
+    <string name="source_imported">导入</string>
+
+    <!-- PDF 导出 -->
+    <string name="pdf_footer">由 Sile 生成</string>
+
+    <!-- Vault 生物识别提示 -->
+    <string name="vault_biometric_prompt_title">解锁 Vault</string>
+    <string name="vault_biometric_prompt_subtitle">请验证身份以访问您的私人 Vault</string>
+    <string name="vault_camera_capture_cd">拍照</string>
+    <string name="vault_camera_record_cd">录制视频</string>
+    <string name="vault_camera_stop_cd">停止录制</string>
+    <string name="vault_camera_flip_cd">切换摄像头</string>
+    <string name="vault_camera_flash_cd">闪光灯</string>
+    <string name="vault_camera_close_cd">关闭相机</string>
+    <string name="vault_camera_mode_photo">照片</string>
+    <string name="vault_camera_mode_video">视频</string>
+    <string name="vault_camera_permission_rationale">Sile 需要相机权限以直接拍摄到您的 Vault。不会保存到相册。</string>
+    <string name="vault_camera_mic_rationale">录制带声音的视频需要麦克风权限。</string>
+    <string name="vault_camera_error_save">无法保存拍摄内容。</string>
+</resources>

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">नया नोट बनाने का त्वरित बटन</string>
+    <string name="widget_medium_description">नवीनतम नोट्स और त्वरित कार्य</string>
+    <string name="widget_large_description">पूर्वावलोकन के साथ नवीनतम नोट्स</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">नोट्स</string>
+    <string name="tab_health">स्वास्थ्य</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">सेटिंग्स</string>
+
+    <!-- Common -->
+    <string name="done">हो गया</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="close">बंद करें</string>
+    <string name="delete">हटाएं</string>
+    <string name="save">सहेजें</string>
+    <string name="create">बनाएं</string>
+    <string name="search">खोजें</string>
+    <string name="error">त्रुटि</string>
+    <string name="ok">ठीक है</string>
+    <string name="name">नाम</string>
+    <string name="password">पासवर्ड</string>
+
+    <!-- Notes -->
+    <string name="search_notes">नोट्स खोजें…</string>
+    <string name="your_mind_encrypted">आपका मन, एन्क्रिप्टेड।</string>
+    <string name="start_writing">लिखना शुरू करें।</string>
+    <string name="no_results">कोई परिणाम नहीं</string>
+    <string name="new_note">नया नोट</string>
+    <string name="record_voice">आवाज़ रिकॉर्ड करें</string>
+    <string name="scan_document">दस्तावेज़ स्कैन करें</string>
+    <string name="use_template">टेम्पलेट का उपयोग करें</string>
+    <string name="untitled">शीर्षकहीन</string>
+    <string name="archive">संग्रह</string>
+    <string name="pin">पिन करें</string>
+    <string name="unpin">अनपिन करें</string>
+    <string name="delete_note">नोट हटाएं</string>
+    <string name="action_cannot_be_undone">यह क्रिया पूर्ववत नहीं की जा सकती।</string>
+    <string name="notes_cd_open_note">नोट खोलें</string>
+    <string name="notes_cd_graph">ग्राफ़</string>
+    <string name="notes_cd_folders">फ़ोल्डर</string>
+    <string name="notes_cd_filters">फ़िल्टर</string>
+    <string name="notes_cd_create">बनाएँ</string>
+    <string name="notes_fab_rich_text">रिच टेक्स्ट नोट</string>
+    <string name="notes_fab_markdown">Markdown नोट</string>
+    <string name="notes_fab_receive_note">नोट प्राप्त करें</string>
+    <string name="notes_filter_title">फ़िल्टर</string>
+    <string name="notes_filter_folders">फ़ोल्डर</string>
+    <string name="notes_filter_no_folders">कोई फ़ोल्डर नहीं</string>
+    <string name="notes_filter_tags">टैग</string>
+    <string name="notes_filter_no_tags">कोई टैग नहीं</string>
+    <string name="notes_filter_clear">फ़िल्टर हटाएँ</string>
+
+    <!-- Editor -->
+    <string name="add_tag">टैग जोड़ें…</string>
+    <string name="summarize">सारांश</string>
+    <string name="extract_tasks">कार्य निकालें</string>
+    <string name="suggest_tags">टैग सुझाएं</string>
+    <string name="chat_with_note">नोट से चैट करें</string>
+    <string name="translate_note">नोट का अनुवाद करें</string>
+    <string name="analyze_contract">अनुबंध का विश्लेषण करें</string>
+    <string name="details">विवरण</string>
+    <string name="save_as_template">टेम्पलेट के रूप में सहेजें</string>
+    <string name="reminder">रिमाइंडर</string>
+    <string name="export_pdf">PDF निर्यात करें</string>
+    <string name="processing_with_ai">AI से प्रोसेस हो रहा है…</string>
+    <string name="editor_back_cd">वापस</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">नोट खोलें</string>
+    <string name="editor_share_cd">साझा करें</string>
+    <string name="editor_more_menu_cd">अधिक</string>
+    <string name="editor_export_markdown">Markdown के रूप में निर्यात करें</string>
+    <string name="editor_title_placeholder">लेख का शीर्षक</string>
+    <string name="editor_body_placeholder_markdown">Markdown में लिखना शुरू करें…</string>
+    <string name="editor_body_placeholder_rich">अपना लेख लिखना शुरू करें…</string>
+    <string name="editor_open_wiki_link">खोलें [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">हटाएं</string>
+    <string name="editor_add_tag_action">जोड़ें</string>
+    <string name="editor_metadata_created">बनाया</string>
+    <string name="editor_metadata_edited">संपादित</string>
+    <string name="editor_metadata_source">स्रोत</string>
+    <string name="editor_metadata_words">शब्द</string>
+    <string name="editor_metadata_characters">अक्षर</string>
+    <string name="editor_ai_result_title">AI परिणाम</string>
+    <string name="editor_ai_add_tags">टैग जोड़ें</string>
+    <string name="editor_ai_insert_in_note">नोट में डालें</string>
+    <string name="editor_ai_error_title">AI त्रुटि</string>
+    <string name="editor_export_chooser_title">निर्यात</string>
+    <string name="editor_toolbar_heading_cd">शीर्षक</string>
+    <string name="editor_toolbar_heading1">शीर्षक 1</string>
+    <string name="editor_toolbar_heading2">शीर्षक 2</string>
+    <string name="editor_toolbar_heading3">शीर्षक 3</string>
+    <string name="editor_toolbar_bold_cd">बोल्ड</string>
+    <string name="editor_toolbar_italic_cd">इटैलिक</string>
+    <string name="editor_toolbar_strikethrough_cd">स्ट्राइकथ्रू</string>
+    <string name="editor_toolbar_code_cd">कोड</string>
+    <string name="editor_toolbar_quote_cd">उद्धरण</string>
+    <string name="editor_toolbar_list_cd">सूची</string>
+    <string name="editor_toolbar_numbered_list_cd">क्रमांकित सूची</string>
+    <string name="editor_toolbar_checklist_cd">चेकलिस्ट</string>
+    <string name="editor_toolbar_link_cd">लिंक</string>
+    <string name="editor_toolbar_wiki_link_cd">विकी लिंक</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">अभी-अभी</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">%d मिनट पहले</item>
+        <item quantity="other">%d मिनट पहले</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">%d घंटे पहले</item>
+        <item quantity="other">%d घंटे पहले</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">%d दिन पहले</item>
+        <item quantity="other">%d दिन पहले</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="one">%d सप्ताह पहले</item>
+        <item quantity="other">%d सप्ताह पहले</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">पिन किया गया</string>
+    <string name="quickswitcher_title">नोट खोलें</string>
+    <string name="quickswitcher_search_placeholder">शीर्षक से खोजें…</string>
+    <string name="quickswitcher_create_note">\"%1$s\" बनाएं</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">अनलॉक करें</string>
+    <string name="lock_or_enter_pin">या अपना PIN दर्ज करें</string>
+    <string name="lock_pin_incorrect">गलत PIN</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">Sile में सहेजें</string>
+    <string name="quickcapture_content_label">सामग्री</string>
+    <string name="quickcapture_tags_label">टैग</string>
+    <string name="quickcapture_saving">सहेजा जा रहा है…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">शीर्षक</string>
+    <string name="bubble_content_placeholder">त्वरित नोट…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">आपका मन, एन्क्रिप्टेड।\nलिखना शुरू करें।</string>
+    <string name="widget_no_notes_yet">अभी कोई नोट नहीं</string>
+    <string name="widget_action_note">नोट</string>
+    <string name="widget_action_voice">आवाज़</string>
+    <string name="widget_action_scan">स्कैन</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">Sile में सहेजें</string>
+    <string name="vault_share_target_label">Vault में सहेजें (Sile)</string>
+    <string name="tile_new_note_label">नया नोट</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">अपनी नोट्स तक पहुँचने के लिए अनलॉक करें</string>
+    <string name="biometric_use_pin">PIN का उपयोग करें</string>
+
+    <!-- Settings -->
+    <string name="appearance">रूप</string>
+    <string name="dark">डार्क</string>
+    <string name="light">लाइट</string>
+    <string name="system">सिस्टम</string>
+    <string name="security">सुरक्षा</string>
+    <string name="storage">स्टोरेज</string>
+    <string name="import_export">आयात / निर्यात</string>
+    <string name="about_sile">Sile के बारे में</string>
+    <string name="version">संस्करण</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="terms_of_use">उपयोग की शर्तें</string>
+    <string name="delete_all_data">सभी डेटा हटाएं</string>
+    <string name="settings_transcription">ट्रांसक्रिप्शन</string>
+    <string name="settings_export_section">निर्यात</string>
+    <string name="settings_dark_theme">डार्क थीम</string>
+    <string name="settings_biometric_lock">बायोमेट्रिक लॉक</string>
+    <string name="settings_change_pin">PIN बदलें</string>
+    <string name="settings_setup_backup_pin">बैकअप PIN सेट करें</string>
+    <string name="settings_pin_digits">6 अंक</string>
+    <string name="settings_preferred_language">पसंदीदा भाषा</string>
+    <string name="settings_attachments">अनुलग्नक</string>
+    <string name="settings_export_notes_markdown">नोट्स को Markdown के रूप में निर्यात करें</string>
+    <string name="settings_danger_zone">खतरे का क्षेत्र</string>
+    <string name="settings_delete_all_confirm_text">आपके सभी नोट्स, रिकॉर्डिंग और सेटिंग्स हटा दिए जाएंगे। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
+    <string name="settings_are_you_sure">क्या आप निश्चित हैं?</string>
+    <string name="settings_delete_all_final_text">यह अंतिम पुष्टि है। सभी डेटा स्थायी रूप से खो जाएगा।</string>
+    <string name="settings_delete_all_caps">सब कुछ हटाएं</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">स्मार्ट फ़ोल्डर</string>
+    <string name="folders_empty_hint">अपने नोट्स व्यवस्थित करने के लिए एक फ़ोल्डर बनाएं</string>
+
+    <!-- Graph -->
+    <string name="graph_title">नोट्स ग्राफ</string>
+    <string name="graph_no_connections">कोई कनेक्शन नहीं</string>
+    <string name="graph_no_connections_hint">नोट्स लिंक करने के लिए [[नोट का नाम]] का उपयोग करें</string>
+
+    <!-- Health -->
+    <string name="calendar">कैलेंडर</string>
+    <string name="timeline">टाइमलाइन</string>
+    <string name="insights">अंतर्दृष्टि</string>
+    <string name="health_entry">स्वास्थ्य प्रविष्टि</string>
+    <string name="how_are_you_feeling">आप कैसा महसूस कर रहे हैं?</string>
+    <string name="mood">मूड</string>
+    <string name="energy">ऊर्जा</string>
+    <string name="sleep">नींद</string>
+    <string name="symptoms">लक्षण</string>
+    <string name="medication">दवाई</string>
+    <string name="health_tab_timeline">टाइमलाइन</string>
+    <string name="health_tab_insights">अंतर्दृष्टि</string>
+    <string name="health_today">आज</string>
+    <string name="health_prev_month">पिछला महीना</string>
+    <string name="health_next_month">अगला महीना</string>
+    <string name="health_mood_very_bad">बहुत बुरा</string>
+    <string name="health_mood_bad">बुरा</string>
+    <string name="health_mood_neutral">सामान्य</string>
+    <string name="health_mood_good">अच्छा</string>
+    <string name="health_mood_very_good">बहुत अच्छा</string>
+    <string name="health_day_mon">सो</string>
+    <string name="health_day_tue">मं</string>
+    <string name="health_day_wed">बु</string>
+    <string name="health_day_thu">गु</string>
+    <string name="health_day_fri">शु</string>
+    <string name="health_day_sat">श</string>
+    <string name="health_day_sun">र</string>
+    <string name="health_mood_section">मूड</string>
+    <string name="health_notes_section">नोट्स</string>
+    <string name="health_hours_label">घंटे:</string>
+    <string name="health_quality_label">गुणवत्ता:</string>
+    <string name="health_add_symptom_hint">लक्षण जोड़ें…</string>
+    <string name="health_add_cd">जोड़ें</string>
+    <string name="health_add_medication_hint">दवाई जोड़ें…</string>
+    <string name="health_notes_placeholder">कुछ और नोट करना है?</string>
+    <string name="health_saving">सहेजा जा रहा है…</string>
+    <string name="health_insights_title">स्वास्थ्य अंतर्दृष्टि</string>
+    <string name="health_last_30_days">पिछले 30 दिन</string>
+    <string name="health_avg_mood">औसत मूड</string>
+    <string name="health_avg_energy">औसत ऊर्जा</string>
+    <string name="health_avg_sleep">औसत नींद</string>
+    <string name="health_most_frequent_symptoms">सबसे अधिक लक्षण</string>
+    <string name="health_days_count">%1$d दिन</string>
+    <string name="health_entries_registered">%1$d प्रविष्टियाँ दर्ज</string>
+    <string name="health_no_data">पर्याप्त डेटा नहीं</string>
+    <string name="health_no_data_hint">अंतर्दृष्टि देखने के लिए कम से कम एक सप्ताह अपना स्वास्थ्य दर्ज करें।</string>
+    <string name="health_ai_insights">AI अंतर्दृष्टि</string>
+    <string name="health_ai_description">Gemma 4 आपके डेटा का विश्लेषण करके पैटर्न, सहसंबंध और अलर्ट ढूँढता है।</string>
+    <string name="health_analyzing">डेटा का विश्लेषण हो रहा है…</string>
+    <string name="health_ai_analysis">AI विश्लेषण</string>
+    <string name="health_regenerate">पुनर्जनन करें</string>
+    <string name="health_generate_insights">अंतर्दृष्टि उत्पन्न करें</string>
+    <string name="health_timeline_title">स्वास्थ्य टाइमलाइन</string>
+    <string name="health_no_entries">अभी तक कोई प्रविष्टि नहीं</string>
+    <string name="health_no_entries_hint">कैलेंडर से अपना पहला दिन दर्ज करें</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">रिकॉर्ड करने के लिए टैप करें</string>
+    <string name="recording">रिकॉर्ड हो रहा है…</string>
+    <string name="transcribing">ट्रांसक्राइब हो रहा है…</string>
+    <string name="transcription_complete">ट्रांसक्रिप्शन पूरा हुआ</string>
+    <string name="voice_error_start_recording">रिकॉर्डिंग शुरू नहीं हो सकी: %1$s</string>
+    <string name="voice_error_no_audio_file">ऑडियो फ़ाइल नहीं मिली</string>
+    <string name="voice_error_no_model">कोई वॉयस मॉडल डाउनलोड नहीं हुआ। सेटिंग में जाकर एक डाउनलोड करें।</string>
+    <string name="voice_error_no_text_detected">रिकॉर्डिंग में कोई टेक्स्ट नहीं मिला</string>
+    <string name="voice_error_transcription">ट्रांसक्रिप्शन त्रुटि</string>
+    <string name="voice_error_download_model">मॉडल डाउनलोड करने में त्रुटि: %1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">नोट साझा करें</string>
+    <string name="receive_note">नोट प्राप्त करें</string>
+    <string name="import_note">नोट आयात करें</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">कोई तरीका चुनें</string>
+    <string name="share_method_p2p_title">P2P से साझा करें</string>
+    <string name="share_method_p2p_subtitle">पास के डिवाइस पर एन्क्रिप्टेड भेजें</string>
+    <string name="share_method_vault_title">Vault में सहेजें</string>
+    <string name="share_method_vault_subtitle">अपने निजी Vault में एन्क्रिप्ट करके सुरक्षित करें</string>
+    <string name="share_state_preparing">तैयार हो रहा है…</string>
+    <string name="share_state_connecting">कनेक्ट हो रहा है…</string>
+    <string name="share_state_sending">एन्क्रिप्टेड नोट भेजा जा रहा है…</string>
+    <string name="share_state_completed_title">नोट भेजा गया</string>
+    <string name="share_state_completed_subtitle">नोट एन्क्रिप्टेड रूप में भेजा गया।</string>
+    <string name="share_qr_cd">साझा करने के लिए QR कोड</string>
+    <string name="share_qr_hint">प्राप्तकर्ता से यह QR स्कैन करने को कहें</string>
+    <string name="share_sharing_label">साझा हो रहा है: %1$s</string>
+    <string name="share_conn_advertising">प्राप्तकर्ता का इंतजार…</string>
+    <string name="share_conn_discovering">खोज रहा है…</string>
+    <string name="share_conn_connected">कनेक्टेड</string>
+    <string name="share_conn_transferring">स्थानांतरण हो रहा है…</string>
+    <string name="share_conn_completed">पूर्ण</string>
+    <string name="share_conn_error">कनेक्शन त्रुटि</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + सीधा कनेक्शन</string>
+    <string name="share_sheet_qr_subtitle">QR स्कैन करें और Wi-Fi Direct से भेजें</string>
+    <string name="share_sheet_nfc_subtitle">साझा करने के लिए डिवाइस पास लाएं</string>
+    <string name="share_sheet_file_title">.sile फ़ाइल</string>
+    <string name="share_sheet_file_subtitle">पासवर्ड के साथ एन्क्रिप्टेड निर्यात करें और साझा करें</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">साझा की गई नोट प्राप्त करें</string>
+    <string name="receive_idle_subtitle">प्रेषक का QR स्कैन करें या .sile फ़ाइल खोलें</string>
+    <string name="receive_scan_qr">QR स्कैन करें</string>
+    <string name="receive_open_file">.sile फ़ाइल खोलें</string>
+    <string name="receive_state_scanning">QR स्कैन हो रहा है…</string>
+    <string name="receive_state_waiting">प्रेषक के कनेक्शन का इंतजार…</string>
+    <string name="receive_keep_app_open">ऐप खुला रखें</string>
+    <string name="receive_state_receiving">नोट प्राप्त हो रही है…</string>
+    <string name="receive_state_decrypting">डिक्रिप्ट हो रहा है…</string>
+    <string name="receive_state_completed">नोट प्राप्त हुई</string>
+    <string name="receive_open_note">नोट खोलें</string>
+    <string name="receive_protected_file_title">सुरक्षित फ़ाइल</string>
+    <string name="receive_protected_file_hint">.sile फ़ाइल का पासवर्ड दर्ज करें</string>
+    <string name="receive_decrypt_action">डिक्रिप्ट करें</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">स्कैन</string>
+    <string name="scanner_state_preparing">स्कैनर तैयार हो रहा है…</string>
+    <string name="scanner_state_processing">दस्तावेज़ प्रोसेस हो रहा है…</string>
+    <string name="scanner_state_completed">दस्तावेज़ स्कैन हुआ</string>
+    <string name="scanner_edit_note">नोट संपादित करें</string>
+    <string name="scanner_back_to_notes">नोट्स पर वापस जाएं</string>
+    <string name="scanner_retry">फिर से प्रयास करें</string>
+    <string name="scanner_progress_loading">छवियां लोड हो रही हैं…</string>
+    <string name="scanner_progress_ocr">टेक्स्ट निकाला जा रहा है (OCR)…</string>
+    <string name="scanner_progress_encrypting">छवियां एन्क्रिप्ट हो रही हैं…</string>
+    <string name="scanner_error_load_images">स्कैन की गई छवियां लोड नहीं हो सकीं</string>
+    <string name="scanner_error_no_text">स्कैन किए गए दस्तावेज़ में कोई टेक्स्ट नहीं मिला</string>
+    <string name="scanner_error_processing">दस्तावेज़ प्रोसेस करने में त्रुटि</string>
+    <string name="scanner_note_title">दस्तावेज़ — %1$s</string>
+    <string name="scanner_summary_one_page">%1$d पृष्ठ · %2$d अक्षर</string>
+    <string name="scanner_summary_pages">%1$d पृष्ठ · %2$d अक्षर</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">विश्लेषण: %1$s</string>
+    <string name="contract_note_tag">विश्लेषण</string>
+    <string name="abusive_clause_detector">दुरुपयोगी खंड डिटेक्टर</string>
+    <string name="analysis_complete">विश्लेषण पूरा हुआ</string>
+    <string name="executive_summary">कार्यकारी सारांश</string>
+    <string name="red_flags">खतरे के संकेत</string>
+    <string name="real_intent">वास्तविक उद्देश्य</string>
+    <string name="recommendations">सिफारिशें</string>
+    <string name="simplified_language">सरलीकृत भाषा</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">अपना Vault बनाएं</string>
+    <string name="vault_create_subtitle">अपनी निजी फ़ाइलों की सुरक्षा के लिए 6 अंकों का PIN सेट करें।\nVault के लिए बायोमेट्रिक प्रमाणीकरण भी आवश्यक है।</string>
+    <string name="vault_choose_pin">अपना PIN चुनें</string>
+    <string name="vault_confirm_pin">अपने PIN की पुष्टि करें</string>
+    <string name="vault_pins_no_match">PIN मेल नहीं खाते। फिर से प्रयास करें।</string>
+    <string name="vault_start_over">फिर से शुरू करें</string>
+    <string name="vault_locked">Vault लॉक है</string>
+    <string name="vault_identity_verified">पहचान सत्यापित</string>
+    <string name="vault_enter_pin">PIN दर्ज करें</string>
+    <string name="vault_authenticate_biometrics">बायोमेट्रिक से प्रमाणित करें</string>
+    <string name="vault_preparing_pin">PIN प्रविष्टि तैयार हो रही है…</string>
+    <string name="vault_enter_pin_unlock">अनलॉक करने के लिए अपना 6 अंकों का PIN दर्ज करें</string>
+    <string name="vault_unlock_biometrics">बायोमेट्रिक से अनलॉक करें</string>
+    <string name="vault_biometric_verified">बायोमेट्रिक सत्यापित</string>
+    <string name="vault_too_many_attempts">बहुत अधिक प्रयास। %1$d सेकंड में फिर से प्रयास करें</string>
+    <string name="vault_incorrect_pin">गलत PIN</string>
+    <string name="vault_enter_your_pin">अपना PIN दर्ज करें</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">वापस</string>
+    <string name="vault_lock_vault_cd">Vault लॉक करें</string>
+    <string name="vault_create_folder_cd">फ़ोल्डर बनाएं</string>
+    <string name="vault_add_file_cd">फ़ाइल जोड़ें</string>
+    <string name="vault_search_files">फ़ाइलें खोजें</string>
+    <string name="vault_filter_all">सभी</string>
+    <string name="vault_folder_empty">यह फ़ोल्डर खाली है</string>
+    <string name="vault_vault_empty">आपका Vault खाली है</string>
+    <string name="vault_tap_add_files">निजी फ़ाइलें जोड़ने के लिए + दबाएं</string>
+    <string name="vault_encrypting">एन्क्रिप्ट हो रहा है…</string>
+    <string name="vault_delete_item_title">आइटम हटाएं?</string>
+    <string name="vault_delete_item_text">\"%1$s\" स्थायी रूप से हटा दिया जाएगा।</string>
+    <string name="vault_delete_folder_title">फ़ोल्डर हटाएं?</string>
+    <string name="vault_delete_folder_text">\"%1$s\" हटा दिया जाएगा। अंदर के आइटम रूट में स्थानांतरित होंगे।</string>
+    <string name="vault_new_folder_title">नया फ़ोल्डर</string>
+    <string name="vault_folder_name_placeholder">फ़ोल्डर का नाम</string>
+    <string name="vault_move_to_folder_title">फ़ोल्डर में स्थानांतरित करें</string>
+    <string name="vault_root_no_folder">रूट (कोई फ़ोल्डर नहीं)</string>
+    <string name="vault_no_folders_yet">अभी तक कोई फ़ोल्डर नहीं। पहले एक बनाएं।</string>
+    <string name="vault_size">Vault: %1$s</string>
+    <string name="vault_items_count">%1$d आइटम</string>
+    <string name="vault_migration_title">Vault सुरक्षा अपग्रेड</string>
+    <string name="vault_migration_subtitle">Vault के लिए अब 6 अंकों का PIN\nऔर बायोमेट्रिक प्रमाणीकरण आवश्यक है।</string>
+    <string name="vault_current_password_label">Vault का वर्तमान पासवर्ड</string>
+    <string name="vault_incorrect_password">गलत पासवर्ड</string>
+    <string name="vault_migration_failed">माइग्रेशन विफल: %1$s। आपका वर्तमान पासवर्ड अभी भी काम करता है — दोबारा प्रयास के लिए दर्ज करें।</string>
+    <string name="vault_continue">जारी रखें</string>
+    <string name="vault_choose_new_pin">नया PIN चुनें</string>
+    <string name="vault_confirm_new_pin">नए PIN की पुष्टि करें</string>
+    <string name="vault_reencrypting">Vault फ़ाइलें पुनः एन्क्रिप्ट हो रही हैं…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">Vault में सहेजें</string>
+    <string name="vault_close_cd">बंद करें</string>
+    <string name="vault_encrypting_saving">एन्क्रिप्ट करके सहेजा जा रहा है…</string>
+    <string name="vault_files_count">%1$d फ़ाइलें</string>
+    <string name="vault_saved_title">Vault में सहेजा गया</string>
+    <string name="vault_saved_subtitle">एन्क्रिप्ट करके सुरक्षित रूप से संग्रहीत।</string>
+    <string name="vault_saved_multiple">%1$d फ़ाइलें सहेजी गईं</string>
+    <string name="vault_error_unknown">अज्ञात त्रुटि</string>
+    <string name="vault_retry">पुनः प्रयास करें</string>
+    <string name="vault_error_import">आयात में त्रुटि</string>
+    <string name="vault_viewer_decrypting">डिक्रिप्ट हो रहा है…</string>
+    <string name="vault_viewer_error_title">त्रुटि</string>
+    <string name="vault_viewer_item_not_found">आइटम नहीं मिला</string>
+    <string name="vault_viewer_failed_load">फ़ाइल लोड करने में विफल</string>
+    <string name="vault_viewer_back_cd">वापस</string>
+    <string name="vault_viewer_info_cd">जानकारी</string>
+    <string name="vault_viewer_share_cd">शेयर करें</string>
+    <string name="vault_info_file_section">फ़ाइल</string>
+    <string name="vault_info_image_section">छवि</string>
+    <string name="vault_info_camera_section">कैमरा</string>
+    <string name="vault_info_exposure_section">एक्सपोज़र</string>
+    <string name="vault_info_location_section">स्थान</string>
+    <string name="vault_info_name">नाम</string>
+    <string name="vault_info_size">आकार</string>
+    <string name="vault_info_type">प्रकार</string>
+    <string name="vault_info_added">जोड़ा गया</string>
+    <string name="vault_info_dimensions">आयाम</string>
+    <string name="vault_info_make">निर्माता</string>
+    <string name="vault_info_model">मॉडल</string>
+    <string name="vault_info_lens">लेंस</string>
+    <string name="vault_info_software">सॉफ़्टवेयर</string>
+    <string name="vault_info_aperture">एपर्चर</string>
+    <string name="vault_info_shutter">शटर स्पीड</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">फ़ोकल लंबाई</string>
+    <string name="vault_info_flash">फ्लैश</string>
+    <string name="vault_info_white_balance">श्वेत संतुलन</string>
+    <string name="vault_info_coordinates">निर्देशांक</string>
+    <string name="vault_info_altitude">ऊंचाई</string>
+    <string name="vault_info_date_taken">कैप्चर की तारीख</string>
+    <string name="vault_viewer_cannot_decode">छवि डिकोड नहीं हो सकी</string>
+    <string name="vault_viewer_play_cd">चलाएं</string>
+    <string name="vault_viewer_pause_cd">रोकें</string>
+    <string name="vault_viewer_preview_unavailable">इस फ़ाइल प्रकार के लिए पूर्वावलोकन उपलब्ध नहीं है</string>
+    <string name="vault_flash_fired">फायर हुआ</string>
+    <string name="vault_flash_off">बंद</string>
+    <string name="vault_white_balance_auto">स्वचालित</string>
+    <string name="vault_white_balance_manual">मैन्युअल</string>
+    <string name="vault_viewer_title">व्यूअर</string>
+    <string name="vault_share_chooser_title">फ़ाइल साझा करें</string>
+
+    <!-- वॉयस रिकॉर्डर -->
+    <string name="voice_title">आवाज़ रिकॉर्ड करें</string>
+    <string name="voice_back_cd">वापस</string>
+    <string name="voice_mic_permission_required">माइक्रोफ़ोन अनुमति आवश्यक है</string>
+    <string name="voice_grant_permission">अनुमति दें</string>
+    <string name="voice_stop_cd">रोकें</string>
+    <string name="voice_record_cd">रिकॉर्ड करें</string>
+    <string name="voice_create_note">नोट बनाएं</string>
+    <string name="voice_retry">पुनः प्रयास करें</string>
+    <string name="voice_generic_error">त्रुटि</string>
+
+    <!-- अनुबंध विश्लेषक -->
+    <string name="contract_analyze_title">दस्तावेज़ विश्लेषण करें</string>
+    <string name="contract_back_cd">वापस</string>
+    <string name="contract_document_type_label">दस्तावेज़ का प्रकार</string>
+    <string name="contract_document_text_label">दस्तावेज़ का पाठ</string>
+    <string name="contract_document_text_placeholder">विश्लेषण के लिए अनुबंध, ईमेल या पाठ चिपकाएं…</string>
+    <string name="contract_char_count">%1$d अक्षर</string>
+    <string name="contract_analyze_btn">विश्लेषण करें</string>
+    <string name="contract_preparing">विश्लेषण तैयार हो रहा है…</string>
+    <string name="contract_analyzing">खंड %1$d/%2$d का विश्लेषण हो रहा है…</string>
+    <string name="contract_parsing">रिपोर्ट तैयार हो रही है…</string>
+    <string name="contract_retry_btn">पुनः प्रयास करें</string>
+    <string name="contract_error_empty_text">विश्लेषण के लिए पाठ दर्ज करें</string>
+    <string name="contract_report_title">विश्लेषण रिपोर्ट</string>
+    <string name="contract_copy_summary_cd">सारांश कॉपी करें</string>
+    <string name="contract_save_report_cd">विश्लेषण सहेजें</string>
+    <string name="contract_no_report">कोई रिपोर्ट उपलब्ध नहीं</string>
+    <string name="contract_executive_summary_section">कार्यकारी सारांश</string>
+    <string name="contract_red_flags_section">रेड फ़्लैग (%1$d)</string>
+    <string name="contract_no_red_flags">कोई रेड फ़्लैग नहीं मिला।</string>
+    <string name="contract_real_intention_section">वास्तविक इरादा</string>
+    <string name="contract_no_real_intention">इरादा निर्धारित नहीं किया जा सका।</string>
+    <string name="contract_recommendations_section">सुझाव</string>
+    <string name="contract_no_recommendations">कोई विशेष सुझाव नहीं।</string>
+    <string name="contract_simplified_section">सरलीकृत संस्करण</string>
+    <string name="contract_not_available">उपलब्ध नहीं।</string>
+    <string name="contract_collapse_cd">संक्षिप्त करें</string>
+    <string name="contract_expand_cd">विस्तृत करें</string>
+    <string name="contract_severity_high">उच्च</string>
+    <string name="contract_severity_medium">मध्यम</string>
+    <string name="contract_severity_low">निम्न</string>
+    <string name="contract_type_contract">अनुबंध</string>
+    <string name="contract_type_corporate_email">कॉर्पोरेट ईमेल</string>
+    <string name="contract_type_terms">नियम और शर्तें</string>
+    <string name="contract_type_bureaucracy">नौकरशाही</string>
+    <string name="contract_type_other">अन्य</string>
+
+    <!-- नोट के साथ चैट -->
+    <string name="chat_translated_message">नोट को %1$s में अनुवाद किया गया और नई नोट के रूप में सहेजा गया।</string>
+    <string name="chat_translation_tag">अनुवाद</string>
+    <string name="chat_error_response">उत्तर तैयार नहीं किया जा सका।</string>
+    <string name="chat_title">नोट के साथ चैट</string>
+    <string name="chat_back_cd">वापस</string>
+    <string name="chat_more_cd">अधिक</string>
+    <string name="chat_translate_note">नोट अनुवाद करें</string>
+    <string name="chat_generate_email">ईमेल तैयार करें</string>
+    <string name="chat_generate_executive_summary">कार्यकारी सारांश तैयार करें</string>
+    <string name="chat_clear_chat">चैट साफ़ करें</string>
+    <string name="chat_empty_title">अपने नोट के बारे में पूछें</string>
+    <string name="chat_empty_hint">\"इस विचार के बारे में आप क्या सोचते हैं?\" \"मुझसे क्या छूट रहा है?\" \"मुझसे प्रश्न पूछें\"</string>
+    <string name="chat_thinking">सोच रहा हूं…</string>
+    <string name="chat_message_placeholder">संदेश लिखें…</string>
+    <string name="chat_send_cd">भेजें</string>
+
+    <!-- AI ऑपरेशन -->
+    <string name="ai_op_summarize">सारांश</string>
+    <string name="ai_op_extract_todos">निकाले गए कार्य</string>
+    <string name="ai_op_suggest_tags">सुझाए गए टैग</string>
+
+    <!-- नोट स्रोत लेबल -->
+    <string name="source_typed">टाइप की गई</string>
+    <string name="source_voice">आवाज़</string>
+    <string name="source_scanned">स्कैन की गई</string>
+    <string name="source_imported">आयातित</string>
+
+    <!-- PDF निर्यात -->
+    <string name="pdf_footer">Sile द्वारा निर्मित</string>
+
+    <!-- Vault बायोमेट्रिक प्रॉम्प्ट -->
+    <string name="vault_biometric_prompt_title">Vault अनलॉक करें</string>
+    <string name="vault_biometric_prompt_subtitle">अपने निजी Vault तक पहुंचने के लिए प्रमाणीकरण करें</string>
+    <string name="vault_camera_capture_cd">फ़ोटो लें</string>
+    <string name="vault_camera_record_cd">वीडियो रिकॉर्ड करें</string>
+    <string name="vault_camera_stop_cd">रिकॉर्डिंग रोकें</string>
+    <string name="vault_camera_flip_cd">कैमरा बदलें</string>
+    <string name="vault_camera_flash_cd">फ्लैश</string>
+    <string name="vault_camera_close_cd">कैमरा बंद करें</string>
+    <string name="vault_camera_mode_photo">फ़ोटो</string>
+    <string name="vault_camera_mode_video">वीडियो</string>
+    <string name="vault_camera_permission_rationale">Sile को सीधे आपके Vault में कैप्चर करने के लिए कैमरा एक्सेस चाहिए। कुछ भी आपकी गैलरी में नहीं सहेजा जाता।</string>
+    <string name="vault_camera_mic_rationale">ध्वनि के साथ वीडियो रिकॉर्ड करने के लिए माइक्रोफ़ोन एक्सेस ज़रूरी है।</string>
+    <string name="vault_camera_error_save">कैप्चर सहेजा नहीं जा सका।</string>
+</resources>

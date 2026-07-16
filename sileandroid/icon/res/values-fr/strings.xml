@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">Bouton rapide pour nouvelle note</string>
+    <string name="widget_medium_description">Dernières notes et actions rapides</string>
+    <string name="widget_large_description">Dernières notes avec aperçu</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">Notes</string>
+    <string name="tab_health">Santé</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">Réglages</string>
+
+    <!-- Common -->
+    <string name="done">Terminé</string>
+    <string name="cancel">Annuler</string>
+    <string name="close">Fermer</string>
+    <string name="delete">Supprimer</string>
+    <string name="save">Enregistrer</string>
+    <string name="create">Créer</string>
+    <string name="search">Rechercher</string>
+    <string name="error">Erreur</string>
+    <string name="ok">OK</string>
+    <string name="name">Nom</string>
+    <string name="password">Mot de passe</string>
+
+    <!-- Notes -->
+    <string name="search_notes">Rechercher des notes…</string>
+    <string name="your_mind_encrypted">Votre esprit, chiffré.</string>
+    <string name="start_writing">Commencez à écrire.</string>
+    <string name="no_results">Aucun résultat</string>
+    <string name="new_note">Nouvelle note</string>
+    <string name="record_voice">Enregistrer la voix</string>
+    <string name="scan_document">Scanner un document</string>
+    <string name="use_template">Utiliser un modèle</string>
+    <string name="untitled">Sans titre</string>
+    <string name="archive">Archiver</string>
+    <string name="pin">Épingler</string>
+    <string name="unpin">Désépingler</string>
+    <string name="delete_note">Supprimer la note</string>
+    <string name="action_cannot_be_undone">Cette action est irréversible.</string>
+    <string name="notes_cd_open_note">Ouvrir une note</string>
+    <string name="notes_cd_graph">Graphe</string>
+    <string name="notes_cd_folders">Dossiers</string>
+    <string name="notes_cd_filters">Filtres</string>
+    <string name="notes_cd_create">Créer</string>
+    <string name="notes_fab_rich_text">Note texte riche</string>
+    <string name="notes_fab_markdown">Note Markdown</string>
+    <string name="notes_fab_receive_note">Recevoir une note</string>
+    <string name="notes_filter_title">Filtres</string>
+    <string name="notes_filter_folders">Dossiers</string>
+    <string name="notes_filter_no_folders">Aucun dossier</string>
+    <string name="notes_filter_tags">Étiquettes</string>
+    <string name="notes_filter_no_tags">Aucune étiquette</string>
+    <string name="notes_filter_clear">Effacer les filtres</string>
+
+    <!-- Editor -->
+    <string name="add_tag">Ajouter une étiquette…</string>
+    <string name="summarize">Résumer</string>
+    <string name="extract_tasks">Extraire les tâches</string>
+    <string name="suggest_tags">Suggérer des étiquettes</string>
+    <string name="chat_with_note">Discuter avec la note</string>
+    <string name="translate_note">Traduire la note</string>
+    <string name="analyze_contract">Analyser le contrat</string>
+    <string name="details">Détails</string>
+    <string name="save_as_template">Enregistrer comme modèle</string>
+    <string name="reminder">Rappel</string>
+    <string name="export_pdf">Exporter en PDF</string>
+    <string name="processing_with_ai">Traitement par AI…</string>
+    <string name="editor_back_cd">Retour</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">Ouvrir une note</string>
+    <string name="editor_share_cd">Partager</string>
+    <string name="editor_more_menu_cd">Plus</string>
+    <string name="editor_export_markdown">Exporter en Markdown</string>
+    <string name="editor_title_placeholder">Titre de l\'article</string>
+    <string name="editor_body_placeholder_markdown">Commencez à écrire en Markdown…</string>
+    <string name="editor_body_placeholder_rich">Commencez à écrire votre article…</string>
+    <string name="editor_open_wiki_link">Ouvrir [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">Retirer</string>
+    <string name="editor_add_tag_action">Ajouter</string>
+    <string name="editor_metadata_created">Créée</string>
+    <string name="editor_metadata_edited">Modifiée</string>
+    <string name="editor_metadata_source">Source</string>
+    <string name="editor_metadata_words">Mots</string>
+    <string name="editor_metadata_characters">Caractères</string>
+    <string name="editor_ai_result_title">Résultat AI</string>
+    <string name="editor_ai_add_tags">Ajouter des étiquettes</string>
+    <string name="editor_ai_insert_in_note">Insérer dans la note</string>
+    <string name="editor_ai_error_title">Erreur AI</string>
+    <string name="editor_export_chooser_title">Exporter</string>
+    <string name="editor_toolbar_heading_cd">Titre</string>
+    <string name="editor_toolbar_heading1">Titre 1</string>
+    <string name="editor_toolbar_heading2">Titre 2</string>
+    <string name="editor_toolbar_heading3">Titre 3</string>
+    <string name="editor_toolbar_bold_cd">Gras</string>
+    <string name="editor_toolbar_italic_cd">Italique</string>
+    <string name="editor_toolbar_strikethrough_cd">Barré</string>
+    <string name="editor_toolbar_code_cd">Code</string>
+    <string name="editor_toolbar_quote_cd">Citation</string>
+    <string name="editor_toolbar_list_cd">Liste</string>
+    <string name="editor_toolbar_numbered_list_cd">Liste numérotée</string>
+    <string name="editor_toolbar_checklist_cd">Liste de contrôle</string>
+    <string name="editor_toolbar_link_cd">Lien</string>
+    <string name="editor_toolbar_wiki_link_cd">Lien wiki</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">à l\'instant</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">il y a %d min</item>
+        <item quantity="many">il y a %d min</item>
+        <item quantity="other">il y a %d min</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">il y a %d h</item>
+        <item quantity="many">il y a %d h</item>
+        <item quantity="other">il y a %d h</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">il y a %d jour</item>
+        <item quantity="many">il y a %d jours</item>
+        <item quantity="other">il y a %d jours</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="one">il y a %d semaine</item>
+        <item quantity="many">il y a %d semaines</item>
+        <item quantity="other">il y a %d semaines</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">Épinglée</string>
+    <string name="quickswitcher_title">Ouvrir une note</string>
+    <string name="quickswitcher_search_placeholder">Rechercher par titre…</string>
+    <string name="quickswitcher_create_note">Créer \"%1$s\"</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">Déverrouiller</string>
+    <string name="lock_or_enter_pin">ou entrez votre code PIN</string>
+    <string name="lock_pin_incorrect">Code PIN incorrect</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">Enregistrer dans Sile</string>
+    <string name="quickcapture_content_label">Contenu</string>
+    <string name="quickcapture_tags_label">Étiquettes</string>
+    <string name="quickcapture_saving">Enregistrement…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">Titre</string>
+    <string name="bubble_content_placeholder">Note rapide…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">Votre esprit, chiffré.\nCommencez à écrire.</string>
+    <string name="widget_no_notes_yet">Aucune note pour l\'instant</string>
+    <string name="widget_action_note">Note</string>
+    <string name="widget_action_voice">Voix</string>
+    <string name="widget_action_scan">Scan</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">Enregistrer dans Sile</string>
+    <string name="vault_share_target_label">Enregistrer dans Vault (Sile)</string>
+    <string name="tile_new_note_label">Nouvelle note</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">Déverrouillez pour accéder à vos notes</string>
+    <string name="biometric_use_pin">Utiliser le code PIN</string>
+
+    <!-- Settings -->
+    <string name="appearance">Apparence</string>
+    <string name="dark">Sombre</string>
+    <string name="light">Clair</string>
+    <string name="system">Système</string>
+    <string name="security">Sécurité</string>
+    <string name="storage">Stockage</string>
+    <string name="import_export">Importer / Exporter</string>
+    <string name="about_sile">À propos de Sile</string>
+    <string name="version">Version</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="terms_of_use">Conditions d\'utilisation</string>
+    <string name="delete_all_data">Supprimer toutes les données</string>
+    <string name="settings_transcription">Transcription</string>
+    <string name="settings_export_section">Exporter</string>
+    <string name="settings_dark_theme">Thème sombre</string>
+    <string name="settings_biometric_lock">Verrouillage biométrique</string>
+    <string name="settings_change_pin">Modifier le PIN</string>
+    <string name="settings_setup_backup_pin">Configurer un PIN de secours</string>
+    <string name="settings_pin_digits">6 chiffres</string>
+    <string name="settings_preferred_language">Langue préférée</string>
+    <string name="settings_attachments">Pièces jointes</string>
+    <string name="settings_export_notes_markdown">Exporter les notes en Markdown</string>
+    <string name="settings_danger_zone">Zone dangereuse</string>
+    <string name="settings_delete_all_confirm_text">Toutes vos notes, enregistrements et réglages seront supprimés. Cette action est irréversible.</string>
+    <string name="settings_are_you_sure">Êtes-vous sûr ?</string>
+    <string name="settings_delete_all_final_text">C\'est la dernière confirmation. Toutes les données seront définitivement perdues.</string>
+    <string name="settings_delete_all_caps">TOUT SUPPRIMER</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">Dossiers intelligents</string>
+    <string name="folders_empty_hint">Créez un dossier pour organiser vos notes</string>
+
+    <!-- Graph -->
+    <string name="graph_title">Graphe des notes</string>
+    <string name="graph_no_connections">Aucune connexion</string>
+    <string name="graph_no_connections_hint">Utilisez [[nom de la note]] pour lier des notes</string>
+
+    <!-- Health -->
+    <string name="calendar">Calendrier</string>
+    <string name="timeline">Chronologie</string>
+    <string name="insights">Aperçus</string>
+    <string name="health_entry">Entrée santé</string>
+    <string name="how_are_you_feeling">Comment vous sentez-vous ?</string>
+    <string name="mood">Humeur</string>
+    <string name="energy">Énergie</string>
+    <string name="sleep">Sommeil</string>
+    <string name="symptoms">Symptômes</string>
+    <string name="medication">Médicament</string>
+    <string name="health_tab_timeline">Chronologie</string>
+    <string name="health_tab_insights">Aperçus</string>
+    <string name="health_today">Aujourd\'hui</string>
+    <string name="health_prev_month">Mois précédent</string>
+    <string name="health_next_month">Mois suivant</string>
+    <string name="health_mood_very_bad">Très mauvais</string>
+    <string name="health_mood_bad">Mauvais</string>
+    <string name="health_mood_neutral">Normal</string>
+    <string name="health_mood_good">Bien</string>
+    <string name="health_mood_very_good">Très bien</string>
+    <string name="health_day_mon">L</string>
+    <string name="health_day_tue">M</string>
+    <string name="health_day_wed">M</string>
+    <string name="health_day_thu">J</string>
+    <string name="health_day_fri">V</string>
+    <string name="health_day_sat">S</string>
+    <string name="health_day_sun">D</string>
+    <string name="health_mood_section">Humeur</string>
+    <string name="health_notes_section">Notes</string>
+    <string name="health_hours_label">Heures :</string>
+    <string name="health_quality_label">Qualité :</string>
+    <string name="health_add_symptom_hint">Ajouter un symptôme…</string>
+    <string name="health_add_cd">Ajouter</string>
+    <string name="health_add_medication_hint">Ajouter un médicament…</string>
+    <string name="health_notes_placeholder">Autre chose à noter ?</string>
+    <string name="health_saving">Enregistrement…</string>
+    <string name="health_insights_title">Aperçus santé</string>
+    <string name="health_last_30_days">30 derniers jours</string>
+    <string name="health_avg_mood">Humeur moyenne</string>
+    <string name="health_avg_energy">Énergie moyenne</string>
+    <string name="health_avg_sleep">Sommeil moyen</string>
+    <string name="health_most_frequent_symptoms">Symptômes les plus fréquents</string>
+    <string name="health_days_count">%1$d jours</string>
+    <string name="health_entries_registered">%1$d entrées enregistrées</string>
+    <string name="health_no_data">Données insuffisantes</string>
+    <string name="health_no_data_hint">Enregistrez votre santé pendant au moins une semaine pour voir les aperçus.</string>
+    <string name="health_ai_insights">Aperçus IA</string>
+    <string name="health_ai_description">Gemma 4 analyse vos données à la recherche de tendances, corrélations et alertes.</string>
+    <string name="health_analyzing">Analyse en cours…</string>
+    <string name="health_ai_analysis">Analyse IA</string>
+    <string name="health_regenerate">Régénérer</string>
+    <string name="health_generate_insights">Générer les aperçus</string>
+    <string name="health_timeline_title">Chronologie santé</string>
+    <string name="health_no_entries">Aucune entrée pour l\'instant</string>
+    <string name="health_no_entries_hint">Enregistrez votre premier jour depuis le calendrier</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">Appuyez pour enregistrer</string>
+    <string name="recording">Enregistrement…</string>
+    <string name="transcribing">Transcription…</string>
+    <string name="transcription_complete">Transcription terminée</string>
+    <string name="voice_error_start_recording">Impossible de démarrer l\'enregistrement : %1$s</string>
+    <string name="voice_error_no_audio_file">Fichier audio introuvable</string>
+    <string name="voice_error_no_model">Aucun modèle vocal téléchargé. Télécharge-en un dans les Paramètres.</string>
+    <string name="voice_error_no_text_detected">Aucun texte détecté dans l\'enregistrement</string>
+    <string name="voice_error_transcription">Erreur de transcription</string>
+    <string name="voice_error_download_model">Erreur lors du téléchargement du modèle : %1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">Partager la note</string>
+    <string name="receive_note">Recevoir une note</string>
+    <string name="import_note">Importer une note</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">Sélectionne une méthode</string>
+    <string name="share_method_p2p_title">Partager via P2P</string>
+    <string name="share_method_p2p_subtitle">Envoyer chiffré vers un appareil proche</string>
+    <string name="share_method_vault_title">Enregistrer dans Vault</string>
+    <string name="share_method_vault_subtitle">Chiffrer et stocker dans ton coffre privé</string>
+    <string name="share_state_preparing">Préparation…</string>
+    <string name="share_state_connecting">Connexion…</string>
+    <string name="share_state_sending">Envoi de la note chiffrée…</string>
+    <string name="share_state_completed_title">Note envoyée</string>
+    <string name="share_state_completed_subtitle">La note a été envoyée sous forme chiffrée.</string>
+    <string name="share_qr_cd">QR code de partage</string>
+    <string name="share_qr_hint">Demande au destinataire de scanner ce QR</string>
+    <string name="share_sharing_label">Partage : %1$s</string>
+    <string name="share_conn_advertising">En attente du destinataire…</string>
+    <string name="share_conn_discovering">Recherche…</string>
+    <string name="share_conn_connected">Connecté</string>
+    <string name="share_conn_transferring">Transfert…</string>
+    <string name="share_conn_completed">Terminé</string>
+    <string name="share_conn_error">Erreur de connexion</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + Connexion directe</string>
+    <string name="share_sheet_qr_subtitle">Scanne le QR et envoie via Wi-Fi Direct</string>
+    <string name="share_sheet_nfc_subtitle">Rapproche les appareils pour partager</string>
+    <string name="share_sheet_file_title">Fichier .sile</string>
+    <string name="share_sheet_file_subtitle">Exporte chiffré avec mot de passe et partage</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">Recevoir une note partagée</string>
+    <string name="receive_idle_subtitle">Scanne le QR de l\'expéditeur ou ouvre un fichier .sile</string>
+    <string name="receive_scan_qr">Scanner le QR</string>
+    <string name="receive_open_file">Ouvrir un fichier .sile</string>
+    <string name="receive_state_scanning">Scan du QR…</string>
+    <string name="receive_state_waiting">En attente de la connexion de l\'expéditeur…</string>
+    <string name="receive_keep_app_open">Garde l\'application ouverte</string>
+    <string name="receive_state_receiving">Réception de la note…</string>
+    <string name="receive_state_decrypting">Déchiffrement…</string>
+    <string name="receive_state_completed">Note reçue</string>
+    <string name="receive_open_note">Ouvrir la note</string>
+    <string name="receive_protected_file_title">Fichier protégé</string>
+    <string name="receive_protected_file_hint">Saisis le mot de passe du fichier .sile</string>
+    <string name="receive_decrypt_action">Déchiffrer</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">Scanner</string>
+    <string name="scanner_state_preparing">Préparation du scanner…</string>
+    <string name="scanner_state_processing">Traitement du document…</string>
+    <string name="scanner_state_completed">Document scanné</string>
+    <string name="scanner_edit_note">Modifier la note</string>
+    <string name="scanner_back_to_notes">Retour aux notes</string>
+    <string name="scanner_retry">Réessayer</string>
+    <string name="scanner_progress_loading">Chargement des images…</string>
+    <string name="scanner_progress_ocr">Extraction du texte (OCR)…</string>
+    <string name="scanner_progress_encrypting">Chiffrement des images…</string>
+    <string name="scanner_error_load_images">Impossible de charger les images scannées</string>
+    <string name="scanner_error_no_text">Aucun texte détecté dans le document scanné</string>
+    <string name="scanner_error_processing">Erreur lors du traitement du document</string>
+    <string name="scanner_note_title">Document — %1$s</string>
+    <string name="scanner_summary_one_page">%1$d page · %2$d caractères</string>
+    <string name="scanner_summary_pages">%1$d pages · %2$d caractères</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">Analyse : %1$s</string>
+    <string name="contract_note_tag">analyse</string>
+    <string name="abusive_clause_detector">Détecteur de clauses abusives</string>
+    <string name="analysis_complete">Analyse terminée</string>
+    <string name="executive_summary">Résumé exécutif</string>
+    <string name="red_flags">Signaux d\'alerte</string>
+    <string name="real_intent">Intention réelle</string>
+    <string name="recommendations">Recommandations</string>
+    <string name="simplified_language">Langage simplifié</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">Créez votre Vault</string>
+    <string name="vault_create_subtitle">Définissez un code PIN à 6 chiffres pour protéger vos fichiers privés.\nVotre Vault exige aussi l\'authentification biométrique.</string>
+    <string name="vault_choose_pin">Choisissez votre PIN</string>
+    <string name="vault_confirm_pin">Confirmez votre PIN</string>
+    <string name="vault_pins_no_match">Les PIN ne correspondent pas. Réessayez.</string>
+    <string name="vault_start_over">Recommencer</string>
+    <string name="vault_locked">Vault verrouillé</string>
+    <string name="vault_identity_verified">Identité vérifiée</string>
+    <string name="vault_enter_pin">Saisissez le PIN</string>
+    <string name="vault_authenticate_biometrics">Authentifiez-vous par biométrie</string>
+    <string name="vault_preparing_pin">Préparation de la saisie du PIN…</string>
+    <string name="vault_enter_pin_unlock">Saisissez votre PIN à 6 chiffres pour déverrouiller</string>
+    <string name="vault_unlock_biometrics">Déverrouiller par biométrie</string>
+    <string name="vault_biometric_verified">Biométrie vérifiée</string>
+    <string name="vault_too_many_attempts">Trop de tentatives. Réessayez dans %1$ds</string>
+    <string name="vault_incorrect_pin">PIN incorrect</string>
+    <string name="vault_enter_your_pin">Saisissez votre PIN</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">Retour</string>
+    <string name="vault_lock_vault_cd">Verrouiller le Vault</string>
+    <string name="vault_create_folder_cd">Créer un dossier</string>
+    <string name="vault_add_file_cd">Ajouter un fichier</string>
+    <string name="vault_search_files">Rechercher des fichiers</string>
+    <string name="vault_filter_all">Tout</string>
+    <string name="vault_folder_empty">Ce dossier est vide</string>
+    <string name="vault_vault_empty">Votre Vault est vide</string>
+    <string name="vault_tap_add_files">Appuyez sur + pour ajouter des fichiers privés</string>
+    <string name="vault_encrypting">Chiffrement…</string>
+    <string name="vault_delete_item_title">Supprimer l\'élément ?</string>
+    <string name="vault_delete_item_text">\"%1$s\" sera définitivement supprimé.</string>
+    <string name="vault_delete_folder_title">Supprimer le dossier ?</string>
+    <string name="vault_delete_folder_text">\"%1$s\" sera supprimé. Les éléments seront déplacés à la racine.</string>
+    <string name="vault_new_folder_title">Nouveau dossier</string>
+    <string name="vault_folder_name_placeholder">Nom du dossier</string>
+    <string name="vault_move_to_folder_title">Déplacer vers un dossier</string>
+    <string name="vault_root_no_folder">Racine (sans dossier)</string>
+    <string name="vault_no_folders_yet">Aucun dossier pour l\'instant. Créez-en un d\'abord.</string>
+    <string name="vault_size">Vault : %1$s</string>
+    <string name="vault_items_count">%1$d éléments</string>
+    <string name="vault_migration_title">Mise à niveau de la sécurité du Vault</string>
+    <string name="vault_migration_subtitle">Votre Vault exige désormais un PIN à 6 chiffres\net l\'authentification biométrique.</string>
+    <string name="vault_current_password_label">Mot de passe actuel du Vault</string>
+    <string name="vault_incorrect_password">Mot de passe incorrect</string>
+    <string name="vault_migration_failed">Échec de la migration : %1$s. Votre mot de passe actuel fonctionne toujours — saisissez-le pour réessayer.</string>
+    <string name="vault_continue">Continuer</string>
+    <string name="vault_choose_new_pin">Choisissez votre nouveau PIN</string>
+    <string name="vault_confirm_new_pin">Confirmez votre nouveau PIN</string>
+    <string name="vault_reencrypting">Rechiffrement des fichiers du Vault…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">Enregistrer dans le Vault</string>
+    <string name="vault_close_cd">Fermer</string>
+    <string name="vault_encrypting_saving">Chiffrement et enregistrement…</string>
+    <string name="vault_files_count">%1$d fichiers</string>
+    <string name="vault_saved_title">Enregistré dans le Vault</string>
+    <string name="vault_saved_subtitle">Chiffré et stocké en toute sécurité.</string>
+    <string name="vault_saved_multiple">%1$d fichiers enregistrés</string>
+    <string name="vault_error_unknown">Erreur inconnue</string>
+    <string name="vault_retry">Réessayer</string>
+    <string name="vault_error_import">Erreur lors de l\'importation</string>
+    <string name="vault_viewer_decrypting">Déchiffrement…</string>
+    <string name="vault_viewer_error_title">Erreur</string>
+    <string name="vault_viewer_item_not_found">Élément introuvable</string>
+    <string name="vault_viewer_failed_load">Impossible de charger le fichier</string>
+    <string name="vault_viewer_back_cd">Retour</string>
+    <string name="vault_viewer_info_cd">Infos</string>
+    <string name="vault_viewer_share_cd">Partager</string>
+    <string name="vault_info_file_section">Fichier</string>
+    <string name="vault_info_image_section">Image</string>
+    <string name="vault_info_camera_section">Appareil photo</string>
+    <string name="vault_info_exposure_section">Exposition</string>
+    <string name="vault_info_location_section">Localisation</string>
+    <string name="vault_info_name">Nom</string>
+    <string name="vault_info_size">Taille</string>
+    <string name="vault_info_type">Type</string>
+    <string name="vault_info_added">Ajouté</string>
+    <string name="vault_info_dimensions">Dimensions</string>
+    <string name="vault_info_make">Marque</string>
+    <string name="vault_info_model">Modèle</string>
+    <string name="vault_info_lens">Objectif</string>
+    <string name="vault_info_software">Logiciel</string>
+    <string name="vault_info_aperture">Ouverture</string>
+    <string name="vault_info_shutter">Vitesse d\'obturation</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">Longueur focale</string>
+    <string name="vault_info_flash">Flash</string>
+    <string name="vault_info_white_balance">Balance des blancs</string>
+    <string name="vault_info_coordinates">Coordonnées</string>
+    <string name="vault_info_altitude">Altitude</string>
+    <string name="vault_info_date_taken">Date de prise de vue</string>
+    <string name="vault_viewer_cannot_decode">Impossible de décoder l\'image</string>
+    <string name="vault_viewer_play_cd">Lecture</string>
+    <string name="vault_viewer_pause_cd">Pause</string>
+    <string name="vault_viewer_preview_unavailable">Aperçu non disponible pour ce type de fichier</string>
+    <string name="vault_flash_fired">Déclenché</string>
+    <string name="vault_flash_off">Désactivé</string>
+    <string name="vault_white_balance_auto">Auto</string>
+    <string name="vault_white_balance_manual">Manuel</string>
+    <string name="vault_viewer_title">Visionneuse</string>
+    <string name="vault_share_chooser_title">Partager le fichier</string>
+
+    <!-- Enregistreur vocal -->
+    <string name="voice_title">Enregistrer la voix</string>
+    <string name="voice_back_cd">Retour</string>
+    <string name="voice_mic_permission_required">Permission micro requise</string>
+    <string name="voice_grant_permission">Accorder la permission</string>
+    <string name="voice_stop_cd">Arrêter</string>
+    <string name="voice_record_cd">Enregistrer</string>
+    <string name="voice_create_note">Créer une note</string>
+    <string name="voice_retry">Réessayer</string>
+    <string name="voice_generic_error">Erreur</string>
+
+    <!-- Analyseur de contrats -->
+    <string name="contract_analyze_title">Analyser le document</string>
+    <string name="contract_back_cd">Retour</string>
+    <string name="contract_document_type_label">Type de document</string>
+    <string name="contract_document_text_label">Texte du document</string>
+    <string name="contract_document_text_placeholder">Collez le contrat, l\'e-mail ou le texte à analyser…</string>
+    <string name="contract_char_count">%1$d caractères</string>
+    <string name="contract_analyze_btn">Analyser</string>
+    <string name="contract_preparing">Préparation de l\'analyse…</string>
+    <string name="contract_analyzing">Analyse de la section %1$d sur %2$d…</string>
+    <string name="contract_parsing">Génération du rapport…</string>
+    <string name="contract_retry_btn">Réessayer</string>
+    <string name="contract_error_empty_text">Saisissez du texte à analyser</string>
+    <string name="contract_report_title">Rapport d\'analyse</string>
+    <string name="contract_copy_summary_cd">Copier le résumé</string>
+    <string name="contract_save_report_cd">Enregistrer l\'analyse</string>
+    <string name="contract_no_report">Aucun rapport disponible</string>
+    <string name="contract_executive_summary_section">Résumé exécutif</string>
+    <string name="contract_red_flags_section">Red Flags (%1$d)</string>
+    <string name="contract_no_red_flags">Aucun red flag détecté.</string>
+    <string name="contract_real_intention_section">Intention réelle</string>
+    <string name="contract_no_real_intention">Impossible de déterminer l\'intention.</string>
+    <string name="contract_recommendations_section">Recommandations</string>
+    <string name="contract_no_recommendations">Aucune recommandation spécifique.</string>
+    <string name="contract_simplified_section">Version simplifiée</string>
+    <string name="contract_not_available">Non disponible.</string>
+    <string name="contract_collapse_cd">Réduire</string>
+    <string name="contract_expand_cd">Développer</string>
+    <string name="contract_severity_high">HAUTE</string>
+    <string name="contract_severity_medium">MOYENNE</string>
+    <string name="contract_severity_low">BASSE</string>
+    <string name="contract_type_contract">Contrat</string>
+    <string name="contract_type_corporate_email">E-mail d\'entreprise</string>
+    <string name="contract_type_terms">Conditions générales</string>
+    <string name="contract_type_bureaucracy">Bureaucratie</string>
+    <string name="contract_type_other">Autre</string>
+
+    <!-- Chat avec la note -->
+    <string name="chat_translated_message">Note traduite en %1$s et enregistrée comme nouvelle note.</string>
+    <string name="chat_translation_tag">traduction</string>
+    <string name="chat_error_response">Impossible de générer une réponse.</string>
+    <string name="chat_title">Chat avec la note</string>
+    <string name="chat_back_cd">Retour</string>
+    <string name="chat_more_cd">Plus</string>
+    <string name="chat_translate_note">Traduire la note</string>
+    <string name="chat_generate_email">Générer un e-mail</string>
+    <string name="chat_generate_executive_summary">Générer un résumé exécutif</string>
+    <string name="chat_clear_chat">Effacer le chat</string>
+    <string name="chat_empty_title">Posez des questions sur votre note</string>
+    <string name="chat_empty_hint">\"Que pensez-vous de cette idée ?\" \"Que me manque-t-il ?\" \"Posez-moi des questions\"</string>
+    <string name="chat_thinking">Réflexion…</string>
+    <string name="chat_message_placeholder">Écrivez un message…</string>
+    <string name="chat_send_cd">Envoyer</string>
+
+    <!-- Opérations IA -->
+    <string name="ai_op_summarize">Résumé</string>
+    <string name="ai_op_extract_todos">Tâches extraites</string>
+    <string name="ai_op_suggest_tags">Étiquettes suggérées</string>
+
+    <!-- Libellés d\'origine de la note -->
+    <string name="source_typed">Écrite</string>
+    <string name="source_voice">Voix</string>
+    <string name="source_scanned">Scannée</string>
+    <string name="source_imported">Importée</string>
+
+    <!-- Export PDF -->
+    <string name="pdf_footer">Généré par Sile</string>
+
+    <!-- Invite biométrique du Vault -->
+    <string name="vault_biometric_prompt_title">Déverrouiller le Vault</string>
+    <string name="vault_biometric_prompt_subtitle">Authentifiez-vous pour accéder à votre Vault privé</string>
+    <string name="vault_camera_capture_cd">Prendre une photo</string>
+    <string name="vault_camera_record_cd">Enregistrer une vidéo</string>
+    <string name="vault_camera_stop_cd">Arrêter l\'enregistrement</string>
+    <string name="vault_camera_flip_cd">Changer de caméra</string>
+    <string name="vault_camera_flash_cd">Flash</string>
+    <string name="vault_camera_close_cd">Fermer la caméra</string>
+    <string name="vault_camera_mode_photo">Photo</string>
+    <string name="vault_camera_mode_video">Vidéo</string>
+    <string name="vault_camera_permission_rationale">Sile a besoin d\'accéder à la caméra pour capturer directement dans ton Vault. Rien n\'est enregistré dans ta galerie.</string>
+    <string name="vault_camera_mic_rationale">L\'accès au microphone est nécessaire pour enregistrer une vidéo avec le son.</string>
+    <string name="vault_camera_error_save">Impossible d\'enregistrer la capture.</string>
+</resources>

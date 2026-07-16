@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <files-path
+        name="sharing"
+        path="sharing/" />
+    <files-path
+        name="exports"
+        path="exports/" />
+    <cache-path
+        name="vault_share"
+        path="vault_share/" />
+</paths>

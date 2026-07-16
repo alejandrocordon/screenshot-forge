@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">新規メモのクイックボタン</string>
+    <string name="widget_medium_description">最新のメモとクイックアクション</string>
+    <string name="widget_large_description">プレビュー付きの最新メモ</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">メモ</string>
+    <string name="tab_health">ヘルス</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">設定</string>
+
+    <!-- Common -->
+    <string name="done">完了</string>
+    <string name="cancel">キャンセル</string>
+    <string name="close">閉じる</string>
+    <string name="delete">削除</string>
+    <string name="save">保存</string>
+    <string name="create">作成</string>
+    <string name="search">検索</string>
+    <string name="error">エラー</string>
+    <string name="ok">OK</string>
+    <string name="name">名前</string>
+    <string name="password">パスワード</string>
+
+    <!-- Notes -->
+    <string name="search_notes">メモを検索…</string>
+    <string name="your_mind_encrypted">あなたの思考、暗号化済み。</string>
+    <string name="start_writing">書き始めましょう。</string>
+    <string name="no_results">結果なし</string>
+    <string name="new_note">新規メモ</string>
+    <string name="record_voice">音声を録音</string>
+    <string name="scan_document">書類をスキャン</string>
+    <string name="use_template">テンプレートを使用</string>
+    <string name="untitled">無題</string>
+    <string name="archive">アーカイブ</string>
+    <string name="pin">ピン留め</string>
+    <string name="unpin">ピン解除</string>
+    <string name="delete_note">メモを削除</string>
+    <string name="action_cannot_be_undone">この操作は取り消せません。</string>
+    <string name="notes_cd_open_note">メモを開く</string>
+    <string name="notes_cd_graph">グラフ</string>
+    <string name="notes_cd_folders">フォルダ</string>
+    <string name="notes_cd_filters">フィルター</string>
+    <string name="notes_cd_create">作成</string>
+    <string name="notes_fab_rich_text">リッチテキストメモ</string>
+    <string name="notes_fab_markdown">Markdown メモ</string>
+    <string name="notes_fab_receive_note">メモを受け取る</string>
+    <string name="notes_filter_title">フィルター</string>
+    <string name="notes_filter_folders">フォルダ</string>
+    <string name="notes_filter_no_folders">フォルダなし</string>
+    <string name="notes_filter_tags">タグ</string>
+    <string name="notes_filter_no_tags">タグなし</string>
+    <string name="notes_filter_clear">フィルターをクリア</string>
+
+    <!-- Editor -->
+    <string name="add_tag">タグを追加…</string>
+    <string name="summarize">要約</string>
+    <string name="extract_tasks">タスクを抽出</string>
+    <string name="suggest_tags">タグを提案</string>
+    <string name="chat_with_note">メモとチャット</string>
+    <string name="translate_note">メモを翻訳</string>
+    <string name="analyze_contract">契約書を分析</string>
+    <string name="details">詳細</string>
+    <string name="save_as_template">テンプレートとして保存</string>
+    <string name="reminder">リマインダー</string>
+    <string name="export_pdf">PDF をエクスポート</string>
+    <string name="processing_with_ai">AI で処理中…</string>
+    <string name="editor_back_cd">戻る</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">メモを開く</string>
+    <string name="editor_share_cd">共有</string>
+    <string name="editor_more_menu_cd">その他</string>
+    <string name="editor_export_markdown">Markdown として書き出す</string>
+    <string name="editor_title_placeholder">記事のタイトル</string>
+    <string name="editor_body_placeholder_markdown">Markdown で書き始める…</string>
+    <string name="editor_body_placeholder_rich">記事を書き始める…</string>
+    <string name="editor_open_wiki_link">開く [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">削除</string>
+    <string name="editor_add_tag_action">追加</string>
+    <string name="editor_metadata_created">作成日</string>
+    <string name="editor_metadata_edited">編集日</string>
+    <string name="editor_metadata_source">ソース</string>
+    <string name="editor_metadata_words">単語数</string>
+    <string name="editor_metadata_characters">文字数</string>
+    <string name="editor_ai_result_title">AI 結果</string>
+    <string name="editor_ai_add_tags">タグを追加</string>
+    <string name="editor_ai_insert_in_note">メモに挿入</string>
+    <string name="editor_ai_error_title">AI エラー</string>
+    <string name="editor_export_chooser_title">書き出す</string>
+    <string name="editor_toolbar_heading_cd">見出し</string>
+    <string name="editor_toolbar_heading1">見出し 1</string>
+    <string name="editor_toolbar_heading2">見出し 2</string>
+    <string name="editor_toolbar_heading3">見出し 3</string>
+    <string name="editor_toolbar_bold_cd">太字</string>
+    <string name="editor_toolbar_italic_cd">斜体</string>
+    <string name="editor_toolbar_strikethrough_cd">取り消し線</string>
+    <string name="editor_toolbar_code_cd">コード</string>
+    <string name="editor_toolbar_quote_cd">引用</string>
+    <string name="editor_toolbar_list_cd">リスト</string>
+    <string name="editor_toolbar_numbered_list_cd">番号付きリスト</string>
+    <string name="editor_toolbar_checklist_cd">チェックリスト</string>
+    <string name="editor_toolbar_link_cd">リンク</string>
+    <string name="editor_toolbar_wiki_link_cd">ウィキリンク</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">たった今</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="other">%d 分前</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="other">%d 時間前</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="other">%d 日前</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="other">%d 週間前</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">ピン留め</string>
+    <string name="quickswitcher_title">メモを開く</string>
+    <string name="quickswitcher_search_placeholder">タイトルで検索…</string>
+    <string name="quickswitcher_create_note">「%1$s」を作成</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">ロック解除</string>
+    <string name="lock_or_enter_pin">または PIN を入力</string>
+    <string name="lock_pin_incorrect">PIN が正しくありません</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">Sile に保存</string>
+    <string name="quickcapture_content_label">内容</string>
+    <string name="quickcapture_tags_label">タグ</string>
+    <string name="quickcapture_saving">保存中…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">タイトル</string>
+    <string name="bubble_content_placeholder">クイックメモ…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">あなたの思考、暗号化済み。\n書き始めましょう。</string>
+    <string name="widget_no_notes_yet">メモはまだありません</string>
+    <string name="widget_action_note">メモ</string>
+    <string name="widget_action_voice">音声</string>
+    <string name="widget_action_scan">スキャン</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">Sile に保存</string>
+    <string name="vault_share_target_label">Vaultに保存（Sile）</string>
+    <string name="tile_new_note_label">新規メモ</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">ノートにアクセスするためにロックを解除してください</string>
+    <string name="biometric_use_pin">PINを使用</string>
+
+    <!-- Settings -->
+    <string name="appearance">外観</string>
+    <string name="dark">ダーク</string>
+    <string name="light">ライト</string>
+    <string name="system">システム</string>
+    <string name="security">セキュリティ</string>
+    <string name="storage">ストレージ</string>
+    <string name="import_export">インポート / エクスポート</string>
+    <string name="about_sile">Sile について</string>
+    <string name="version">バージョン</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="terms_of_use">利用規約</string>
+    <string name="delete_all_data">すべてのデータを削除</string>
+    <string name="settings_transcription">文字起こし</string>
+    <string name="settings_export_section">エクスポート</string>
+    <string name="settings_dark_theme">ダークテーマ</string>
+    <string name="settings_biometric_lock">生体認証ロック</string>
+    <string name="settings_change_pin">PINを変更</string>
+    <string name="settings_setup_backup_pin">バックアップPINを設定</string>
+    <string name="settings_pin_digits">6桁</string>
+    <string name="settings_preferred_language">優先言語</string>
+    <string name="settings_attachments">添付ファイル</string>
+    <string name="settings_export_notes_markdown">ノートをMarkdownでエクスポート</string>
+    <string name="settings_danger_zone">危険ゾーン</string>
+    <string name="settings_delete_all_confirm_text">すべてのノート、録音、設定が削除されます。この操作は元に戻せません。</string>
+    <string name="settings_are_you_sure">本当によろしいですか？</string>
+    <string name="settings_delete_all_final_text">これが最後の確認です。すべてのデータが完全に失われます。</string>
+    <string name="settings_delete_all_caps">すべて削除</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">スマートフォルダ</string>
+    <string name="folders_empty_hint">ノートを整理するフォルダを作成してください</string>
+
+    <!-- Graph -->
+    <string name="graph_title">ノートグラフ</string>
+    <string name="graph_no_connections">接続なし</string>
+    <string name="graph_no_connections_hint">[[ノート名]] を使用してノートをリンクしてください</string>
+
+    <!-- Health -->
+    <string name="calendar">カレンダー</string>
+    <string name="timeline">タイムライン</string>
+    <string name="insights">インサイト</string>
+    <string name="health_entry">健康記録</string>
+    <string name="how_are_you_feeling">調子はいかがですか？</string>
+    <string name="mood">気分</string>
+    <string name="energy">エネルギー</string>
+    <string name="sleep">睡眠</string>
+    <string name="symptoms">症状</string>
+    <string name="medication">薬</string>
+    <string name="health_tab_timeline">タイムライン</string>
+    <string name="health_tab_insights">インサイト</string>
+    <string name="health_today">今日</string>
+    <string name="health_prev_month">前の月</string>
+    <string name="health_next_month">次の月</string>
+    <string name="health_mood_very_bad">とても悪い</string>
+    <string name="health_mood_bad">悪い</string>
+    <string name="health_mood_neutral">普通</string>
+    <string name="health_mood_good">良い</string>
+    <string name="health_mood_very_good">とても良い</string>
+    <string name="health_day_mon">月</string>
+    <string name="health_day_tue">火</string>
+    <string name="health_day_wed">水</string>
+    <string name="health_day_thu">木</string>
+    <string name="health_day_fri">金</string>
+    <string name="health_day_sat">土</string>
+    <string name="health_day_sun">日</string>
+    <string name="health_mood_section">気分</string>
+    <string name="health_notes_section">メモ</string>
+    <string name="health_hours_label">時間：</string>
+    <string name="health_quality_label">質：</string>
+    <string name="health_add_symptom_hint">症状を追加…</string>
+    <string name="health_add_cd">追加</string>
+    <string name="health_add_medication_hint">薬を追加…</string>
+    <string name="health_notes_placeholder">他に記録したいことはありますか？</string>
+    <string name="health_saving">保存中…</string>
+    <string name="health_insights_title">健康インサイト</string>
+    <string name="health_last_30_days">過去30日間</string>
+    <string name="health_avg_mood">平均気分</string>
+    <string name="health_avg_energy">平均エネルギー</string>
+    <string name="health_avg_sleep">平均睡眠</string>
+    <string name="health_most_frequent_symptoms">最も多い症状</string>
+    <string name="health_days_count">%1$d 日</string>
+    <string name="health_entries_registered">%1$d 件の記録</string>
+    <string name="health_no_data">データが不足しています</string>
+    <string name="health_no_data_hint">インサイトを表示するには、少なくとも1週間健康を記録してください。</string>
+    <string name="health_ai_insights">AI インサイト</string>
+    <string name="health_ai_description">Gemma 4 があなたのデータを分析し、パターン、相関関係、アラートを探します。</string>
+    <string name="health_analyzing">データを分析中…</string>
+    <string name="health_ai_analysis">AI 分析</string>
+    <string name="health_regenerate">再生成</string>
+    <string name="health_generate_insights">インサイトを生成</string>
+    <string name="health_timeline_title">健康タイムライン</string>
+    <string name="health_no_entries">まだ記録がありません</string>
+    <string name="health_no_entries_hint">カレンダーから最初の日を記録してください</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">タップして録音</string>
+    <string name="recording">録音中…</string>
+    <string name="transcribing">文字起こし中…</string>
+    <string name="transcription_complete">文字起こし完了</string>
+    <string name="voice_error_start_recording">録音を開始できませんでした：%1$s</string>
+    <string name="voice_error_no_audio_file">音声ファイルが見つかりません</string>
+    <string name="voice_error_no_model">音声モデルがダウンロードされていません。設定からダウンロードしてください。</string>
+    <string name="voice_error_no_text_detected">録音からテキストが検出されませんでした</string>
+    <string name="voice_error_transcription">文字起こしエラー</string>
+    <string name="voice_error_download_model">モデルのダウンロードエラー：%1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">メモを共有</string>
+    <string name="receive_note">メモを受信</string>
+    <string name="import_note">メモをインポート</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">方法を選択</string>
+    <string name="share_method_p2p_title">P2Pで共有</string>
+    <string name="share_method_p2p_subtitle">近くのデバイスに暗号化して送信</string>
+    <string name="share_method_vault_title">Vaultに保存</string>
+    <string name="share_method_vault_subtitle">プライベートVaultに暗号化して保管</string>
+    <string name="share_state_preparing">準備中…</string>
+    <string name="share_state_connecting">接続中…</string>
+    <string name="share_state_sending">暗号化されたメモを送信中…</string>
+    <string name="share_state_completed_title">メモを送信しました</string>
+    <string name="share_state_completed_subtitle">メモは暗号化された形式で送信されました。</string>
+    <string name="share_qr_cd">共有用QRコード</string>
+    <string name="share_qr_hint">受信者にこのQRをスキャンしてもらう</string>
+    <string name="share_sharing_label">共有中: %1$s</string>
+    <string name="share_conn_advertising">受信者を待っています…</string>
+    <string name="share_conn_discovering">検索中…</string>
+    <string name="share_conn_connected">接続済み</string>
+    <string name="share_conn_transferring">転送中…</string>
+    <string name="share_conn_completed">完了</string>
+    <string name="share_conn_error">接続エラー</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + 直接接続</string>
+    <string name="share_sheet_qr_subtitle">QRをスキャンしてWi-Fi Directで送信</string>
+    <string name="share_sheet_nfc_subtitle">デバイスを近づけて共有</string>
+    <string name="share_sheet_file_title">.sileファイル</string>
+    <string name="share_sheet_file_subtitle">パスワードで暗号化してエクスポート・共有</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">共有メモを受信</string>
+    <string name="receive_idle_subtitle">送信者のQRをスキャンするか.sileファイルを開く</string>
+    <string name="receive_scan_qr">QRをスキャン</string>
+    <string name="receive_open_file">.sileファイルを開く</string>
+    <string name="receive_state_scanning">QRスキャン中…</string>
+    <string name="receive_state_waiting">送信者の接続を待っています…</string>
+    <string name="receive_keep_app_open">アプリを開いたままにする</string>
+    <string name="receive_state_receiving">メモを受信中…</string>
+    <string name="receive_state_decrypting">復号中…</string>
+    <string name="receive_state_completed">メモを受信しました</string>
+    <string name="receive_open_note">メモを開く</string>
+    <string name="receive_protected_file_title">保護されたファイル</string>
+    <string name="receive_protected_file_hint">.sileファイルのパスワードを入力</string>
+    <string name="receive_decrypt_action">復号する</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">スキャン</string>
+    <string name="scanner_state_preparing">スキャナーを準備中…</string>
+    <string name="scanner_state_processing">ドキュメントを処理中…</string>
+    <string name="scanner_state_completed">ドキュメントをスキャンしました</string>
+    <string name="scanner_edit_note">メモを編集</string>
+    <string name="scanner_back_to_notes">メモ一覧に戻る</string>
+    <string name="scanner_retry">もう一度試す</string>
+    <string name="scanner_progress_loading">画像を読み込み中…</string>
+    <string name="scanner_progress_ocr">テキストを抽出中 (OCR)…</string>
+    <string name="scanner_progress_encrypting">画像を暗号化中…</string>
+    <string name="scanner_error_load_images">スキャン画像を読み込めませんでした</string>
+    <string name="scanner_error_no_text">スキャンされたドキュメントにテキストが見つかりません</string>
+    <string name="scanner_error_processing">ドキュメント処理中にエラーが発生しました</string>
+    <string name="scanner_note_title">ドキュメント — %1$s</string>
+    <string name="scanner_summary_one_page">%1$dページ · %2$d文字</string>
+    <string name="scanner_summary_pages">%1$dページ · %2$d文字</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">分析：%1$s</string>
+    <string name="contract_note_tag">分析</string>
+    <string name="abusive_clause_detector">不当条項検出</string>
+    <string name="analysis_complete">分析完了</string>
+    <string name="executive_summary">要旨</string>
+    <string name="red_flags">警告サイン</string>
+    <string name="real_intent">真の意図</string>
+    <string name="recommendations">推奨事項</string>
+    <string name="simplified_language">平易な表現</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">Vaultを作成</string>
+    <string name="vault_create_subtitle">プライベートファイルを保護する6桁のPINを設定してください。\nVaultには生体認証も必要です。</string>
+    <string name="vault_choose_pin">PINを選択</string>
+    <string name="vault_confirm_pin">PINを確認</string>
+    <string name="vault_pins_no_match">PINが一致しません。もう一度お試しください。</string>
+    <string name="vault_start_over">最初からやり直す</string>
+    <string name="vault_locked">Vaultはロック中</string>
+    <string name="vault_identity_verified">本人確認済み</string>
+    <string name="vault_enter_pin">PINを入力</string>
+    <string name="vault_authenticate_biometrics">生体認証で認証</string>
+    <string name="vault_preparing_pin">PIN入力を準備中…</string>
+    <string name="vault_enter_pin_unlock">ロック解除には6桁のPINを入力してください</string>
+    <string name="vault_unlock_biometrics">生体認証でロック解除</string>
+    <string name="vault_biometric_verified">生体認証済み</string>
+    <string name="vault_too_many_attempts">試行回数が多すぎます。%1$d秒後にもう一度お試しください</string>
+    <string name="vault_incorrect_pin">PINが正しくありません</string>
+    <string name="vault_enter_your_pin">PINを入力してください</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">戻る</string>
+    <string name="vault_lock_vault_cd">Vaultをロック</string>
+    <string name="vault_create_folder_cd">フォルダを作成</string>
+    <string name="vault_add_file_cd">ファイルを追加</string>
+    <string name="vault_search_files">ファイルを検索</string>
+    <string name="vault_filter_all">すべて</string>
+    <string name="vault_folder_empty">このフォルダは空です</string>
+    <string name="vault_vault_empty">Vaultは空です</string>
+    <string name="vault_tap_add_files">+を押してプライベートファイルを追加</string>
+    <string name="vault_encrypting">暗号化中…</string>
+    <string name="vault_delete_item_title">アイテムを削除しますか？</string>
+    <string name="vault_delete_item_text">「%1$s」は完全に削除されます。</string>
+    <string name="vault_delete_folder_title">フォルダを削除しますか？</string>
+    <string name="vault_delete_folder_text">「%1$s」は削除されます。中のアイテムはルートに移動されます。</string>
+    <string name="vault_new_folder_title">新しいフォルダ</string>
+    <string name="vault_folder_name_placeholder">フォルダ名</string>
+    <string name="vault_move_to_folder_title">フォルダに移動</string>
+    <string name="vault_root_no_folder">ルート（フォルダなし）</string>
+    <string name="vault_no_folders_yet">フォルダがまだありません。先に作成してください。</string>
+    <string name="vault_size">Vault: %1$s</string>
+    <string name="vault_items_count">%1$d件</string>
+    <string name="vault_migration_title">Vaultのセキュリティアップグレード</string>
+    <string name="vault_migration_subtitle">VaultはPIN（6桁）と\n生体認証が必要になりました。</string>
+    <string name="vault_current_password_label">現在のVaultパスワード</string>
+    <string name="vault_incorrect_password">パスワードが正しくありません</string>
+    <string name="vault_migration_failed">移行に失敗しました: %1$s。現在のパスワードはまだ使えます — 入力して再試行してください。</string>
+    <string name="vault_continue">続ける</string>
+    <string name="vault_choose_new_pin">新しいPINを選択</string>
+    <string name="vault_confirm_new_pin">新しいPINを確認</string>
+    <string name="vault_reencrypting">Vaultファイルを再暗号化中…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">Vaultに保存</string>
+    <string name="vault_close_cd">閉じる</string>
+    <string name="vault_encrypting_saving">暗号化して保存中…</string>
+    <string name="vault_files_count">%1$dファイル</string>
+    <string name="vault_saved_title">Vaultに保存しました</string>
+    <string name="vault_saved_subtitle">暗号化して安全に保存されました。</string>
+    <string name="vault_saved_multiple">%1$dファイルを保存しました</string>
+    <string name="vault_error_unknown">不明なエラー</string>
+    <string name="vault_retry">再試行</string>
+    <string name="vault_error_import">インポートエラー</string>
+    <string name="vault_viewer_decrypting">復号中…</string>
+    <string name="vault_viewer_error_title">エラー</string>
+    <string name="vault_viewer_item_not_found">アイテムが見つかりません</string>
+    <string name="vault_viewer_failed_load">ファイルの読み込みに失敗しました</string>
+    <string name="vault_viewer_back_cd">戻る</string>
+    <string name="vault_viewer_info_cd">情報</string>
+    <string name="vault_viewer_share_cd">共有</string>
+    <string name="vault_info_file_section">ファイル</string>
+    <string name="vault_info_image_section">画像</string>
+    <string name="vault_info_camera_section">カメラ</string>
+    <string name="vault_info_exposure_section">露出</string>
+    <string name="vault_info_location_section">位置情報</string>
+    <string name="vault_info_name">名前</string>
+    <string name="vault_info_size">サイズ</string>
+    <string name="vault_info_type">種類</string>
+    <string name="vault_info_added">追加日</string>
+    <string name="vault_info_dimensions">寸法</string>
+    <string name="vault_info_make">メーカー</string>
+    <string name="vault_info_model">モデル</string>
+    <string name="vault_info_lens">レンズ</string>
+    <string name="vault_info_software">ソフトウェア</string>
+    <string name="vault_info_aperture">絞り</string>
+    <string name="vault_info_shutter">シャッタースピード</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">焦点距離</string>
+    <string name="vault_info_flash">フラッシュ</string>
+    <string name="vault_info_white_balance">ホワイトバランス</string>
+    <string name="vault_info_coordinates">座標</string>
+    <string name="vault_info_altitude">高度</string>
+    <string name="vault_info_date_taken">撮影日時</string>
+    <string name="vault_viewer_cannot_decode">画像をデコードできませんでした</string>
+    <string name="vault_viewer_play_cd">再生</string>
+    <string name="vault_viewer_pause_cd">一時停止</string>
+    <string name="vault_viewer_preview_unavailable">このファイル形式のプレビューはありません</string>
+    <string name="vault_flash_fired">発光</string>
+    <string name="vault_flash_off">オフ</string>
+    <string name="vault_white_balance_auto">自動</string>
+    <string name="vault_white_balance_manual">マニュアル</string>
+    <string name="vault_viewer_title">ビューア</string>
+    <string name="vault_share_chooser_title">ファイルを共有</string>
+
+    <!-- ボイスレコーダー -->
+    <string name="voice_title">音声を録音</string>
+    <string name="voice_back_cd">戻る</string>
+    <string name="voice_mic_permission_required">マイクの許可が必要です</string>
+    <string name="voice_grant_permission">許可を付与</string>
+    <string name="voice_stop_cd">停止</string>
+    <string name="voice_record_cd">録音</string>
+    <string name="voice_create_note">メモを作成</string>
+    <string name="voice_retry">再試行</string>
+    <string name="voice_generic_error">エラー</string>
+
+    <!-- 契約アナライザー -->
+    <string name="contract_analyze_title">文書を分析</string>
+    <string name="contract_back_cd">戻る</string>
+    <string name="contract_document_type_label">文書の種類</string>
+    <string name="contract_document_text_label">文書のテキスト</string>
+    <string name="contract_document_text_placeholder">分析する契約、メール、またはテキストを貼り付けてください…</string>
+    <string name="contract_char_count">%1$d 文字</string>
+    <string name="contract_analyze_btn">分析</string>
+    <string name="contract_preparing">分析を準備中…</string>
+    <string name="contract_analyzing">セクション %1$d/%2$d を分析中…</string>
+    <string name="contract_parsing">レポートを生成中…</string>
+    <string name="contract_retry_btn">再試行</string>
+    <string name="contract_error_empty_text">分析するテキストを入力してください</string>
+    <string name="contract_report_title">分析レポート</string>
+    <string name="contract_copy_summary_cd">要約をコピー</string>
+    <string name="contract_save_report_cd">分析を保存</string>
+    <string name="contract_no_report">レポートがありません</string>
+    <string name="contract_executive_summary_section">エグゼクティブサマリー</string>
+    <string name="contract_red_flags_section">レッドフラグ（%1$d）</string>
+    <string name="contract_no_red_flags">レッドフラグは検出されませんでした。</string>
+    <string name="contract_real_intention_section">真の意図</string>
+    <string name="contract_no_real_intention">意図を判断できませんでした。</string>
+    <string name="contract_recommendations_section">推奨事項</string>
+    <string name="contract_no_recommendations">特定の推奨事項はありません。</string>
+    <string name="contract_simplified_section">簡略版</string>
+    <string name="contract_not_available">利用不可。</string>
+    <string name="contract_collapse_cd">折りたたむ</string>
+    <string name="contract_expand_cd">展開</string>
+    <string name="contract_severity_high">高</string>
+    <string name="contract_severity_medium">中</string>
+    <string name="contract_severity_low">低</string>
+    <string name="contract_type_contract">契約書</string>
+    <string name="contract_type_corporate_email">ビジネスメール</string>
+    <string name="contract_type_terms">利用規約</string>
+    <string name="contract_type_bureaucracy">行政書類</string>
+    <string name="contract_type_other">その他</string>
+
+    <!-- メモとのチャット -->
+    <string name="chat_translated_message">メモを%1$sに翻訳し、新しいメモとして保存しました。</string>
+    <string name="chat_translation_tag">翻訳</string>
+    <string name="chat_error_response">応答を生成できませんでした。</string>
+    <string name="chat_title">メモとチャット</string>
+    <string name="chat_back_cd">戻る</string>
+    <string name="chat_more_cd">その他</string>
+    <string name="chat_translate_note">メモを翻訳</string>
+    <string name="chat_generate_email">メールを生成</string>
+    <string name="chat_generate_executive_summary">エグゼクティブサマリーを生成</string>
+    <string name="chat_clear_chat">チャットを消去</string>
+    <string name="chat_empty_title">メモについて質問する</string>
+    <string name="chat_empty_hint">「このアイデアについてどう思いますか？」「何が足りないですか？」「質問してください」</string>
+    <string name="chat_thinking">考え中…</string>
+    <string name="chat_message_placeholder">メッセージを入力…</string>
+    <string name="chat_send_cd">送信</string>
+
+    <!-- AI操作 -->
+    <string name="ai_op_summarize">要約</string>
+    <string name="ai_op_extract_todos">抽出されたタスク</string>
+    <string name="ai_op_suggest_tags">提案されたタグ</string>
+
+    <!-- メモのソース -->
+    <string name="source_typed">入力</string>
+    <string name="source_voice">音声</string>
+    <string name="source_scanned">スキャン</string>
+    <string name="source_imported">インポート</string>
+
+    <!-- PDFエクスポート -->
+    <string name="pdf_footer">Sile で生成</string>
+
+    <!-- Vault生体認証プロンプト -->
+    <string name="vault_biometric_prompt_title">Vaultをアンロック</string>
+    <string name="vault_biometric_prompt_subtitle">プライベートVaultにアクセスするために認証してください</string>
+    <string name="vault_camera_capture_cd">写真を撮る</string>
+    <string name="vault_camera_record_cd">動画を録画</string>
+    <string name="vault_camera_stop_cd">録画を停止</string>
+    <string name="vault_camera_flip_cd">カメラを切り替え</string>
+    <string name="vault_camera_flash_cd">フラッシュ</string>
+    <string name="vault_camera_close_cd">カメラを閉じる</string>
+    <string name="vault_camera_mode_photo">写真</string>
+    <string name="vault_camera_mode_video">動画</string>
+    <string name="vault_camera_permission_rationale">Sileはカメラにアクセスして、Vaultに直接キャプチャします。ギャラリーには何も保存されません。</string>
+    <string name="vault_camera_mic_rationale">音声付きの動画を録画するにはマイクへのアクセスが必要です。</string>
+    <string name="vault_camera_error_save">キャプチャを保存できませんでした。</string>
+</resources>

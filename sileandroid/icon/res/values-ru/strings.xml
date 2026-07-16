@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sile</string>
+    <string name="widget_small_description">Быстрая кнопка для новой заметки</string>
+    <string name="widget_medium_description">Последние заметки и быстрые действия</string>
+    <string name="widget_large_description">Последние заметки с предпросмотром</string>
+
+    <!-- Tabs -->
+    <string name="tab_notes">Заметки</string>
+    <string name="tab_health">Здоровье</string>
+    <string name="tab_vault">Vault</string>
+    <string name="tab_settings">Настройки</string>
+
+    <!-- Common -->
+    <string name="done">Готово</string>
+    <string name="cancel">Отмена</string>
+    <string name="close">Закрыть</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="create">Создать</string>
+    <string name="search">Поиск</string>
+    <string name="error">Ошибка</string>
+    <string name="ok">ОК</string>
+    <string name="name">Имя</string>
+    <string name="password">Пароль</string>
+
+    <!-- Notes -->
+    <string name="search_notes">Поиск заметок…</string>
+    <string name="your_mind_encrypted">Ваш разум, зашифрован.</string>
+    <string name="start_writing">Начните писать.</string>
+    <string name="no_results">Нет результатов</string>
+    <string name="new_note">Новая заметка</string>
+    <string name="record_voice">Запись голоса</string>
+    <string name="scan_document">Сканировать документ</string>
+    <string name="use_template">Использовать шаблон</string>
+    <string name="untitled">Без названия</string>
+    <string name="archive">Архив</string>
+    <string name="pin">Закрепить</string>
+    <string name="unpin">Открепить</string>
+    <string name="delete_note">Удалить заметку</string>
+    <string name="action_cannot_be_undone">Это действие нельзя отменить.</string>
+    <string name="notes_cd_open_note">Открыть заметку</string>
+    <string name="notes_cd_graph">Граф</string>
+    <string name="notes_cd_folders">Папки</string>
+    <string name="notes_cd_filters">Фильтры</string>
+    <string name="notes_cd_create">Создать</string>
+    <string name="notes_fab_rich_text">Заметка с форматированием</string>
+    <string name="notes_fab_markdown">Заметка в Markdown</string>
+    <string name="notes_fab_receive_note">Получить заметку</string>
+    <string name="notes_filter_title">Фильтры</string>
+    <string name="notes_filter_folders">Папки</string>
+    <string name="notes_filter_no_folders">Нет папок</string>
+    <string name="notes_filter_tags">Теги</string>
+    <string name="notes_filter_no_tags">Нет тегов</string>
+    <string name="notes_filter_clear">Сбросить фильтры</string>
+
+    <!-- Editor -->
+    <string name="add_tag">Добавить тег…</string>
+    <string name="summarize">Резюмировать</string>
+    <string name="extract_tasks">Извлечь задачи</string>
+    <string name="suggest_tags">Предложить теги</string>
+    <string name="chat_with_note">Чат с заметкой</string>
+    <string name="translate_note">Перевести заметку</string>
+    <string name="analyze_contract">Анализ контракта</string>
+    <string name="details">Подробности</string>
+    <string name="save_as_template">Сохранить как шаблон</string>
+    <string name="reminder">Напоминание</string>
+    <string name="export_pdf">Экспорт в PDF</string>
+    <string name="processing_with_ai">Обработка с AI…</string>
+    <string name="editor_back_cd">Назад</string>
+    <string name="editor_ai_cd">AI</string>
+    <string name="editor_open_note_cd">Открыть заметку</string>
+    <string name="editor_share_cd">Поделиться</string>
+    <string name="editor_more_menu_cd">Ещё</string>
+    <string name="editor_export_markdown">Экспорт в Markdown</string>
+    <string name="editor_title_placeholder">Заголовок статьи</string>
+    <string name="editor_body_placeholder_markdown">Начните писать в Markdown…</string>
+    <string name="editor_body_placeholder_rich">Начните писать статью…</string>
+    <string name="editor_open_wiki_link">Открыть [[%1$s]]</string>
+    <string name="editor_remove_tag_cd">Удалить</string>
+    <string name="editor_add_tag_action">Добавить</string>
+    <string name="editor_metadata_created">Создана</string>
+    <string name="editor_metadata_edited">Изменена</string>
+    <string name="editor_metadata_source">Источник</string>
+    <string name="editor_metadata_words">Слова</string>
+    <string name="editor_metadata_characters">Символы</string>
+    <string name="editor_ai_result_title">Результат AI</string>
+    <string name="editor_ai_add_tags">Добавить теги</string>
+    <string name="editor_ai_insert_in_note">Вставить в заметку</string>
+    <string name="editor_ai_error_title">Ошибка AI</string>
+    <string name="editor_export_chooser_title">Экспорт</string>
+    <string name="editor_toolbar_heading_cd">Заголовок</string>
+    <string name="editor_toolbar_heading1">Заголовок 1</string>
+    <string name="editor_toolbar_heading2">Заголовок 2</string>
+    <string name="editor_toolbar_heading3">Заголовок 3</string>
+    <string name="editor_toolbar_bold_cd">Жирный</string>
+    <string name="editor_toolbar_italic_cd">Курсив</string>
+    <string name="editor_toolbar_strikethrough_cd">Зачёркнутый</string>
+    <string name="editor_toolbar_code_cd">Код</string>
+    <string name="editor_toolbar_quote_cd">Цитата</string>
+    <string name="editor_toolbar_list_cd">Список</string>
+    <string name="editor_toolbar_numbered_list_cd">Нумерованный список</string>
+    <string name="editor_toolbar_checklist_cd">Список задач</string>
+    <string name="editor_toolbar_link_cd">Ссылка</string>
+    <string name="editor_toolbar_wiki_link_cd">Вики-ссылка</string>
+
+    <!-- Relative timestamps -->
+    <string name="time_just_now">только что</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">%d минуту назад</item>
+        <item quantity="few">%d минуты назад</item>
+        <item quantity="many">%d минут назад</item>
+        <item quantity="other">%d минут назад</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">%d час назад</item>
+        <item quantity="few">%d часа назад</item>
+        <item quantity="many">%d часов назад</item>
+        <item quantity="other">%d часов назад</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">%d день назад</item>
+        <item quantity="few">%d дня назад</item>
+        <item quantity="many">%d дней назад</item>
+        <item quantity="other">%d дней назад</item>
+    </plurals>
+    <plurals name="time_weeks_ago">
+        <item quantity="one">%d неделю назад</item>
+        <item quantity="few">%d недели назад</item>
+        <item quantity="many">%d недель назад</item>
+        <item quantity="other">%d недель назад</item>
+    </plurals>
+
+    <!-- Components -->
+    <string name="notecard_pinned_cd">Закреплена</string>
+    <string name="quickswitcher_title">Открыть заметку</string>
+    <string name="quickswitcher_search_placeholder">Поиск по заголовку…</string>
+    <string name="quickswitcher_create_note">Создать \"%1$s\"</string>
+
+    <!-- Lock Screen -->
+    <string name="lock_unlock_button">Разблокировать</string>
+    <string name="lock_or_enter_pin">или введите PIN-код</string>
+    <string name="lock_pin_incorrect">Неверный PIN</string>
+
+    <!-- Quick Capture -->
+    <string name="quickcapture_share_title">Сохранить в Sile</string>
+    <string name="quickcapture_content_label">Содержимое</string>
+    <string name="quickcapture_tags_label">Теги</string>
+    <string name="quickcapture_saving">Сохранение…</string>
+
+    <!-- Bubble -->
+    <string name="bubble_title_placeholder">Заголовок</string>
+    <string name="bubble_content_placeholder">Быстрая заметка…</string>
+
+    <!-- Widget empty / actions -->
+    <string name="widget_empty_state">Ваш разум, зашифрован.\nНачните писать.</string>
+    <string name="widget_no_notes_yet">Пока нет заметок</string>
+    <string name="widget_action_note">Заметка</string>
+    <string name="widget_action_voice">Голос</string>
+    <string name="widget_action_scan">Скан</string>
+
+    <!-- Manifest labels -->
+    <string name="quickcapture_share_receiver_label">Сохранить в Sile</string>
+    <string name="vault_share_target_label">Сохранить в Vault (Sile)</string>
+    <string name="tile_new_note_label">Новая заметка</string>
+
+    <!-- Biometric -->
+    <string name="biometric_prompt_subtitle">Разблокируйте для доступа к заметкам</string>
+    <string name="biometric_use_pin">Использовать PIN</string>
+
+    <!-- Settings -->
+    <string name="appearance">Оформление</string>
+    <string name="dark">Тёмная</string>
+    <string name="light">Светлая</string>
+    <string name="system">Системная</string>
+    <string name="security">Безопасность</string>
+    <string name="storage">Хранилище</string>
+    <string name="import_export">Импорт / Экспорт</string>
+    <string name="about_sile">О Sile</string>
+    <string name="version">Версия</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="terms_of_use">Условия использования</string>
+    <string name="delete_all_data">Удалить все данные</string>
+    <string name="settings_transcription">Транскрипция</string>
+    <string name="settings_export_section">Экспорт</string>
+    <string name="settings_dark_theme">Тёмная тема</string>
+    <string name="settings_biometric_lock">Биометрическая блокировка</string>
+    <string name="settings_change_pin">Изменить PIN</string>
+    <string name="settings_setup_backup_pin">Настроить резервный PIN</string>
+    <string name="settings_pin_digits">6 цифр</string>
+    <string name="settings_preferred_language">Предпочтительный язык</string>
+    <string name="settings_attachments">Вложения</string>
+    <string name="settings_export_notes_markdown">Экспортировать заметки как Markdown</string>
+    <string name="settings_danger_zone">Опасная зона</string>
+    <string name="settings_delete_all_confirm_text">Все ваши заметки, записи и настройки будут удалены. Это действие нельзя отменить.</string>
+    <string name="settings_are_you_sure">Вы уверены?</string>
+    <string name="settings_delete_all_final_text">Это последнее подтверждение. Все данные будут безвозвратно утеряны.</string>
+    <string name="settings_delete_all_caps">УДАЛИТЬ ВСЁ</string>
+
+    <!-- Folders -->
+    <string name="folders_smart">Смарт-папки</string>
+    <string name="folders_empty_hint">Создайте папку для организации заметок</string>
+
+    <!-- Graph -->
+    <string name="graph_title">Граф заметок</string>
+    <string name="graph_no_connections">Нет связей</string>
+    <string name="graph_no_connections_hint">Используйте [[название заметки]] для связи заметок</string>
+
+    <!-- Health -->
+    <string name="calendar">Календарь</string>
+    <string name="timeline">Хронология</string>
+    <string name="insights">Аналитика</string>
+    <string name="health_entry">Запись о здоровье</string>
+    <string name="how_are_you_feeling">Как вы себя чувствуете?</string>
+    <string name="mood">Настроение</string>
+    <string name="energy">Энергия</string>
+    <string name="sleep">Сон</string>
+    <string name="symptoms">Симптомы</string>
+    <string name="medication">Лекарства</string>
+    <string name="health_tab_timeline">Хронология</string>
+    <string name="health_tab_insights">Аналитика</string>
+    <string name="health_today">Сегодня</string>
+    <string name="health_prev_month">Предыдущий месяц</string>
+    <string name="health_next_month">Следующий месяц</string>
+    <string name="health_mood_very_bad">Очень плохо</string>
+    <string name="health_mood_bad">Плохо</string>
+    <string name="health_mood_neutral">Нормально</string>
+    <string name="health_mood_good">Хорошо</string>
+    <string name="health_mood_very_good">Очень хорошо</string>
+    <string name="health_day_mon">Пн</string>
+    <string name="health_day_tue">Вт</string>
+    <string name="health_day_wed">Ср</string>
+    <string name="health_day_thu">Чт</string>
+    <string name="health_day_fri">Пт</string>
+    <string name="health_day_sat">Сб</string>
+    <string name="health_day_sun">Вс</string>
+    <string name="health_mood_section">Настроение</string>
+    <string name="health_notes_section">Заметки</string>
+    <string name="health_hours_label">Часов:</string>
+    <string name="health_quality_label">Качество:</string>
+    <string name="health_add_symptom_hint">Добавить симптом…</string>
+    <string name="health_add_cd">Добавить</string>
+    <string name="health_add_medication_hint">Добавить лекарство…</string>
+    <string name="health_notes_placeholder">Хотите добавить что-нибудь ещё?</string>
+    <string name="health_saving">Сохранение…</string>
+    <string name="health_insights_title">Аналитика здоровья</string>
+    <string name="health_last_30_days">Последние 30 дней</string>
+    <string name="health_avg_mood">Среднее настроение</string>
+    <string name="health_avg_energy">Средняя энергия</string>
+    <string name="health_avg_sleep">Средний сон</string>
+    <string name="health_most_frequent_symptoms">Наиболее частые симптомы</string>
+    <string name="health_days_count">%1$d дней</string>
+    <string name="health_entries_registered">%1$d записей сделано</string>
+    <string name="health_no_data">Недостаточно данных</string>
+    <string name="health_no_data_hint">Записывайте состояние здоровья не менее недели, чтобы увидеть аналитику.</string>
+    <string name="health_ai_insights">Аналитика ИИ</string>
+    <string name="health_ai_description">Gemma 4 анализирует ваши данные в поисках закономерностей, корреляций и предупреждений.</string>
+    <string name="health_analyzing">Анализ данных…</string>
+    <string name="health_ai_analysis">Анализ ИИ</string>
+    <string name="health_regenerate">Перегенерировать</string>
+    <string name="health_generate_insights">Создать аналитику</string>
+    <string name="health_timeline_title">Хронология здоровья</string>
+    <string name="health_no_entries">Пока нет записей</string>
+    <string name="health_no_entries_hint">Запишите первый день из календаря</string>
+
+    <!-- Voice Recorder -->
+    <string name="tap_to_record">Нажмите для записи</string>
+    <string name="recording">Запись…</string>
+    <string name="transcribing">Транскрибирование…</string>
+    <string name="transcription_complete">Транскрипция завершена</string>
+    <string name="voice_error_start_recording">Не удалось начать запись: %1$s</string>
+    <string name="voice_error_no_audio_file">Аудиофайл не найден</string>
+    <string name="voice_error_no_model">Голосовая модель не загружена. Скачай её в Настройках.</string>
+    <string name="voice_error_no_text_detected">В записи не обнаружено текста</string>
+    <string name="voice_error_transcription">Ошибка транскрипции</string>
+    <string name="voice_error_download_model">Ошибка загрузки модели: %1$s</string>
+
+
+    <!-- Sharing -->
+    <string name="share_note">Поделиться заметкой</string>
+    <string name="receive_note">Получить заметку</string>
+    <string name="import_note">Импортировать заметку</string>
+
+    <!-- ShareScreen -->
+    <string name="share_select_method">Выбери способ</string>
+    <string name="share_method_p2p_title">Поделиться через P2P</string>
+    <string name="share_method_p2p_subtitle">Отправить зашифрованное на ближайшее устройство</string>
+    <string name="share_method_vault_title">Сохранить в Vault</string>
+    <string name="share_method_vault_subtitle">Зашифровать и сохранить в личном Vault</string>
+    <string name="share_state_preparing">Подготовка…</string>
+    <string name="share_state_connecting">Подключение…</string>
+    <string name="share_state_sending">Отправка зашифрованной заметки…</string>
+    <string name="share_state_completed_title">Заметка отправлена</string>
+    <string name="share_state_completed_subtitle">Заметка была отправлена в зашифрованном виде.</string>
+    <string name="share_qr_cd">QR-код для передачи</string>
+    <string name="share_qr_hint">Попроси получателя отсканировать этот QR</string>
+    <string name="share_sharing_label">Передача: %1$s</string>
+    <string name="share_conn_advertising">Ожидание получателя…</string>
+    <string name="share_conn_discovering">Поиск…</string>
+    <string name="share_conn_connected">Подключено</string>
+    <string name="share_conn_transferring">Передача…</string>
+    <string name="share_conn_completed">Завершено</string>
+    <string name="share_conn_error">Ошибка подключения</string>
+
+    <!-- ShareBottomSheet -->
+    <string name="share_sheet_qr_title">QR + Прямое соединение</string>
+    <string name="share_sheet_qr_subtitle">Отсканируй QR и отправь через Wi-Fi Direct</string>
+    <string name="share_sheet_nfc_subtitle">Приложи устройства друг к другу для передачи</string>
+    <string name="share_sheet_file_title">Файл .sile</string>
+    <string name="share_sheet_file_subtitle">Экспортируй с шифрованием паролем и поделись</string>
+
+    <!-- ReceiveScreen -->
+    <string name="receive_idle_title">Получить общую заметку</string>
+    <string name="receive_idle_subtitle">Отсканируй QR отправителя или открой файл .sile</string>
+    <string name="receive_scan_qr">Сканировать QR</string>
+    <string name="receive_open_file">Открыть файл .sile</string>
+    <string name="receive_state_scanning">Сканирование QR…</string>
+    <string name="receive_state_waiting">Ожидание подключения отправителя…</string>
+    <string name="receive_keep_app_open">Держи приложение открытым</string>
+    <string name="receive_state_receiving">Получение заметки…</string>
+    <string name="receive_state_decrypting">Расшифровка…</string>
+    <string name="receive_state_completed">Заметка получена</string>
+    <string name="receive_open_note">Открыть заметку</string>
+    <string name="receive_protected_file_title">Защищённый файл</string>
+    <string name="receive_protected_file_hint">Введи пароль от файла .sile</string>
+    <string name="receive_decrypt_action">Расшифровать</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">Сканировать</string>
+    <string name="scanner_state_preparing">Подготовка сканера…</string>
+    <string name="scanner_state_processing">Обработка документа…</string>
+    <string name="scanner_state_completed">Документ отсканирован</string>
+    <string name="scanner_edit_note">Редактировать заметку</string>
+    <string name="scanner_back_to_notes">Вернуться к заметкам</string>
+    <string name="scanner_retry">Попробовать снова</string>
+    <string name="scanner_progress_loading">Загрузка изображений…</string>
+    <string name="scanner_progress_ocr">Извлечение текста (OCR)…</string>
+    <string name="scanner_progress_encrypting">Шифрование изображений…</string>
+    <string name="scanner_error_load_images">Не удалось загрузить отсканированные изображения</string>
+    <string name="scanner_error_no_text">В отсканированном документе текст не обнаружен</string>
+    <string name="scanner_error_processing">Ошибка обработки документа</string>
+    <string name="scanner_note_title">Документ — %1$s</string>
+    <string name="scanner_summary_one_page">%1$d страница · %2$d символов</string>
+    <string name="scanner_summary_pages">%1$d страниц · %2$d символов</string>
+
+    <!-- Contract Analyzer -->
+    <string name="contract_note_title">Анализ: %1$s</string>
+    <string name="contract_note_tag">анализ</string>
+    <string name="abusive_clause_detector">Детектор злоупотреблений в пунктах</string>
+    <string name="analysis_complete">Анализ завершён</string>
+    <string name="executive_summary">Краткое резюме</string>
+    <string name="red_flags">Тревожные сигналы</string>
+    <string name="real_intent">Истинное намерение</string>
+    <string name="recommendations">Рекомендации</string>
+    <string name="simplified_language">Упрощённый язык</string>
+
+    <!-- Vault -->
+    <string name="vault_create_title">Создайте свой Vault</string>
+    <string name="vault_create_subtitle">Задайте 6-значный PIN-код для защиты личных файлов.\nVault также требует биометрическую аутентификацию.</string>
+    <string name="vault_choose_pin">Выберите PIN-код</string>
+    <string name="vault_confirm_pin">Подтвердите PIN-код</string>
+    <string name="vault_pins_no_match">PIN-коды не совпадают. Попробуйте ещё раз.</string>
+    <string name="vault_start_over">Начать заново</string>
+    <string name="vault_locked">Vault заблокирован</string>
+    <string name="vault_identity_verified">Личность подтверждена</string>
+    <string name="vault_enter_pin">Введите PIN-код</string>
+    <string name="vault_authenticate_biometrics">Аутентификация по биометрии</string>
+    <string name="vault_preparing_pin">Подготовка ввода PIN-кода…</string>
+    <string name="vault_enter_pin_unlock">Введите 6-значный PIN-код для разблокировки</string>
+    <string name="vault_unlock_biometrics">Разблокировать по биометрии</string>
+    <string name="vault_biometric_verified">Биометрия подтверждена</string>
+    <string name="vault_too_many_attempts">Слишком много попыток. Повторите через %1$d с</string>
+    <string name="vault_incorrect_pin">Неверный PIN-код</string>
+    <string name="vault_enter_your_pin">Введите свой PIN-код</string>
+    <string name="vault_title">Vault</string>
+    <string name="vault_back_cd">Назад</string>
+    <string name="vault_lock_vault_cd">Заблокировать Vault</string>
+    <string name="vault_create_folder_cd">Создать папку</string>
+    <string name="vault_add_file_cd">Добавить файл</string>
+    <string name="vault_search_files">Поиск файлов</string>
+    <string name="vault_filter_all">Все</string>
+    <string name="vault_folder_empty">Эта папка пуста</string>
+    <string name="vault_vault_empty">Ваш Vault пуст</string>
+    <string name="vault_tap_add_files">Нажмите +, чтобы добавить личные файлы</string>
+    <string name="vault_encrypting">Шифрование…</string>
+    <string name="vault_delete_item_title">Удалить элемент?</string>
+    <string name="vault_delete_item_text">\"%1$s\" будет удалён без возможности восстановления.</string>
+    <string name="vault_delete_folder_title">Удалить папку?</string>
+    <string name="vault_delete_folder_text">\"%1$s\" будет удалена. Элементы внутри переместятся в корень.</string>
+    <string name="vault_new_folder_title">Новая папка</string>
+    <string name="vault_folder_name_placeholder">Название папки</string>
+    <string name="vault_move_to_folder_title">Переместить в папку</string>
+    <string name="vault_root_no_folder">Корень (без папки)</string>
+    <string name="vault_no_folders_yet">Папок пока нет. Сначала создайте одну.</string>
+    <string name="vault_size">Vault: %1$s</string>
+    <string name="vault_items_count">%1$d элем.</string>
+    <string name="vault_migration_title">Обновление безопасности Vault</string>
+    <string name="vault_migration_subtitle">Теперь Vault требует 6-значный PIN-код\nи биометрическую аутентификацию.</string>
+    <string name="vault_current_password_label">Текущий пароль Vault</string>
+    <string name="vault_incorrect_password">Неверный пароль</string>
+    <string name="vault_migration_failed">Ошибка миграции: %1$s. Текущий пароль по-прежнему работает — введите его, чтобы попробовать снова.</string>
+    <string name="vault_continue">Продолжить</string>
+    <string name="vault_choose_new_pin">Выберите новый PIN-код</string>
+    <string name="vault_confirm_new_pin">Подтвердите новый PIN-код</string>
+    <string name="vault_reencrypting">Повторное шифрование файлов Vault…</string>
+    <string name="vault_migration_progress">%1$d / %2$d</string>
+    <string name="vault_save_to_vault_title">Сохранить в Vault</string>
+    <string name="vault_close_cd">Закрыть</string>
+    <string name="vault_encrypting_saving">Шифрование и сохранение…</string>
+    <string name="vault_files_count">%1$d файлов</string>
+    <string name="vault_saved_title">Сохранено в Vault</string>
+    <string name="vault_saved_subtitle">Зашифровано и надёжно сохранено.</string>
+    <string name="vault_saved_multiple">%1$d файлов сохранено</string>
+    <string name="vault_error_unknown">Неизвестная ошибка</string>
+    <string name="vault_retry">Повторить</string>
+    <string name="vault_error_import">Ошибка импорта</string>
+    <string name="vault_viewer_decrypting">Расшифровка…</string>
+    <string name="vault_viewer_error_title">Ошибка</string>
+    <string name="vault_viewer_item_not_found">Элемент не найден</string>
+    <string name="vault_viewer_failed_load">Не удалось загрузить файл</string>
+    <string name="vault_viewer_back_cd">Назад</string>
+    <string name="vault_viewer_info_cd">Информация</string>
+    <string name="vault_viewer_share_cd">Поделиться</string>
+    <string name="vault_info_file_section">Файл</string>
+    <string name="vault_info_image_section">Изображение</string>
+    <string name="vault_info_camera_section">Камера</string>
+    <string name="vault_info_exposure_section">Экспозиция</string>
+    <string name="vault_info_location_section">Местоположение</string>
+    <string name="vault_info_name">Имя</string>
+    <string name="vault_info_size">Размер</string>
+    <string name="vault_info_type">Тип</string>
+    <string name="vault_info_added">Добавлено</string>
+    <string name="vault_info_dimensions">Размеры</string>
+    <string name="vault_info_make">Производитель</string>
+    <string name="vault_info_model">Модель</string>
+    <string name="vault_info_lens">Объектив</string>
+    <string name="vault_info_software">Программа</string>
+    <string name="vault_info_aperture">Диафрагма</string>
+    <string name="vault_info_shutter">Выдержка</string>
+    <string name="vault_info_iso">ISO</string>
+    <string name="vault_info_focal_length">Фокусное расстояние</string>
+    <string name="vault_info_flash">Вспышка</string>
+    <string name="vault_info_white_balance">Баланс белого</string>
+    <string name="vault_info_coordinates">Координаты</string>
+    <string name="vault_info_altitude">Высота</string>
+    <string name="vault_info_date_taken">Дата съёмки</string>
+    <string name="vault_viewer_cannot_decode">Не удалось декодировать изображение</string>
+    <string name="vault_viewer_play_cd">Воспроизвести</string>
+    <string name="vault_viewer_pause_cd">Пауза</string>
+    <string name="vault_viewer_preview_unavailable">Предпросмотр недоступен для этого типа файла</string>
+    <string name="vault_flash_fired">Сработала</string>
+    <string name="vault_flash_off">Выключена</string>
+    <string name="vault_white_balance_auto">Авто</string>
+    <string name="vault_white_balance_manual">Ручной</string>
+    <string name="vault_viewer_title">Просмотр</string>
+    <string name="vault_share_chooser_title">Поделиться файлом</string>
+
+    <!-- Диктофон -->
+    <string name="voice_title">Записать голос</string>
+    <string name="voice_back_cd">Назад</string>
+    <string name="voice_mic_permission_required">Требуется разрешение на микрофон</string>
+    <string name="voice_grant_permission">Разрешить</string>
+    <string name="voice_stop_cd">Остановить</string>
+    <string name="voice_record_cd">Записать</string>
+    <string name="voice_create_note">Создать заметку</string>
+    <string name="voice_retry">Попробовать снова</string>
+    <string name="voice_generic_error">Ошибка</string>
+
+    <!-- Анализатор контрактов -->
+    <string name="contract_analyze_title">Анализ документа</string>
+    <string name="contract_back_cd">Назад</string>
+    <string name="contract_document_type_label">Тип документа</string>
+    <string name="contract_document_text_label">Текст документа</string>
+    <string name="contract_document_text_placeholder">Вставьте контракт, письмо или текст для анализа…</string>
+    <string name="contract_char_count">%1$d символов</string>
+    <string name="contract_analyze_btn">Анализировать</string>
+    <string name="contract_preparing">Подготовка анализа…</string>
+    <string name="contract_analyzing">Анализ раздела %1$d из %2$d…</string>
+    <string name="contract_parsing">Создание отчёта…</string>
+    <string name="contract_retry_btn">Повторить</string>
+    <string name="contract_error_empty_text">Введите текст для анализа</string>
+    <string name="contract_report_title">Отчёт анализа</string>
+    <string name="contract_copy_summary_cd">Копировать резюме</string>
+    <string name="contract_save_report_cd">Сохранить анализ</string>
+    <string name="contract_no_report">Отчёт недоступен</string>
+    <string name="contract_executive_summary_section">Краткое резюме</string>
+    <string name="contract_red_flags_section">Тревожные сигналы (%1$d)</string>
+    <string name="contract_no_red_flags">Тревожных сигналов не обнаружено.</string>
+    <string name="contract_real_intention_section">Реальное намерение</string>
+    <string name="contract_no_real_intention">Намерение не удалось определить.</string>
+    <string name="contract_recommendations_section">Рекомендации</string>
+    <string name="contract_no_recommendations">Особых рекомендаций нет.</string>
+    <string name="contract_simplified_section">Упрощённая версия</string>
+    <string name="contract_not_available">Недоступно.</string>
+    <string name="contract_collapse_cd">Свернуть</string>
+    <string name="contract_expand_cd">Развернуть</string>
+    <string name="contract_severity_high">ВЫСОКИЙ</string>
+    <string name="contract_severity_medium">СРЕДНИЙ</string>
+    <string name="contract_severity_low">НИЗКИЙ</string>
+    <string name="contract_type_contract">Контракт</string>
+    <string name="contract_type_corporate_email">Корпоративное письмо</string>
+    <string name="contract_type_terms">Условия использования</string>
+    <string name="contract_type_bureaucracy">Бюрократия</string>
+    <string name="contract_type_other">Другое</string>
+
+    <!-- Чат с заметкой -->
+    <string name="chat_translated_message">Заметка переведена на %1$s и сохранена как новая.</string>
+    <string name="chat_translation_tag">перевод</string>
+    <string name="chat_error_response">Не удалось сгенерировать ответ.</string>
+    <string name="chat_title">Чат с заметкой</string>
+    <string name="chat_back_cd">Назад</string>
+    <string name="chat_more_cd">Ещё</string>
+    <string name="chat_translate_note">Перевести заметку</string>
+    <string name="chat_generate_email">Создать письмо</string>
+    <string name="chat_generate_executive_summary">Создать краткое резюме</string>
+    <string name="chat_clear_chat">Очистить чат</string>
+    <string name="chat_empty_title">Задайте вопрос о вашей заметке</string>
+    <string name="chat_empty_hint">«Что вы думаете об этой идее?» «Чего мне не хватает?» «Задайте мне вопросы»</string>
+    <string name="chat_thinking">Думаю…</string>
+    <string name="chat_message_placeholder">Напишите сообщение…</string>
+    <string name="chat_send_cd">Отправить</string>
+
+    <!-- Операции ИИ -->
+    <string name="ai_op_summarize">Резюме</string>
+    <string name="ai_op_extract_todos">Извлечённые задачи</string>
+    <string name="ai_op_suggest_tags">Предложенные теги</string>
+
+    <!-- Метки источника заметки -->
+    <string name="source_typed">Написанная</string>
+    <string name="source_voice">Голос</string>
+    <string name="source_scanned">Отсканированная</string>
+    <string name="source_imported">Импортированная</string>
+
+    <!-- Экспорт PDF -->
+    <string name="pdf_footer">Создано в Sile</string>
+
+    <!-- Биометрический запрос Vault -->
+    <string name="vault_biometric_prompt_title">Разблокировать Vault</string>
+    <string name="vault_biometric_prompt_subtitle">Пройдите аутентификацию для доступа к вашему приватному Vault</string>
+    <string name="vault_camera_capture_cd">Сделать фото</string>
+    <string name="vault_camera_record_cd">Записать видео</string>
+    <string name="vault_camera_stop_cd">Остановить запись</string>
+    <string name="vault_camera_flip_cd">Переключить камеру</string>
+    <string name="vault_camera_flash_cd">Вспышка</string>
+    <string name="vault_camera_close_cd">Закрыть камеру</string>
+    <string name="vault_camera_mode_photo">Фото</string>
+    <string name="vault_camera_mode_video">Видео</string>
+    <string name="vault_camera_permission_rationale">Sile нужен доступ к камере, чтобы снимать прямо в ваш Vault. Ничто не сохраняется в галерею.</string>
+    <string name="vault_camera_mic_rationale">Для записи видео со звуком необходим доступ к микрофону.</string>
+    <string name="vault_camera_error_save">Не удалось сохранить снимок.</string>
+</resources>
