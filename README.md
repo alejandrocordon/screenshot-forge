@@ -1,6 +1,6 @@
 # screenshot-forge
 
-Resize and crop screenshots **and app preview videos** for Google Play and Apple App Store. Accepts a single file or an entire folder and generates every required size in one pass.
+Resize and crop screenshots for Google Play and Apple App Store. Accepts a single file or an entire folder and generates every required size in one pass.
 
 CLI, GUI, and web interface. Works directly with Python or inside Docker.
 
@@ -8,7 +8,7 @@ CLI, GUI, and web interface. Works directly with Python or inside Docker.
 
 - Batch processing: point to a folder, get all store sizes at once
 - Scale-to-cover + center-crop (no black bars, no distortion)
-- **App preview videos**: drop a video and it gets cropped to the Apple / iOS sizes the same way (needs ffmpeg)
+- **App preview videos**: a standalone `ffmpeg` script crops `.mp4`/`.mov` clips to the Apple sizes the same way
 - All official sizes built in: iPhone 6.7", 6.5", 5.5", iPad 12.9", Android phone, tablet, Chromebook
 - Organized output by platform and device
 - Portrait and landscape orientations
@@ -27,8 +27,6 @@ CLI, GUI, and web interface. Works directly with Python or inside Docker.
 | iPhone 5.5"      | 1242 x 2208 | 2208 x 1242 |
 | iPad 12.9"       | 2048 x 2732 | 2732 x 2048 |
 
-> **Videos** (`.mp4`, `.mov`, `.m4v`) are cropped to these Apple / iOS sizes only — the App Store is where app preview videos live. Output is H.264 `.mp4`, one per size, alongside the images.
-
 ### Google Play Store
 
 | Device     | Size         |
@@ -46,11 +44,11 @@ cd screenshot-forge
 pip install -r requirements.txt
 ```
 
-Requires Python 3.10+ and Pillow. Cropping **videos** also needs [ffmpeg](https://ffmpeg.org) on your `PATH` (`brew install ffmpeg`, `apt install ffmpeg`, …). Images work without it.
+Requires Python 3.10+ and Pillow.
 
 ## Usage (CLI)
 
-The `--input` flag accepts a single file or a folder. When you pass a folder, every `.png`/`.jpg` image and every `.mp4`/`.mov`/`.m4v` video inside it gets processed automatically. Images are cropped to every selected size; videos are cropped to the Apple / iOS sizes only.
+The `--input` flag accepts a single image file or a folder. When you pass a folder, every `.png` and `.jpg` inside it gets processed automatically.
 
 ```bash
 # Folder with all your screenshots, all platforms
@@ -64,16 +62,13 @@ python forge.py -i ./screenshots -o ./output -p android -d phone
 
 # Single file
 python forge.py -i ./screenshots/home.png -o ./output
-
-# A single app preview video → cropped to every Apple size
-python forge.py -i ./previews/demo.mp4 -o ./output -p ios
 ```
 
 ### CLI arguments
 
 | Flag               | Required | Default    | Description                     |
 |--------------------|----------|------------|---------------------------------|
-| `-i` / `--input`   | yes      |            | Image/video file or folder      |
+| `-i` / `--input`   | yes      |            | Image file or folder            |
 | `-o` / `--output`  | no       | `./output` | Output folder                   |
 | `-p` / `--platform` | no      | `all`      | `ios`, `android`, or `all`      |
 | `-d` / `--device`  | no       | all        | Specific device (e.g. `phone`)  |
@@ -110,6 +105,33 @@ docker compose up web
 ```
 
 Then open http://localhost:8642.
+
+## Usage (App preview videos)
+
+App Store app previews are videos, not images, so they get their own tool: a
+standalone shell script that crops `.mp4` and `.mov` clips to every Apple / iOS
+size with the same scale-to-cover + center-crop logic. It only needs
+[ffmpeg](https://ffmpeg.org) (`brew install ffmpeg`) — no Python.
+
+```bash
+# A single .mov → every Apple size
+./crop_apple_video.sh -i demo.mov -o ./output
+
+# A folder of videos, only the 6.7" sizes
+./crop_apple_video.sh -i ./videos -o ./output -d 6.7inch
+
+# Shorthand: first argument is the input
+./crop_apple_video.sh demo.mp4
+```
+
+Output goes to `output/ios/<device>/<name>_<width>x<height>.mp4`. Audio is
+re-encoded to AAC and the video to H.264 for App Store compatibility.
+
+| Flag              | Required | Default    | Description                                             |
+|-------------------|----------|------------|---------------------------------------------------------|
+| `-i` / `--input`  | yes      |            | Video file or folder (`.mp4`, `.mov`, `.m4v`)           |
+| `-o` / `--output` | no       | `./output` | Output folder                                           |
+| `-d` / `--device` | no       | all        | `6.7inch`, `6.5inch`, `5.5inch`, or `ipad_12.9inch`     |
 
 ## Usage (Docker)
 
@@ -157,8 +179,6 @@ output/
     6.7inch/
       home_1290x2796.png
       home_2796x1290.png
-      demo_1290x2796.mp4    # from a video input
-      demo_2796x1290.mp4
     6.5inch/
       home_1242x2688.png
       home_2688x1242.png
@@ -187,7 +207,7 @@ No letterboxing. No stretching.
 - [x] GUI (Tkinter)
 - [x] Docker
 - [x] Web interface (Flask + drag-and-drop)
-- [x] App preview video cropping (Apple / iOS, via ffmpeg)
+- [x] App preview video cropping for Apple (shell script + ffmpeg)
 - [ ] Device frame overlays (iPhone/Pixel mockups)
 - [ ] Text overlays (title + subtitle per screenshot)
 - [ ] Fastlane integration
@@ -199,7 +219,6 @@ No letterboxing. No stretching.
 |-----------|----------|
 | Language  | Python   |
 | Imaging   | Pillow   |
-| Video     | ffmpeg   |
 | GUI       | Tkinter  |
 | CLI       | argparse |
 | Web       | Flask    |

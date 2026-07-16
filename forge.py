@@ -45,10 +45,7 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-i", "--input",
         required=True,
-        help=(
-            "Ruta al archivo o carpeta con screenshots y/o videos. "
-            "Los videos sólo se recortan a los tamaños de Apple (requiere ffmpeg)."
-        ),
+        help="Ruta al archivo de imagen o carpeta con screenshots.",
     )
     parser.add_argument(
         "-o", "--output",
