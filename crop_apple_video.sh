@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 #
-# crop_apple_video.sh — recorta App Preview de video a los tamaños de la
-# App Store (Apple / iOS) usando ffmpeg, con la misma estrategia que las
-# capturas: scale-to-cover + center-crop (sin barras negras ni distorsión).
+# crop_apple_video.sh — recorta App Preview de video a las resoluciones
+# oficiales de App Preview de la App Store usando ffmpeg, con la misma
+# estrategia que las capturas: scale-to-cover + center-crop (sin barras
+# negras ni distorsión). Nota: los videos usan resoluciones propias,
+# distintas a las de los screenshots.
 #
 # Soporta .mp4 y .mov (también .m4v). Compatible con el bash 3.2 de macOS.
 #
@@ -15,19 +17,19 @@
 
 set -euo pipefail
 
-# ── Tamaños oficiales de la App Store (device:ANCHOxALTO) ────────────
-# Portrait + landscape por dispositivo, igual que sizes.py.
+# ── Resoluciones oficiales de App Preview de la App Store (device:ANCHOxALTO)
+# OJO: los videos NO usan los tamaños de los screenshots. Apple define
+# resoluciones propias para los App Preview (portrait + landscape):
+#   https://developer.apple.com/help/app-store-connect/reference/app-preview-specifications/
 SIZES=(
-  "6.7inch:1290x2796"
-  "6.7inch:2796x1290"
-  "6.5inch:1242x2688"
-  "6.5inch:2688x1242"
-  "6.5inch:1284x2778"
-  "6.5inch:2778x1284"
-  "5.5inch:1242x2208"
-  "5.5inch:2208x1242"
-  "ipad_12.9inch:2048x2732"
-  "ipad_12.9inch:2732x2048"
+  "6.7inch:886x1920"
+  "6.7inch:1920x886"
+  "6.5inch:886x1920"
+  "6.5inch:1920x886"
+  "5.5inch:1080x1920"
+  "5.5inch:1920x1080"
+  "ipad_12.9inch:1200x1600"
+  "ipad_12.9inch:1600x1200"
 )
 
 CRF=20            # calidad libx264 (menor = mejor)
