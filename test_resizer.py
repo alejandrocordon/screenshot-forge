@@ -10,13 +10,22 @@ Ejecutar::
 from __future__ import annotations
 
 import os
+import types
 from pathlib import Path
 
 import pytest
 from PIL import Image
 
-from resizer import BatchResult, process_batch, resize_and_crop
-from sizes import TARGETS
+import resizer
+from resizer import (
+    BatchResult,
+    FFmpegNotFoundError,
+    _collect_video_files,
+    process_batch,
+    resize_and_crop,
+    resize_and_crop_video,
+)
+from sizes import SUPPORTED_VIDEO_EXTENSIONS, TARGETS
 
 
 # ── Fixtures ─────────────────────────────────────────────────────────
@@ -275,3 +284,190 @@ class TestBatchResult:
         assert result.errors == 0
         assert result.paths == []
         assert result.error_details == []
+
+
+# ── Helpers de video ─────────────────────────────────────────────────
+
+def _fake_ffmpeg_success(created: list[str] | None = None):
+    """Devuelve un fake de ``subprocess.run`` que "genera" el archivo salida."""
+    calls: list[list[str]] = []
+
+    def fake_run(cmd, capture_output=True, text=True):  # noqa: ANN001
+        calls.append(cmd)
+        Path(cmd[-1]).write_bytes(b"fake mp4 bytes")
+        if created is not None:
+            created.append(cmd[-1])
+        return types.SimpleNamespace(returncode=0, stderr="")
+
+    fake_run.calls = calls  # type: ignore[attr-defined]
+    return fake_run
+
+
+@pytest.fixture
+def sample_video(tmp_path: Path) -> Path:
+    """Crea un archivo con extensión de video (contenido irrelevante)."""
+    path = tmp_path / "demo.mp4"
+    path.write_bytes(b"\x00\x00\x00\x18ftypmp42 not a real video")
+    return path
+
+
+# ── Tests de recopilación de videos ──────────────────────────────────
+
+class TestVideoCollection:
+    """Verifica la detección de archivos de video."""
+
+    def test_collects_all_video_extensions(self, tmp_path: Path) -> None:
+        """Sólo se recogen .mp4/.mov/.m4v, ignorando otros archivos."""
+        d = tmp_path / "in"
+        d.mkdir()
+        for name in ["a.mp4", "b.mov", "c.m4v", "d.png", "notes.txt"]:
+            (d / name).write_bytes(b"x")
+
+        vids = _collect_video_files(d)
+        assert {v.name for v in vids} == {"a.mp4", "b.mov", "c.m4v"}
+
+    def test_single_video_file(self, sample_video: Path) -> None:
+        """Un archivo de video suelto se devuelve en una lista."""
+        assert _collect_video_files(sample_video) == [sample_video]
+
+    def test_single_non_video_file(self, tmp_path: Path) -> None:
+        """Un archivo que no es video devuelve lista vacía."""
+        p = tmp_path / "shot.png"
+        p.write_bytes(b"x")
+        assert _collect_video_files(p) == []
+
+    def test_supported_extensions_constant(self) -> None:
+        """Las extensiones esperadas están registradas."""
+        assert {".mp4", ".mov", ".m4v"} <= SUPPORTED_VIDEO_EXTENSIONS
+
+
+# ── Tests de recorte de video (sin ffmpeg) ───────────────────────────
+
+class TestVideoWithoutFfmpeg:
+    """Comportamiento cuando ffmpeg no está disponible."""
+
+    def test_resize_video_raises_without_ffmpeg(
+        self, sample_video: Path, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """resize_and_crop_video lanza FFmpegNotFoundError sin ffmpeg."""
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: False)
+        with pytest.raises(FFmpegNotFoundError):
+            resize_and_crop_video(
+                sample_video, (1290, 2796), tmp_path / "out.mp4",
+            )
+
+    def test_batch_records_error_without_ffmpeg(
+        self, sample_video: Path, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """Un video con targets iOS pero sin ffmpeg cuenta como error, sin crashear."""
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: False)
+        out = tmp_path / "output"
+        result = process_batch(
+            sample_video, out, platform="ios", device="6.7inch",
+        )
+        assert result.processed == 0
+        assert result.errors == 1
+        assert "ffmpeg" in result.error_details[0][1].lower()
+
+    def test_video_skipped_for_android_only(
+        self, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """Sin targets de Apple, los videos se omiten sin generar errores."""
+        # Aunque ffmpeg estuviera disponible, android no recorta videos.
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: True)
+        d = tmp_path / "in"
+        d.mkdir()
+        (d / "demo.mp4").write_bytes(b"x")
+        Image.new("RGB", (800, 600)).save(str(d / "home.png"))
+
+        out = tmp_path / "output"
+        result = process_batch(d, out, platform="android", device="phone")
+
+        # 1 imagen × 2 tamaños de phone; el video se ignora por completo.
+        assert result.processed == 2
+        assert result.errors == 0
+        assert list(out.rglob("*.mp4")) == []
+
+
+# ── Tests de recorte de video (ffmpeg simulado) ──────────────────────
+
+class TestVideoCropping:
+    """Verifica el flujo de recorte de video con ffmpeg simulado."""
+
+    def test_batch_crops_video_to_apple_sizes(
+        self, sample_video: Path, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """El video se recorta a cada tamaño de Apple como .mp4."""
+        fake_run = _fake_ffmpeg_success()
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: True)
+        monkeypatch.setattr(resizer.subprocess, "run", fake_run)
+
+        out = tmp_path / "output"
+        result = process_batch(
+            sample_video, out, platform="ios", device="6.7inch",
+        )
+
+        # 6.7inch tiene 2 tamaños (portrait + landscape).
+        assert result.processed == 2
+        assert result.errors == 0
+        mp4s = sorted(p.name for p in out.rglob("*.mp4"))
+        assert mp4s == ["demo_1290x2796.mp4", "demo_2796x1290.mp4"]
+        # Los .mp4 viven bajo ios/<device>/, no en android.
+        assert (out / "ios" / "6.7inch" / "demo_1290x2796.mp4").exists()
+
+    def test_ffmpeg_filter_uses_cover_and_crop(
+        self, sample_video: Path, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """El comando ffmpeg pide scale-to-cover + crop al tamaño exacto."""
+        fake_run = _fake_ffmpeg_success()
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: True)
+        monkeypatch.setattr(resizer.subprocess, "run", fake_run)
+
+        out = tmp_path / "output"
+        process_batch(sample_video, out, platform="ios", device="6.7inch")
+
+        assert fake_run.calls, "ffmpeg no fue invocado"
+        cmd = fake_run.calls[0]
+        vf = cmd[cmd.index("-vf") + 1]
+        assert "force_original_aspect_ratio=increase" in vf
+        assert "crop=1290:2796" in vf or "crop=2796:1290" in vf
+
+    def test_ffmpeg_failure_recorded(
+        self, sample_video: Path, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """Si ffmpeg falla, se registra como error sin detener el batch."""
+        def fake_run(cmd, capture_output=True, text=True):  # noqa: ANN001
+            return types.SimpleNamespace(returncode=1, stderr="boom: invalid data")
+
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: True)
+        monkeypatch.setattr(resizer.subprocess, "run", fake_run)
+
+        out = tmp_path / "output"
+        result = process_batch(
+            sample_video, out, platform="ios", device="6.7inch",
+        )
+        assert result.processed == 0
+        assert result.errors == 2  # ambos tamaños fallan
+        assert "boom" in result.error_details[0][1]
+
+    def test_videos_only_in_ios_folders_all_platforms(
+        self, tmp_path: Path, monkeypatch,
+    ) -> None:
+        """Con 'all', los videos sólo aparecen bajo ios/, nunca android/."""
+        fake_run = _fake_ffmpeg_success()
+        monkeypatch.setattr(resizer, "ffmpeg_available", lambda: True)
+        monkeypatch.setattr(resizer.subprocess, "run", fake_run)
+
+        d = tmp_path / "in"
+        d.mkdir()
+        (d / "demo.mp4").write_bytes(b"x")
+        Image.new("RGB", (800, 600)).save(str(d / "home.png"))
+
+        out = tmp_path / "output"
+        process_batch(d, out)  # todas las plataformas
+
+        assert list((out / "android").rglob("*.mp4")) == []
+        assert list((out / "ios").rglob("*.mp4"))  # hay videos en ios
+        # Las imágenes sí se generan en ambas plataformas.
+        assert list((out / "android").rglob("*.png"))
+        assert list((out / "ios").rglob("*.png"))

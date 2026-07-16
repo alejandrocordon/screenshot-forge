@@ -40,8 +40,10 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-# Límite de subida: 50 MB (suficiente para varias capturas de pantalla)
-app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
+# Límite de subida: 200 MB por defecto (los videos pesan mucho más que las
+# capturas). Configurable con la variable de entorno MAX_UPLOAD_MB.
+_max_upload_mb = int(os.environ.get("MAX_UPLOAD_MB", "200"))
+app.config["MAX_CONTENT_LENGTH"] = _max_upload_mb * 1024 * 1024
 
 # Carpeta persistente de salida. En Docker se monta como volumen
 # para que los archivos queden en el host.
@@ -131,9 +133,12 @@ def forge() -> tuple:
             }), 500
 
         # --- Crear ZIP en memoria desde los archivos persistidos ---
+        # Incluye imágenes (.png) y los videos recortados (.mp4).
         zip_buffer = io.BytesIO()
         with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zf:
-            for file_path in OUTPUT_DIR.rglob("*.png"):
+            for file_path in OUTPUT_DIR.rglob("*"):
+                if file_path.suffix.lower() not in {".png", ".mp4"}:
+                    continue
                 arcname = str(file_path.relative_to(OUTPUT_DIR))
                 zf.write(file_path, arcname)
 
