@@ -8,7 +8,7 @@ CLI, GUI, and web interface. Works directly with Python or inside Docker.
 
 - Batch processing: point to a folder, get all store sizes at once
 - Scale-to-cover + center-crop (no black bars, no distortion)
-- **App preview videos**: a standalone `ffmpeg` script crops `.mp4`/`.mov` clips to the Apple sizes the same way
+- **App preview videos**: a standalone `ffmpeg` script crops `.mp4`/`.mov` clips to Apple's official app preview resolutions (which differ from the screenshot sizes)
 - All official sizes built in: iPhone 6.7", 6.5", 5.5", iPad 12.9", Android phone, tablet, Chromebook
 - Organized output by platform and device
 - Portrait and landscape orientations
@@ -108,10 +108,20 @@ Then open http://localhost:8642.
 
 ## Usage (App preview videos)
 
-App Store app previews are videos, not images, so they get their own tool: a
-standalone shell script that crops `.mp4` and `.mov` clips to every Apple / iOS
-size with the same scale-to-cover + center-crop logic. It only needs
+App Store app previews are videos, not images, and Apple gives them their **own
+resolutions** — different from the screenshot sizes. So they get their own tool:
+a standalone shell script that crops `.mp4` and `.mov` clips to those app preview
+resolutions with the same scale-to-cover + center-crop logic. It only needs
 [ffmpeg](https://ffmpeg.org) (`brew install ffmpeg`) — no Python.
+
+App preview resolutions (portrait / landscape):
+
+| Device       | Resolution               |
+|--------------|--------------------------|
+| iPhone 6.7"  | 886 × 1920 / 1920 × 886  |
+| iPhone 6.5"  | 886 × 1920 / 1920 × 886  |
+| iPhone 5.5"  | 1080 × 1920 / 1920 × 1080 |
+| iPad 12.9"   | 1200 × 1600 / 1600 × 1200 |
 
 ```bash
 # A single .mov → every Apple size
