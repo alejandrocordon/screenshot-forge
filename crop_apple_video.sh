@@ -154,7 +154,9 @@ for video in "${VIDEOS[@]}"; do
     mkdir -p "$out_dir"
 
     # scale ...=increase → escala para CUBRIR; crop centra al tamaño exacto.
-    vf="scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}"
+    # fps=min(30,source_fps) → cabecea a 30 fps (máximo que acepta la App
+    # Store para App Preview) sin subir el frame rate de fuentes ≤30.
+    vf="scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},fps=min(30\,source_fps)"
 
     if ffmpeg -nostdin -y -loglevel error \
         -i "$video" -vf "$vf" \
