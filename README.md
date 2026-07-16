@@ -135,7 +135,9 @@ App preview resolutions (portrait / landscape):
 ```
 
 Output goes to `output/ios/<device>/<name>_<width>x<height>.mp4`. Audio is
-re-encoded to AAC and the video to H.264 for App Store compatibility.
+re-encoded to AAC and the video to H.264, and the frame rate is capped at
+30 fps (the App Store rejects app previews above 30 fps) for App Store
+compatibility.
 
 | Flag              | Required | Default    | Description                                             |
 |-------------------|----------|------------|---------------------------------------------------------|

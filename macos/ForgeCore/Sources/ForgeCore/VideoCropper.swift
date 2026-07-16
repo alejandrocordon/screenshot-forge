@@ -57,8 +57,11 @@ public enum VideoCropper {
 
         let videoComposition = AVMutableVideoComposition()
         videoComposition.renderSize = CGSize(width: target.width, height: target.height)
-        let fps = frameRate > 0 ? frameRate : 30
-        videoComposition.frameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.rounded()))
+        // Cap at 30 fps — the App Store rejects app previews above 30 fps.
+        // Don't upsample sources already at or below 30.
+        let sourceFps = frameRate > 0 ? frameRate : 30
+        let cappedFps = min(sourceFps, 30)
+        videoComposition.frameDuration = CMTime(value: 1, timescale: CMTimeScale(cappedFps.rounded()))
         videoComposition.instructions = [instruction]
 
         guard let export = AVAssetExportSession(
