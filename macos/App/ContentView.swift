@@ -5,6 +5,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \AppProject.createdAt) private var projects: [AppProject]
     @State private var selection: AppProject?
+    @State private var confirmDelete = false
 
     var body: some View {
         NavigationSplitView {
@@ -23,12 +24,18 @@ struct ContentView: View {
                     }
                     .help("Add app")
 
-                    Button(action: removeSelected) {
+                    Button { confirmDelete = true } label: {
                         Image(systemName: "minus")
                     }
                     .disabled(selection == nil)
-                    .help("Remove selected app")
+                    .help("Delete selected app")
                 }
+            }
+            .alert("Delete “\(selection?.name ?? "app")”?", isPresented: $confirmDelete) {
+                Button("Delete", role: .destructive) { removeSelected() }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This removes the app and its imported screenshots and videos from the library.")
             }
         } detail: {
             if let selection {
