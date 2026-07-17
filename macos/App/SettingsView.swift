@@ -55,7 +55,7 @@ struct SettingsView: View {
         .padding(20)
         .fileImporter(
             isPresented: $showImporter,
-            allowedContentTypes: [.data]
+            allowedContentTypes: [.item]   // .p8 files have no dedicated UTI
         ) { result in
             if case .success(let url) = result { importKey(url) }
         }

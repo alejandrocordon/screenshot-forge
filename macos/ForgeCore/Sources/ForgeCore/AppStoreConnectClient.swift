@@ -159,8 +159,13 @@ public final class AppStoreConnectClient: @unchecked Sendable {
     // MARK: - HTTP helpers
 
     private func authorizedRequest(_ path: String, method: String = "GET") throws -> URLRequest {
+        // Build from a string so query items (?limit=…) aren't percent-encoded
+        // into the path, which appendingPathComponent would do.
+        guard let url = URL(string: baseURL.absoluteString + path) else {
+            throw AppStoreConnectError(message: "Invalid path: \(path)")
+        }
         let token = try AppStoreConnectAuth.makeToken(credentials)
-        var request = URLRequest(url: baseURL.appendingPathComponent(path))
+        var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
