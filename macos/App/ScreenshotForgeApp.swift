@@ -1,14 +1,14 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct ScreenshotForgeApp: App {
-    @StateObject private var library = AppLibrary.previewSeed()
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(library)
                 .frame(minWidth: 900, minHeight: 600)
         }
+        // Persists the app library on disk automatically.
+        .modelContainer(for: [AppProject.self, Asset.self])
     }
 }
