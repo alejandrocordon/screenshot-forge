@@ -27,19 +27,23 @@ macos/
       ForgeError.swift
       ImageCropper.swift     # CoreGraphics
       VideoCropper.swift     # AVFoundation (30 fps cap)
-      FrameStyle.swift       # device-bezel style (data)
-      BezelRenderer.swift    # frames a screenshot in a rounded bezel
+      FrameStyle.swift / BezelRenderer.swift    # rounded device bezel
+      CaptionStyle.swift / CaptionRenderer.swift # marketing title (Core Text)
+      ScreenshotDisplayType.swift  # ASC displayType → size
       AppStoreConnectAuth.swift    # ES256 JWT (tested)
-      AppStoreConnectClient.swift  # API client (listApps works; upload stubbed)
+      AppStoreConnectClient.swift  # apps/versions/… + upload flow
       BatchEngine.swift      # orchestration + progress (actor)
     Tests/ForgeCoreTests/    # CropGeometry, AppleSizes, GooglePlay, ASC-auth
   App/                       # SwiftUI app (sidebar of apps → assets → export)
-    ScreenshotForgeApp.swift # @main + SwiftData model container
+    ScreenshotForgeApp.swift # @main + SwiftData container + Settings scene
     Models.swift             # SwiftData @Model: AppProject, Asset (persisted)
     BookmarkStore.swift      # security-scoped file bookmarks
+    KeychainStore.swift      # stores the App Store Connect .p8 key
     ContentView.swift
-    AppDetailView.swift      # assets, live preview, device toggles, export
-    CropPreview.swift        # "what gets kept" overlay
+    AppDetailView.swift      # assets, WYSIWYG preview, caption, export
+    UploadSheet.swift        # App Store Connect upload (app→version→loc→set)
+    SettingsView.swift       # ⌘, — App Store Connect credentials + Test
+    ScreenshotForge.entitlements  # sandbox entitlements (opt-in, see project.yml)
   project.yml                # XcodeGen spec (optional, generates the .xcodeproj)
 ```
 
@@ -98,8 +102,13 @@ upload, so videos stay Apple-only.
 - **Device bezel** (`BezelRenderer`): optionally frame screenshots in a rounded
   bezel at the exact target size — a scaffold that needs no mockup assets.
 - **Persistence**: SwiftData library of apps + assets, stored via bookmarks.
-- **App Store Connect** (`AppStoreConnect*`): ES256 JWT auth is complete and
-  tested; `listApps()` checks credentials; screenshot upload is a documented stub.
+- **App Store Connect** (`AppStoreConnect*`): ES256 JWT auth, `apps()` credential
+  check, and the full **reserve → upload → commit** flow for screenshots
+  (`uploadScreenshot`) and app previews (`uploadPreview`), with MD5 checksums.
+  Credentials are entered in **Settings (⌘,)** — issuer id / key id in
+  `@AppStorage`, the `.p8` in the **Keychain** (`KeychainStore`).
+- **Video thumbnails**: video assets show a poster frame (AVAssetImageGenerator);
+  all thumbnails decode off the main thread.
 
 ## Caveats / next steps
 
@@ -111,10 +120,14 @@ upload, so videos stay Apple-only.
   bezel — no photorealistic iPhone/iPad shell. To use real frames, load a frame
   PNG with a transparent screen cutout and composite the cropped screenshot into
   its known screen rect.
-- **App Store Connect upload is a stub:** the JWT auth is real and tested; the
-  screenshot reservation/upload/commit flow is documented in
-  `AppStoreConnectClient.uploadScreenshot` but not implemented — finish and test
-  it with a real API key (issuer id, key id, `.p8`).
+- **App Store Connect upload — API done, wiring left:** auth and the
+  reserve/upload/commit flow are implemented and the auth is tested. What's still
+  manual is resolving *which* set to upload to (app → version → localization →
+  screenshot/preview set) and a button to drive it — the client takes a set id
+  for now. Needs a real API key to test end-to-end (enter it in Settings).
+- **Sandbox:** `ScreenshotForge.entitlements` is ready (files + bookmarks +
+  network for App Store Connect) but not wired in, so the first build runs
+  non-sandboxed. Flip `CODE_SIGN_ENTITLEMENTS` in `project.yml` to enable it.
 - **Persistence (done):** apps and their assets are SwiftData `@Model`s
   (`AppProject`, `Asset`) persisted on disk via `.modelContainer`, so the library
   survives relaunch. Each `Asset` stores a **bookmark** (`BookmarkStore`) instead
@@ -129,6 +142,6 @@ upload, so videos stay Apple-only.
 - **Asset PNGs & the repo `.gitignore`:** the repo root ignores `*.png`/`*.mov`/…
   so test media never gets committed. If you add an app-icon asset catalog, force
   it in (`git add -f`) or add a scoped un-ignore for `macos/**/Assets.xcassets`.
-- **Roadmap:** ~~live crop preview~~ • ~~Android sizes~~ • ~~device-frame overlays~~ •
-  ~~App Store Connect auth~~ • finish ASC upload • real device-frame mockups •
-  title/subtitle captions • Fastlane `deliver` export.
+- **Roadmap:** ~~preview~~ • ~~Android~~ • ~~device-frame bezel~~ • ~~ASC auth + upload~~ •
+  ~~video thumbnails~~ • ~~ASC upload UI~~ • ~~captions~~ • ~~WYSIWYG preview~~ •
+  real device-frame mockups • per-screenshot captions • Fastlane `deliver`.

@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import AppKit
+import AVFoundation
 import UniformTypeIdentifiers
 import ForgeCore
 
@@ -17,6 +18,8 @@ struct AppDetailView: View {
     @State private var previewImage: NSImage?
     @State private var previewSizeID = ""
     @State private var frameScreenshots = false
+    @State private var caption = ""
+    @State private var showUpload = false
 
     private let engine = BatchEngine()
 
@@ -33,10 +36,24 @@ struct AppDetailView: View {
                 googleDevicesBox
                 Toggle("Frame screenshots in a device bezel", isOn: $frameScreenshots)
                     .toggleStyle(.checkbox)
-                exportRow
+                    .disabled(!caption.isEmpty)
+                TextField("Caption (optional marketing title)", text: $caption)
+                    .textFieldStyle(.roundedBorder)
+                HStack(spacing: 12) {
+                    exportRow
+                    Button {
+                        showUpload = true
+                    } label: {
+                        Label("Upload to App Store Connect…", systemImage: "icloud.and.arrow.up")
+                    }
+                    .disabled(project.assets.isEmpty)
+                }
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .sheet(isPresented: $showUpload) {
+            UploadSheet(project: project)
         }
         .fileImporter(
             isPresented: $showImporter,
@@ -87,54 +104,114 @@ struct AppDetailView: View {
         }
     }
 
-    /// Representative portrait screenshot size per Apple device, for the preview.
-    private var previewTargets: [DeviceSize] {
-        AppleSizes.screenshots.filter { !$0.isLandscape }
+    /// First screenshot, or a video if there are no screenshots.
+    private var previewAsset: Asset? {
+        project.sortedAssets.first { $0.kind == .image }
+            ?? project.sortedAssets.first { $0.kind == .video }
     }
 
-    private var firstScreenshot: Asset? {
-        project.sortedAssets.first { $0.kind == .image }
+    /// Portrait sizes for the previewed asset (screenshot vs app-preview video).
+    private var previewTargets: [DeviceSize] {
+        guard let asset = previewAsset else { return [] }
+        let table = asset.kind == .image ? AppleSizes.screenshots : AppleSizes.videos
+        return table.filter { !$0.isLandscape }
+    }
+
+    /// Re-render the preview whenever the asset, size, or output options change.
+    private var previewKey: String {
+        let id = previewAsset?.persistentModelID.hashValue ?? 0
+        return "\(id)|\(previewSizeID)|\(frameScreenshots)|\(caption)"
     }
 
     private var previewBox: some View {
-        GroupBox("Crop preview") {
+        GroupBox("Preview (what you'll export)") {
             VStack(alignment: .leading, spacing: 8) {
-                if let previewImage {
+                if !previewTargets.isEmpty {
                     Picker("Device", selection: $previewSizeID) {
                         ForEach(previewTargets) { size in
                             Text("\(size.device) — \(size.fileTag)").tag(size.id)
                         }
                     }
                     .frame(maxWidth: 340)
-
-                    let target = previewTargets.first { $0.id == previewSizeID } ?? previewTargets.first
-                    if let target {
-                        CropPreview(image: previewImage, target: target.pixelSize)
-                            .frame(height: 240)
-                            .background(Color.black.opacity(0.12))
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                    }
+                }
+                if let previewImage {
+                    Image(nsImage: previewImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 260)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 } else {
-                    Text("Add a screenshot to preview how it will be cropped.")
+                    Text("Add a screenshot or video to preview the output.")
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 8)
                 }
             }
         }
-        .task(id: firstScreenshot?.persistentModelID) { await loadPreview() }
+        .task(id: previewKey) { await loadPreview() }
     }
 
     private func loadPreview() async {
-        guard let asset = firstScreenshot, let (url, started) = asset.resolvedURL() else {
-            previewImage = nil
-            return
-        }
-        defer { if started { url.stopAccessingSecurityScopedResource() } }
-        previewImage = NSImage(contentsOf: url)
-        if previewSizeID.isEmpty {
+        guard let asset = previewAsset else { previewImage = nil; return }
+        if !previewTargets.contains(where: { $0.id == previewSizeID }) {
             previewSizeID = previewTargets.first?.id ?? ""
         }
+        guard let target = previewTargets.first(where: { $0.id == previewSizeID }),
+              let (url, started) = asset.resolvedURL() else { previewImage = nil; return }
+
+        let options = ExportOptions(
+            frameScreenshots: frameScreenshots,
+            caption: caption.isEmpty ? nil : caption
+        )
+        let kind = asset.kind
+        let size = target.pixelSize
+        previewImage = await Task.detached(priority: .userInitiated) {
+            defer { if started { url.stopAccessingSecurityScopedResource() } }
+            return Self.renderPreview(url: url, kind: kind, target: size, options: options)
+        }.value
+    }
+
+    /// Render the real output (crop / bezel / caption; video → first frame) to
+    /// an NSImage via a temp PNG.
+    private static func renderPreview(
+        url: URL, kind: AssetKind, target: PixelSize, options: ExportOptions
+    ) -> NSImage? {
+        let tmp = FileManager.default.temporaryDirectory
+            .appendingPathComponent("preview-\(UUID().uuidString)", isDirectory: true)
+        try? FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tmp) }
+
+        // A URL to a still image to feed the renderers.
+        var sourceURL = url
+        if kind == .video {
+            guard let frame = AssetThumbnail.firstFrame(of: url),
+                  let framePNG = writePNG(frame, into: tmp) else { return nil }
+            sourceURL = framePNG
+        }
+
+        let out = tmp.appendingPathComponent("out.png")
+        do {
+            if kind == .image, let caption = options.caption, !caption.isEmpty {
+                try CaptionRenderer.render(source: sourceURL, to: target,
+                                           caption: caption, style: options.captionStyle, output: out)
+            } else if kind == .image, options.frameScreenshots {
+                try BezelRenderer.renderFramed(source: sourceURL, to: target,
+                                               style: options.frameStyle, output: out)
+            } else {
+                try ImageCropper.crop(source: sourceURL, to: target, output: out)
+            }
+        } catch {
+            return nil
+        }
+        return NSImage(contentsOf: out)
+    }
+
+    private static func writePNG(_ image: NSImage, into dir: URL) -> URL? {
+        guard let tiff = image.tiffRepresentation,
+              let rep = NSBitmapImageRep(data: tiff),
+              let data = rep.representation(using: .png, properties: [:]) else { return nil }
+        let url = dir.appendingPathComponent("frame.png")
+        return (try? data.write(to: url)) != nil ? url : nil
     }
 
     private var appleDevicesBox: some View {
@@ -240,20 +317,27 @@ struct AppDetailView: View {
         let devices = AppleDevice.allCases.filter { selectedDevices.contains($0) }
         let googleDevices = GooglePlayDevice.allCases.filter { selectedGoogleDevices.contains($0) }
 
-        let outcome = await engine.run(
+        var finalOutcome = BatchOutcome()
+        for await event in engine.run(
             inputs: urls,
             appleDevices: devices,
             googlePlayDevices: googleDevices,
             outputRoot: outputRoot,
-            options: ExportOptions(frameScreenshots: frameScreenshots)
-        ) { update in
-            Task { @MainActor in
+            options: ExportOptions(
+                frameScreenshots: frameScreenshots,
+                caption: caption.isEmpty ? nil : caption
+            )
+        ) {
+            switch event {
+            case .progress(let update):
                 progress = update.fraction
                 statusText = update.message
+            case .finished(let outcome):
+                finalOutcome = outcome
             }
         }
 
-        statusText = "Done — \(outcome.processed) generated, \(outcome.failures.count) errors"
+        statusText = "Done — \(finalOutcome.processed) generated, \(finalOutcome.failures.count) errors"
         NSWorkspace.shared.open(outputRoot)
     }
 }
@@ -278,16 +362,23 @@ struct AssetThumbnail: View {
     }
 
     @ViewBuilder private var thumbnail: some View {
-        if asset.kind == .video {
-            placeholder("film")
-        } else if let image {
-            Image(nsImage: image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+        if let image {
+            ZStack(alignment: .bottomTrailing) {
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                if asset.kind == .video {
+                    Image(systemName: "play.circle.fill")
+                        .foregroundStyle(.white)
+                        .shadow(radius: 2)
+                        .padding(3)
+                }
+            }
         } else {
-            placeholder(loadFailed ? "exclamationmark.triangle" : "photo")
+            let fallback = asset.kind == .video ? "film" : "photo"
+            placeholder(loadFailed ? "exclamationmark.triangle" : fallback)
         }
     }
 
@@ -300,17 +391,40 @@ struct AssetThumbnail: View {
     }
 
     private func load() async {
-        guard asset.kind == .image, image == nil else { return }
+        guard image == nil else { return }
         guard let (url, started) = asset.resolvedURL() else {
             loadFailed = true
             return
         }
-        defer { if started { url.stopAccessingSecurityScopedResource() } }
+        let kind = asset.kind
 
-        if let loaded = NSImage(contentsOf: url) {
+        // Decode off the main thread so scrolling a big grid stays smooth.
+        let loaded = await Task.detached(priority: .utility) { () -> NSImage? in
+            defer { if started { url.stopAccessingSecurityScopedResource() } }
+            switch kind {
+            case .image:
+                guard let data = try? Data(contentsOf: url) else { return nil }
+                return NSImage(data: data)
+            case .video:
+                return Self.firstFrame(of: url)
+            }
+        }.value
+
+        if let loaded {
             image = loaded
         } else {
             loadFailed = true
         }
+    }
+
+    /// Extract a poster frame from a video (thumbnail + preview).
+    static func firstFrame(of url: URL) -> NSImage? {
+        let asset = AVURLAsset(url: url)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        generator.maximumSize = CGSize(width: 240, height: 240)
+        let time = CMTime(seconds: 0.1, preferredTimescale: 600)
+        guard let cgImage = try? generator.copyCGImage(at: time, actualTime: nil) else { return nil }
+        return NSImage(cgImage: cgImage, size: .zero)
     }
 }

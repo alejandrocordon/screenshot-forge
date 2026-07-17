@@ -22,10 +22,21 @@ public struct ExportOptions: Sendable {
     /// never framed.
     public var frameScreenshots: Bool
     public var frameStyle: FrameStyle
+    /// A marketing caption drawn above the screenshot. When set (non-empty) it
+    /// takes precedence over the bezel. Videos are never captioned.
+    public var caption: String?
+    public var captionStyle: CaptionStyle
 
-    public init(frameScreenshots: Bool = false, frameStyle: FrameStyle = .phone) {
+    public init(
+        frameScreenshots: Bool = false,
+        frameStyle: FrameStyle = .phone,
+        caption: String? = nil,
+        captionStyle: CaptionStyle = .standard
+    ) {
         self.frameScreenshots = frameScreenshots
         self.frameStyle = frameStyle
+        self.caption = caption
+        self.captionStyle = captionStyle
     }
 }
 
@@ -36,23 +47,52 @@ private struct Target {
 }
 
 /// Orchestrates cropping a set of inputs to every selected size, writing to
-/// `outputRoot/<store>/<device>/<name>_<w>x<h>.<ext>` — the same layout as the
-/// CLI and the shell script.
+/// `outputRoot/<store>/<device>/<name>_<w>x<h>.<ext>`.
 ///
-/// - Screenshots go to every selected Apple **and** Google Play size.
-/// - App preview videos go to Apple sizes only (Google Play previews are a
-///   YouTube URL, not an upload).
+/// Progress is delivered as an `AsyncStream<Event>` — the caller just
+/// `for await`s it (no `@Sendable` progress closure to capture `self`).
 public actor BatchEngine {
+
+    public enum Event: Sendable {
+        case progress(BatchProgress)
+        case finished(BatchOutcome)
+    }
 
     public init() {}
 
-    public func run(
+    /// Start a run and return a stream of progress events ending in `.finished`.
+    public nonisolated func run(
         inputs: [URL],
         appleDevices: [AppleDevice],
         googlePlayDevices: [GooglePlayDevice],
         outputRoot: URL,
-        options: ExportOptions = ExportOptions(),
-        onProgress: @Sendable @escaping (BatchProgress) -> Void = { _ in }
+        options: ExportOptions = ExportOptions()
+    ) -> AsyncStream<Event> {
+        AsyncStream { continuation in
+            let task = Task {
+                let outcome = await self.perform(
+                    inputs: inputs,
+                    appleDevices: appleDevices,
+                    googlePlayDevices: googlePlayDevices,
+                    outputRoot: outputRoot,
+                    options: options
+                ) { progress in
+                    continuation.yield(.progress(progress))
+                }
+                continuation.yield(.finished(outcome))
+                continuation.finish()
+            }
+            continuation.onTermination = { _ in task.cancel() }
+        }
+    }
+
+    private func perform(
+        inputs: [URL],
+        appleDevices: [AppleDevice],
+        googlePlayDevices: [GooglePlayDevice],
+        outputRoot: URL,
+        options: ExportOptions,
+        onProgress: @Sendable (BatchProgress) -> Void
     ) async -> BatchOutcome {
         let imageTargets: [Target] =
             AppleSizes.sizes(for: appleDevices, kind: .screenshot).map { Target(folder: "ios", size: $0) }
@@ -86,7 +126,12 @@ public actor BatchEngine {
                     switch item.kind {
                     case .image:
                         let out = deviceDir.appendingPathComponent("\(stem)_\(target.size.fileTag).png")
-                        if options.frameScreenshots {
+                        if let caption = options.caption, !caption.isEmpty {
+                            try CaptionRenderer.render(
+                                source: item.url, to: target.size.pixelSize,
+                                caption: caption, style: options.captionStyle, output: out
+                            )
+                        } else if options.frameScreenshots {
                             try BezelRenderer.renderFramed(
                                 source: item.url, to: target.size.pixelSize,
                                 style: options.frameStyle, output: out

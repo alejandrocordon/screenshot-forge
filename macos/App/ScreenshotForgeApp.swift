@@ -10,5 +10,10 @@ struct ScreenshotForgeApp: App {
         }
         // Persists the app library on disk automatically.
         .modelContainer(for: [AppProject.self, Asset.self])
+
+        // Preferences window (⌘,) — App Store Connect credentials.
+        Settings {
+            SettingsView()
+        }
     }
 }

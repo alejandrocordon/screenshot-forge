@@ -26,11 +26,14 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.alejandrocordon.screenshotforge
-        MARKETING_VERSION: "0.1.0"
-        CURRENT_PROJECT_VERSION: "1"
+        MARKETING_VERSION: "0.7.0"
+        CURRENT_PROJECT_VERSION: "7"
         SWIFT_VERSION: "5.9"
         GENERATE_INFOPLIST_FILE: YES
         ENABLE_HARDENED_RUNTIME: YES
         INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
         # Set your Development Team in Xcode (Signing & Capabilities) before running.
         CODE_SIGN_STYLE: Automatic
+        # To ship a sandboxed build, point this at the entitlements file:
+        #   CODE_SIGN_ENTITLEMENTS: App/ScreenshotForge.entitlements
+        # (left off so the first local build runs without the sandbox).
