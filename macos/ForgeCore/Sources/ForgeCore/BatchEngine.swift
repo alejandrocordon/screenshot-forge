@@ -22,10 +22,21 @@ public struct ExportOptions: Sendable {
     /// never framed.
     public var frameScreenshots: Bool
     public var frameStyle: FrameStyle
+    /// A marketing caption drawn above the screenshot. When set (non-empty) it
+    /// takes precedence over the bezel. Videos are never captioned.
+    public var caption: String?
+    public var captionStyle: CaptionStyle
 
-    public init(frameScreenshots: Bool = false, frameStyle: FrameStyle = .phone) {
+    public init(
+        frameScreenshots: Bool = false,
+        frameStyle: FrameStyle = .phone,
+        caption: String? = nil,
+        captionStyle: CaptionStyle = .standard
+    ) {
         self.frameScreenshots = frameScreenshots
         self.frameStyle = frameStyle
+        self.caption = caption
+        self.captionStyle = captionStyle
     }
 }
 
@@ -115,7 +126,12 @@ public actor BatchEngine {
                     switch item.kind {
                     case .image:
                         let out = deviceDir.appendingPathComponent("\(stem)_\(target.size.fileTag).png")
-                        if options.frameScreenshots {
+                        if let caption = options.caption, !caption.isEmpty {
+                            try CaptionRenderer.render(
+                                source: item.url, to: target.size.pixelSize,
+                                caption: caption, style: options.captionStyle, output: out
+                            )
+                        } else if options.frameScreenshots {
                             try BezelRenderer.renderFramed(
                                 source: item.url, to: target.size.pixelSize,
                                 style: options.frameStyle, output: out

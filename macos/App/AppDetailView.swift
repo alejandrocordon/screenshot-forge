@@ -18,6 +18,7 @@ struct AppDetailView: View {
     @State private var previewImage: NSImage?
     @State private var previewSizeID = ""
     @State private var frameScreenshots = false
+    @State private var caption = ""
     @State private var showUpload = false
 
     private let engine = BatchEngine()
@@ -35,6 +36,9 @@ struct AppDetailView: View {
                 googleDevicesBox
                 Toggle("Frame screenshots in a device bezel", isOn: $frameScreenshots)
                     .toggleStyle(.checkbox)
+                    .disabled(!caption.isEmpty)
+                TextField("Caption (optional marketing title)", text: $caption)
+                    .textFieldStyle(.roundedBorder)
                 HStack(spacing: 12) {
                     exportRow
                     Button {
@@ -259,7 +263,10 @@ struct AppDetailView: View {
             appleDevices: devices,
             googlePlayDevices: googleDevices,
             outputRoot: outputRoot,
-            options: ExportOptions(frameScreenshots: frameScreenshots)
+            options: ExportOptions(
+                frameScreenshots: frameScreenshots,
+                caption: caption.isEmpty ? nil : caption
+            )
         ) {
             switch event {
             case .progress(let update):
