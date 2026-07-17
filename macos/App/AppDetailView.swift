@@ -9,26 +9,35 @@ struct AppDetailView: View {
     @Environment(\.modelContext) private var context
 
     @State private var selectedDevices: Set<AppleDevice> = Set(AppleDevice.allCases)
+    @State private var selectedGoogleDevices: Set<GooglePlayDevice> = Set(GooglePlayDevice.allCases)
     @State private var isExporting = false
     @State private var progress: Double = 0
     @State private var statusText = ""
     @State private var showImporter = false
+    @State private var previewImage: NSImage?
+    @State private var previewSizeID = ""
+    @State private var frameScreenshots = false
 
     private let engine = BatchEngine()
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            TextField("App name", text: $project.name)
-                .textFieldStyle(.roundedBorder)
-                .font(.title2)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                TextField("App name", text: $project.name)
+                    .textFieldStyle(.roundedBorder)
+                    .font(.title2)
 
-            assetsBox
-            devicesBox
-            exportRow
-
-            Spacer()
+                assetsBox
+                previewBox
+                appleDevicesBox
+                googleDevicesBox
+                Toggle("Frame screenshots in a device bezel", isOn: $frameScreenshots)
+                    .toggleStyle(.checkbox)
+                exportRow
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(20)
         .fileImporter(
             isPresented: $showImporter,
             allowedContentTypes: [.image, .movie],
@@ -78,8 +87,58 @@ struct AppDetailView: View {
         }
     }
 
-    private var devicesBox: some View {
-        GroupBox("Apple devices") {
+    /// Representative portrait screenshot size per Apple device, for the preview.
+    private var previewTargets: [DeviceSize] {
+        AppleSizes.screenshots.filter { !$0.isLandscape }
+    }
+
+    private var firstScreenshot: Asset? {
+        project.sortedAssets.first { $0.kind == .image }
+    }
+
+    private var previewBox: some View {
+        GroupBox("Crop preview") {
+            VStack(alignment: .leading, spacing: 8) {
+                if let previewImage {
+                    Picker("Device", selection: $previewSizeID) {
+                        ForEach(previewTargets) { size in
+                            Text("\(size.device) — \(size.fileTag)").tag(size.id)
+                        }
+                    }
+                    .frame(maxWidth: 340)
+
+                    let target = previewTargets.first { $0.id == previewSizeID } ?? previewTargets.first
+                    if let target {
+                        CropPreview(image: previewImage, target: target.pixelSize)
+                            .frame(height: 240)
+                            .background(Color.black.opacity(0.12))
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                } else {
+                    Text("Add a screenshot to preview how it will be cropped.")
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 8)
+                }
+            }
+        }
+        .task(id: firstScreenshot?.persistentModelID) { await loadPreview() }
+    }
+
+    private func loadPreview() async {
+        guard let asset = firstScreenshot, let (url, started) = asset.resolvedURL() else {
+            previewImage = nil
+            return
+        }
+        defer { if started { url.stopAccessingSecurityScopedResource() } }
+        previewImage = NSImage(contentsOf: url)
+        if previewSizeID.isEmpty {
+            previewSizeID = previewTargets.first?.id ?? ""
+        }
+    }
+
+    private var appleDevicesBox: some View {
+        GroupBox("Apple devices (screenshots + app previews)") {
             HStack(spacing: 16) {
                 ForEach(AppleDevice.allCases) { device in
                     Toggle(device.displayName, isOn: Binding(
@@ -96,15 +155,37 @@ struct AppDetailView: View {
         }
     }
 
+    private var googleDevicesBox: some View {
+        GroupBox("Google Play devices (screenshots only)") {
+            HStack(spacing: 16) {
+                ForEach(GooglePlayDevice.allCases) { device in
+                    Toggle(device.displayName, isOn: Binding(
+                        get: { selectedGoogleDevices.contains(device) },
+                        set: { isOn in
+                            if isOn { selectedGoogleDevices.insert(device) }
+                            else { selectedGoogleDevices.remove(device) }
+                        }
+                    ))
+                    .toggleStyle(.checkbox)
+                }
+                Spacer()
+            }
+        }
+    }
+
     private var exportRow: some View {
         HStack(spacing: 12) {
             Button {
                 Task { await export() }
             } label: {
-                Label("Export all Apple sizes", systemImage: "square.and.arrow.up")
+                Label("Export all sizes", systemImage: "square.and.arrow.up")
             }
             .keyboardShortcut(.return, modifiers: .command)
-            .disabled(isExporting || project.assets.isEmpty || selectedDevices.isEmpty)
+            .disabled(
+                isExporting
+                || project.assets.isEmpty
+                || (selectedDevices.isEmpty && selectedGoogleDevices.isEmpty)
+            )
 
             if isExporting {
                 ProgressView(value: progress).frame(width: 160)
@@ -157,11 +238,14 @@ struct AppDetailView: View {
 
         let urls = resolved.map(\.url)
         let devices = AppleDevice.allCases.filter { selectedDevices.contains($0) }
+        let googleDevices = GooglePlayDevice.allCases.filter { selectedGoogleDevices.contains($0) }
 
         let outcome = await engine.run(
             inputs: urls,
-            devices: devices,
-            outputRoot: outputRoot
+            appleDevices: devices,
+            googlePlayDevices: googleDevices,
+            outputRoot: outputRoot,
+            options: ExportOptions(frameScreenshots: frameScreenshots)
         ) { update in
             Task { @MainActor in
                 progress = update.fraction
