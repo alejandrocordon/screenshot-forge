@@ -127,7 +127,14 @@ struct AppDetailView: View {
         GroupBox("Preview (what you'll export)") {
             VStack(alignment: .leading, spacing: 8) {
                 if !previewTargets.isEmpty {
-                    Picker("Device", selection: $previewSizeID) {
+                    Picker("Device", selection: Binding(
+                        get: {
+                            previewTargets.contains { $0.id == previewSizeID }
+                                ? previewSizeID
+                                : (previewTargets.first?.id ?? "")
+                        },
+                        set: { previewSizeID = $0 }
+                    )) {
                         ForEach(previewTargets) { size in
                             Text("\(size.device) — \(size.fileTag)").tag(size.id)
                         }
