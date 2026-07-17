@@ -29,8 +29,9 @@ macos/
       BatchEngine.swift      # orchestration + progress (actor)
     Tests/ForgeCoreTests/    # CropGeometry + AppleSizes tests
   App/                       # SwiftUI app (sidebar of apps → assets → export)
-    ScreenshotForgeApp.swift
-    Library.swift
+    ScreenshotForgeApp.swift # @main + SwiftData model container
+    Models.swift             # SwiftData @Model: AppProject, Asset (persisted)
+    BookmarkStore.swift      # security-scoped file bookmarks
     ContentView.swift
     AppDetailView.swift
   project.yml                # XcodeGen spec (optional, generates the .xcodeproj)
@@ -86,11 +87,17 @@ preview video is `886×1920`. Video resolutions per
   common upright case. Rotated footage (non-identity `preferredTransform`) should
   be verified on device — AVFoundation's composition coordinate space is the
   fiddly bit. Validate exported dimensions and framing with real clips.
-- **Persistence:** `AppProject`/`AppLibrary` are in-memory. Make them SwiftData
-  `@Model`s (macOS 14+) and store **security-scoped bookmarks** for imported
-  files so a library survives relaunch and keeps read access.
-- **Sandbox:** if you enable App Sandbox, wrap file reads in
-  `startAccessingSecurityScopedResource()` / `stopAccessingSecurityScopedResource()`.
+- **Persistence (done):** apps and their assets are SwiftData `@Model`s
+  (`AppProject`, `Asset`) persisted on disk via `.modelContainer`, so the library
+  survives relaunch. Each `Asset` stores a **bookmark** (`BookmarkStore`) instead
+  of a raw path, so access survives the file being moved. `BookmarkStore` prefers
+  a security-scoped bookmark and falls back to a plain one, so it works whether or
+  not the app is sandboxed.
+- **Sandbox:** the MVP ships **without** App Sandbox (simplest for local use). To
+  distribute it, enable App Sandbox + the *User Selected File* (read-write) and
+  *Bookmarks (app-scope)* entitlements — `BookmarkStore` and the export path
+  already start/stop the security scope, so no code change is needed. Validate on
+  device: bookmark resolution is the part I couldn't compile here.
 - **Asset PNGs & the repo `.gitignore`:** the repo root ignores `*.png`/`*.mov`/…
   so test media never gets committed. If you add an app-icon asset catalog, force
   it in (`git add -f`) or add a scoped un-ignore for `macos/**/Assets.xcassets`.

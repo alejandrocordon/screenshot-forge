@@ -1,42 +1,39 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @EnvironmentObject private var library: AppLibrary
+    @Environment(\.modelContext) private var context
+    @Query(sort: \AppProject.createdAt) private var projects: [AppProject]
+    @State private var selection: AppProject?
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $library.selection) {
-                ForEach(library.projects) { project in
+            List(selection: $selection) {
+                ForEach(projects) { project in
                     Label(project.name, systemImage: "app.dashed")
-                        .tag(project.id)
+                        .tag(project)
                 }
             }
             .navigationTitle("Apps")
             .frame(minWidth: 200)
             .toolbar {
                 ToolbarItemGroup {
-                    Button {
-                        library.addProject()
-                    } label: {
+                    Button(action: addProject) {
                         Image(systemName: "plus")
                     }
                     .help("Add app")
 
-                    Button {
-                        library.removeSelected()
-                    } label: {
+                    Button(action: removeSelected) {
                         Image(systemName: "minus")
                     }
-                    .disabled(library.selection == nil)
+                    .disabled(selection == nil)
                     .help("Remove selected app")
                 }
             }
         } detail: {
-            if let project = library.selectedProject {
-                // Re-create the detail view when the selection changes so its
-                // @State (device toggles, progress) resets per app.
-                AppDetailView(project: project)
-                    .id(project.id)
+            if let selection {
+                AppDetailView(project: selection)
+                    .id(selection.persistentModelID)
             } else {
                 ContentUnavailableView(
                     "No app selected",
@@ -45,5 +42,17 @@ struct ContentView: View {
                 )
             }
         }
+    }
+
+    private func addProject() {
+        let project = AppProject(name: "New App")
+        context.insert(project)
+        selection = project
+    }
+
+    private func removeSelected() {
+        guard let selection else { return }
+        context.delete(selection)
+        self.selection = nil
     }
 }
