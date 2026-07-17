@@ -43,6 +43,39 @@ final class CropGeometryTests: XCTestCase {
         XCTAssertEqual(plan.cropY, 0)
     }
 
+    func testKeptRegionFullWhenAspectsMatch() {
+        // Same aspect ratio → nothing is cropped.
+        let region = CropGeometry.keptRegion(
+            source: PixelSize(width: 1000, height: 2000),
+            target: PixelSize(width: 500, height: 1000)
+        )
+        XCTAssertEqual(region, NormalizedRect(x: 0, y: 0, width: 1, height: 1))
+    }
+
+    func testKeptRegionCropsWidthForTallerTarget() {
+        // Square source, tall target → keep full height, centered narrow slice.
+        let region = CropGeometry.keptRegion(
+            source: PixelSize(width: 1000, height: 1000),
+            target: PixelSize(width: 100, height: 200)
+        )
+        XCTAssertEqual(region.width, 0.5, accuracy: 0.0001)
+        XCTAssertEqual(region.height, 1.0, accuracy: 0.0001)
+        XCTAssertEqual(region.x, 0.25, accuracy: 0.0001)
+        XCTAssertEqual(region.y, 0.0, accuracy: 0.0001)
+    }
+
+    func testKeptRegionCropsHeightForWiderTarget() {
+        // Square source, wide target → keep full width, centered short band.
+        let region = CropGeometry.keptRegion(
+            source: PixelSize(width: 1000, height: 1000),
+            target: PixelSize(width: 200, height: 100)
+        )
+        XCTAssertEqual(region.width, 1.0, accuracy: 0.0001)
+        XCTAssertEqual(region.height, 0.5, accuracy: 0.0001)
+        XCTAssertEqual(region.x, 0.0, accuracy: 0.0001)
+        XCTAssertEqual(region.y, 0.25, accuracy: 0.0001)
+    }
+
     func testEveryAppleSizeProducesAValidPlan() {
         let source = PixelSize(width: 1179, height: 2556) // iPhone 15 screenshot
         for size in AppleSizes.screenshots + AppleSizes.videos {

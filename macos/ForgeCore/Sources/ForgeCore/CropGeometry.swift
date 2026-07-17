@@ -13,7 +13,40 @@ public struct CropPlan: Equatable, Sendable {
     public let output: PixelSize
 }
 
+/// A rectangle in normalized `[0, 1]` coordinates with a top-left origin.
+public struct NormalizedRect: Equatable, Sendable {
+    public let x: Double
+    public let y: Double
+    public let width: Double
+    public let height: Double
+
+    public init(x: Double, y: Double, width: Double, height: Double) {
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+    }
+}
+
 public enum CropGeometry {
+
+    /// The region of the **source** that survives the crop (everything outside
+    /// it is cut away), in normalized `[0, 1]` coordinates with a top-left
+    /// origin. Use it to draw a live "what will be kept" overlay on the source.
+    public static func keptRegion(source: PixelSize, target: PixelSize) -> NormalizedRect {
+        let sourceAspect = Double(source.width) / Double(source.height)
+        let targetAspect = Double(target.width) / Double(target.height)
+
+        if targetAspect > sourceAspect {
+            // Target is wider than the source → keep full width, crop top/bottom.
+            let keptHeight = sourceAspect / targetAspect
+            return NormalizedRect(x: 0, y: (1 - keptHeight) / 2, width: 1, height: keptHeight)
+        } else {
+            // Target is taller/narrower → keep full height, crop left/right.
+            let keptWidth = targetAspect / sourceAspect
+            return NormalizedRect(x: (1 - keptWidth) / 2, y: 0, width: keptWidth, height: 1)
+        }
+    }
 
     /// Compute the scale-to-cover + center-crop plan.
     ///

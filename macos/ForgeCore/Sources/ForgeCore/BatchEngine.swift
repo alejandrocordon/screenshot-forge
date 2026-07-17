@@ -16,22 +16,49 @@ public struct BatchOutcome: Sendable {
     public var failures: [String] = []
 }
 
-/// Orchestrates cropping a set of inputs to every selected Apple device size,
-/// writing to `outputRoot/ios/<device>/<name>_<w>x<h>.<ext>` — the same layout
-/// as the CLI and the shell script.
+/// Options that tweak how outputs are rendered.
+public struct ExportOptions: Sendable {
+    /// Wrap screenshots in a device bezel (see `BezelRenderer`). Videos are
+    /// never framed.
+    public var frameScreenshots: Bool
+    public var frameStyle: FrameStyle
+
+    public init(frameScreenshots: Bool = false, frameStyle: FrameStyle = .phone) {
+        self.frameScreenshots = frameScreenshots
+        self.frameStyle = frameStyle
+    }
+}
+
+/// A single output target: which store folder it belongs to and its size.
+private struct Target {
+    let folder: String      // "ios" or "android"
+    let size: DeviceSize
+}
+
+/// Orchestrates cropping a set of inputs to every selected size, writing to
+/// `outputRoot/<store>/<device>/<name>_<w>x<h>.<ext>` — the same layout as the
+/// CLI and the shell script.
+///
+/// - Screenshots go to every selected Apple **and** Google Play size.
+/// - App preview videos go to Apple sizes only (Google Play previews are a
+///   YouTube URL, not an upload).
 public actor BatchEngine {
 
     public init() {}
 
     public func run(
         inputs: [URL],
-        devices: [AppleDevice],
+        appleDevices: [AppleDevice],
+        googlePlayDevices: [GooglePlayDevice],
         outputRoot: URL,
+        options: ExportOptions = ExportOptions(),
         onProgress: @Sendable @escaping (BatchProgress) -> Void = { _ in }
     ) async -> BatchOutcome {
-        // Screenshots and app preview videos use *different* Apple resolutions.
-        let imageSizes = AppleSizes.sizes(for: devices, kind: .screenshot)
-        let videoSizes = AppleSizes.sizes(for: devices, kind: .video)
+        let imageTargets: [Target] =
+            AppleSizes.sizes(for: appleDevices, kind: .screenshot).map { Target(folder: "ios", size: $0) }
+            + GooglePlaySizes.sizes(for: googlePlayDevices).map { Target(folder: "android", size: $0) }
+        let videoTargets: [Target] =
+            AppleSizes.sizes(for: appleDevices, kind: .video).map { Target(folder: "ios", size: $0) }
 
         let items: [(url: URL, kind: AssetKind)] = inputs.compactMap { url in
             guard let kind = SupportedTypes.kind(of: url) else { return nil }
@@ -39,40 +66,47 @@ public actor BatchEngine {
         }
 
         let total = items.reduce(0) { partial, item in
-            partial + (item.kind == .image ? imageSizes.count : videoSizes.count)
+            partial + (item.kind == .image ? imageTargets.count : videoTargets.count)
         }
         var completed = 0
         var outcome = BatchOutcome()
 
         for item in items {
             let stem = item.url.deletingPathExtension().lastPathComponent
-            let sizes = item.kind == .image ? imageSizes : videoSizes
+            let targets = item.kind == .image ? imageTargets : videoTargets
 
-            for size in sizes {
+            for target in targets {
                 if Task.isCancelled { return outcome }
 
                 let deviceDir = outputRoot
-                    .appendingPathComponent("ios", isDirectory: true)
-                    .appendingPathComponent(size.device, isDirectory: true)
+                    .appendingPathComponent(target.folder, isDirectory: true)
+                    .appendingPathComponent(target.size.device, isDirectory: true)
 
                 do {
                     switch item.kind {
                     case .image:
-                        let out = deviceDir.appendingPathComponent("\(stem)_\(size.fileTag).png")
-                        try ImageCropper.crop(source: item.url, to: size.pixelSize, output: out)
+                        let out = deviceDir.appendingPathComponent("\(stem)_\(target.size.fileTag).png")
+                        if options.frameScreenshots {
+                            try BezelRenderer.renderFramed(
+                                source: item.url, to: target.size.pixelSize,
+                                style: options.frameStyle, output: out
+                            )
+                        } else {
+                            try ImageCropper.crop(source: item.url, to: target.size.pixelSize, output: out)
+                        }
                     case .video:
-                        let out = deviceDir.appendingPathComponent("\(stem)_\(size.fileTag).mp4")
-                        try await VideoCropper.crop(source: item.url, to: size.pixelSize, output: out)
+                        let out = deviceDir.appendingPathComponent("\(stem)_\(target.size.fileTag).mp4")
+                        try await VideoCropper.crop(source: item.url, to: target.size.pixelSize, output: out)
                     }
                     outcome.processed += 1
                     completed += 1
                     onProgress(BatchProgress(
                         completed: completed, total: total,
-                        message: "\(stem)_\(size.fileTag)"
+                        message: "\(target.folder)/\(target.size.device)/\(stem)_\(target.size.fileTag)"
                     ))
                 } catch {
                     outcome.failures.append(
-                        "\(item.url.lastPathComponent) → \(size.fileTag): \(error.localizedDescription)"
+                        "\(item.url.lastPathComponent) → \(target.size.fileTag): \(error.localizedDescription)"
                     )
                     completed += 1
                     onProgress(BatchProgress(
