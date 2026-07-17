@@ -6,8 +6,8 @@ DerivedData/
 *.xcuserstate
 xcuserdata/
 
-# XcodeGen output (regenerate from project.yml)
-ScreenshotForge.xcodeproj/
+# The .xcodeproj is committed (can also be regenerated from project.yml with
+# XcodeGen). Only user-specific state inside it is ignored (above).
 
 .swiftpm/
 Package.resolved
