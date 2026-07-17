@@ -241,18 +241,25 @@ struct AppDetailView: View {
 
     private var googleDevicesBox: some View {
         GroupBox("Google Play devices (screenshots only)") {
-            HStack(spacing: 16) {
-                ForEach(GooglePlayDevice.allCases) { device in
-                    Toggle(device.displayName, isOn: Binding(
-                        get: { selectedGoogleDevices.contains(device) },
-                        set: { isOn in
-                            if isOn { selectedGoogleDevices.insert(device) }
-                            else { selectedGoogleDevices.remove(device) }
-                        }
-                    ))
-                    .toggleStyle(.checkbox)
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 16) {
+                    ForEach(GooglePlayDevice.allCases) { device in
+                        Toggle(device.displayName, isOn: Binding(
+                            get: { selectedGoogleDevices.contains(device) },
+                            set: { isOn in
+                                if isOn { selectedGoogleDevices.insert(device) }
+                                else { selectedGoogleDevices.remove(device) }
+                            }
+                        ))
+                        .toggleStyle(.checkbox)
+                    }
+                    Spacer()
                 }
-                Spacer()
+                if !project.assets.contains(where: { $0.kind == .image }) {
+                    Text("Add a screenshot (PNG/JPG) to get Android output — Google Play doesn't take videos, so a video alone produces none.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
         }
     }
