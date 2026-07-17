@@ -34,3 +34,6 @@ targets:
         INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
         # Set your Development Team in Xcode (Signing & Capabilities) before running.
         CODE_SIGN_STYLE: Automatic
+        # To ship a sandboxed build, point this at the entitlements file:
+        #   CODE_SIGN_ENTITLEMENTS: App/ScreenshotForge.entitlements
+        # (left off so the first local build runs without the sandbox).

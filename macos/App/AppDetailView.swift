@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import AppKit
+import AVFoundation
 import UniformTypeIdentifiers
 import ForgeCore
 
@@ -278,16 +279,23 @@ struct AssetThumbnail: View {
     }
 
     @ViewBuilder private var thumbnail: some View {
-        if asset.kind == .video {
-            placeholder("film")
-        } else if let image {
-            Image(nsImage: image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+        if let image {
+            ZStack(alignment: .bottomTrailing) {
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                if asset.kind == .video {
+                    Image(systemName: "play.circle.fill")
+                        .foregroundStyle(.white)
+                        .shadow(radius: 2)
+                        .padding(3)
+                }
+            }
         } else {
-            placeholder(loadFailed ? "exclamationmark.triangle" : "photo")
+            let fallback = asset.kind == .video ? "film" : "photo"
+            placeholder(loadFailed ? "exclamationmark.triangle" : fallback)
         }
     }
 
@@ -300,17 +308,40 @@ struct AssetThumbnail: View {
     }
 
     private func load() async {
-        guard asset.kind == .image, image == nil else { return }
+        guard image == nil else { return }
         guard let (url, started) = asset.resolvedURL() else {
             loadFailed = true
             return
         }
-        defer { if started { url.stopAccessingSecurityScopedResource() } }
+        let kind = asset.kind
 
-        if let loaded = NSImage(contentsOf: url) {
+        // Decode off the main thread so scrolling a big grid stays smooth.
+        let loaded = await Task.detached(priority: .utility) { () -> NSImage? in
+            defer { if started { url.stopAccessingSecurityScopedResource() } }
+            switch kind {
+            case .image:
+                guard let data = try? Data(contentsOf: url) else { return nil }
+                return NSImage(data: data)
+            case .video:
+                return Self.firstFrame(of: url)
+            }
+        }.value
+
+        if let loaded {
             image = loaded
         } else {
             loadFailed = true
         }
+    }
+
+    /// Extract a poster frame from a video for its thumbnail.
+    private static func firstFrame(of url: URL) -> NSImage? {
+        let asset = AVURLAsset(url: url)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        generator.maximumSize = CGSize(width: 240, height: 240)
+        let time = CMTime(seconds: 0.1, preferredTimescale: 600)
+        guard let cgImage = try? generator.copyCGImage(at: time, actualTime: nil) else { return nil }
+        return NSImage(cgImage: cgImage, size: .zero)
     }
 }
