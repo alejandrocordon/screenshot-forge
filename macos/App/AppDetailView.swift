@@ -18,6 +18,7 @@ struct AppDetailView: View {
     @State private var previewImage: NSImage?
     @State private var previewSizeID = ""
     @State private var frameScreenshots = false
+    @State private var showUpload = false
 
     private let engine = BatchEngine()
 
@@ -34,10 +35,21 @@ struct AppDetailView: View {
                 googleDevicesBox
                 Toggle("Frame screenshots in a device bezel", isOn: $frameScreenshots)
                     .toggleStyle(.checkbox)
-                exportRow
+                HStack(spacing: 12) {
+                    exportRow
+                    Button {
+                        showUpload = true
+                    } label: {
+                        Label("Upload to App Store Connect…", systemImage: "icloud.and.arrow.up")
+                    }
+                    .disabled(project.assets.isEmpty)
+                }
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .sheet(isPresented: $showUpload) {
+            UploadSheet(project: project)
         }
         .fileImporter(
             isPresented: $showImporter,

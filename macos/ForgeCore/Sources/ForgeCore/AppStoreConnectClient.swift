@@ -39,6 +39,30 @@ public final class AppStoreConnectClient: @unchecked Sendable {
         }
     }
 
+    // MARK: - Navigation (app → version → localization → set)
+
+    public func versions(appID: String) async throws -> [ASCVersion] {
+        let data = try await get("/v1/apps/\(appID)/appStoreVersions?limit=50")
+        return try JSONDecoder().decode(VersionsResponse.self, from: data).data.map {
+            ASCVersion(id: $0.id, versionString: $0.attributes.versionString,
+                       state: $0.attributes.appStoreState ?? "")
+        }
+    }
+
+    public func localizations(versionID: String) async throws -> [ASCLocalization] {
+        let data = try await get("/v1/appStoreVersions/\(versionID)/appStoreVersionLocalizations?limit=100")
+        return try JSONDecoder().decode(LocalizationsResponse.self, from: data).data.map {
+            ASCLocalization(id: $0.id, locale: $0.attributes.locale)
+        }
+    }
+
+    public func screenshotSets(localizationID: String) async throws -> [ASCScreenshotSet] {
+        let data = try await get("/v1/appStoreVersionLocalizations/\(localizationID)/appScreenshotSets?limit=50")
+        return try JSONDecoder().decode(ScreenshotSetsResponse.self, from: data).data.map {
+            ASCScreenshotSet(id: $0.id, displayType: $0.attributes.screenshotDisplayType)
+        }
+    }
+
     // MARK: - Uploads
 
     /// Upload a screenshot to an existing `appScreenshotSet`.
@@ -206,5 +230,53 @@ public struct UploadOperation: Decodable, Sendable {
         public let name: String
         public let value: String
     }
+}
+
+// Navigation models
+
+public struct ASCVersion: Decodable, Sendable, Identifiable {
+    public let id: String
+    public let versionString: String
+    public let state: String
+}
+
+public struct ASCLocalization: Decodable, Sendable, Identifiable {
+    public let id: String
+    public let locale: String
+}
+
+public struct ASCScreenshotSet: Decodable, Sendable, Identifiable {
+    public let id: String
+    public let displayType: String
+}
+
+struct VersionsResponse: Decodable {
+    struct Version: Decodable {
+        let id: String
+        let attributes: Attributes
+        struct Attributes: Decodable {
+            let versionString: String
+            let appStoreState: String?
+        }
+    }
+    let data: [Version]
+}
+
+struct LocalizationsResponse: Decodable {
+    struct Localization: Decodable {
+        let id: String
+        let attributes: Attributes
+        struct Attributes: Decodable { let locale: String }
+    }
+    let data: [Localization]
+}
+
+struct ScreenshotSetsResponse: Decodable {
+    struct ScreenshotSet: Decodable {
+        let id: String
+        let attributes: Attributes
+        struct Attributes: Decodable { let screenshotDisplayType: String }
+    }
+    let data: [ScreenshotSet]
 }
 #endif
