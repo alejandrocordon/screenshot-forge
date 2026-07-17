@@ -20,20 +20,26 @@ macos/
   ForgeCore/                 # Swift Package — reusable, UI-free engine
     Sources/ForgeCore/
       PixelSize.swift
-      CropGeometry.swift     # pure scale-to-cover + center-crop math (tested)
-      AppleSizes.swift       # App Store size registry (ported from sizes.py)
+      CropGeometry.swift     # pure crop math + keptRegion for previews (tested)
+      AppleSizes.swift       # Apple screenshot + app-preview-video sizes
+      GooglePlaySizes.swift  # Google Play screenshot sizes
       SupportedTypes.swift
       ForgeError.swift
-      ImageCropper.swift     # CoreGraphics  (#if canImport(CoreGraphics))
-      VideoCropper.swift     # AVFoundation  (#if canImport(AVFoundation))
+      ImageCropper.swift     # CoreGraphics
+      VideoCropper.swift     # AVFoundation (30 fps cap)
+      FrameStyle.swift       # device-bezel style (data)
+      BezelRenderer.swift    # frames a screenshot in a rounded bezel
+      AppStoreConnectAuth.swift    # ES256 JWT (tested)
+      AppStoreConnectClient.swift  # API client (listApps works; upload stubbed)
       BatchEngine.swift      # orchestration + progress (actor)
-    Tests/ForgeCoreTests/    # CropGeometry + AppleSizes tests
+    Tests/ForgeCoreTests/    # CropGeometry, AppleSizes, GooglePlay, ASC-auth
   App/                       # SwiftUI app (sidebar of apps → assets → export)
     ScreenshotForgeApp.swift # @main + SwiftData model container
     Models.swift             # SwiftData @Model: AppProject, Asset (persisted)
     BookmarkStore.swift      # security-scoped file bookmarks
     ContentView.swift
-    AppDetailView.swift
+    AppDetailView.swift      # assets, live preview, device toggles, export
+    CropPreview.swift        # "what gets kept" overlay
   project.yml                # XcodeGen spec (optional, generates the .xcodeproj)
 ```
 
@@ -63,7 +69,7 @@ open ScreenshotForge.xcodeproj
 
 ```bash
 cd macos/ForgeCore
-swift test          # runs CropGeometry + AppleSizes tests
+swift test          # CropGeometry, AppleSizes, GooglePlay, App Store Connect auth
 ```
 
 ## How it works
@@ -80,6 +86,20 @@ Screenshots and app preview **videos use different Apple resolutions**, so
 the right one per asset — e.g. a 6.7" screenshot is `1290×2796` but its app
 preview video is `886×1920`. Video resolutions per
 [Apple's spec](https://developer.apple.com/help/app-store-connect/reference/app-preview-specifications/).
+Screenshots also export to **Google Play** sizes (`GooglePlaySizes`) under
+`output/android/<device>/`; Google Play previews are a YouTube URL, not an
+upload, so videos stay Apple-only.
+
+## Features
+
+- **Apple + Google Play** screenshots, **Apple** app preview videos (30 fps cap).
+- **Live crop preview** (`CropPreview` + `CropGeometry.keptRegion`): see what will
+  be kept per device before exporting.
+- **Device bezel** (`BezelRenderer`): optionally frame screenshots in a rounded
+  bezel at the exact target size — a scaffold that needs no mockup assets.
+- **Persistence**: SwiftData library of apps + assets, stored via bookmarks.
+- **App Store Connect** (`AppStoreConnect*`): ES256 JWT auth is complete and
+  tested; `listApps()` checks credentials; screenshot upload is a documented stub.
 
 ## Caveats / next steps
 
@@ -87,6 +107,14 @@ preview video is `886×1920`. Video resolutions per
   common upright case. Rotated footage (non-identity `preferredTransform`) should
   be verified on device — AVFoundation's composition coordinate space is the
   fiddly bit. Validate exported dimensions and framing with real clips.
+- **Device frames are a bezel, not a mockup:** `BezelRenderer` draws a rounded
+  bezel — no photorealistic iPhone/iPad shell. To use real frames, load a frame
+  PNG with a transparent screen cutout and composite the cropped screenshot into
+  its known screen rect.
+- **App Store Connect upload is a stub:** the JWT auth is real and tested; the
+  screenshot reservation/upload/commit flow is documented in
+  `AppStoreConnectClient.uploadScreenshot` but not implemented — finish and test
+  it with a real API key (issuer id, key id, `.p8`).
 - **Persistence (done):** apps and their assets are SwiftData `@Model`s
   (`AppProject`, `Asset`) persisted on disk via `.modelContainer`, so the library
   survives relaunch. Each `Asset` stores a **bookmark** (`BookmarkStore`) instead
@@ -101,5 +129,6 @@ preview video is `886×1920`. Video resolutions per
 - **Asset PNGs & the repo `.gitignore`:** the repo root ignores `*.png`/`*.mov`/…
   so test media never gets committed. If you add an app-icon asset catalog, force
   it in (`git add -f`) or add a scoped un-ignore for `macos/**/Assets.xcassets`.
-- **Roadmap:** live crop preview • Android sizes • device-frame overlays •
-  title/subtitle captions • App Store Connect API upload • Fastlane `deliver` export.
+- **Roadmap:** ~~live crop preview~~ • ~~Android sizes~~ • ~~device-frame overlays~~ •
+  ~~App Store Connect auth~~ • finish ASC upload • real device-frame mockups •
+  title/subtitle captions • Fastlane `deliver` export.
