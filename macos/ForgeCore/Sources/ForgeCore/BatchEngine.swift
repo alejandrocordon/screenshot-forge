@@ -12,8 +12,13 @@ public struct BatchProgress: Sendable {
 }
 
 public struct BatchOutcome: Sendable {
-    public var processed: Int = 0
-    public var failures: [String] = []
+    public var processed: Int
+    public var failures: [String]
+
+    public init(processed: Int = 0, failures: [String] = []) {
+        self.processed = processed
+        self.failures = failures
+    }
 }
 
 /// Options that tweak how outputs are rendered.
