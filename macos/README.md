@@ -27,10 +27,11 @@ macos/
       ForgeError.swift
       ImageCropper.swift     # CoreGraphics
       VideoCropper.swift     # AVFoundation (30 fps cap)
-      FrameStyle.swift       # device-bezel style (data)
-      BezelRenderer.swift    # frames a screenshot in a rounded bezel
+      FrameStyle.swift / BezelRenderer.swift    # rounded device bezel
+      CaptionStyle.swift / CaptionRenderer.swift # marketing title (Core Text)
+      ScreenshotDisplayType.swift  # ASC displayType → size
       AppStoreConnectAuth.swift    # ES256 JWT (tested)
-      AppStoreConnectClient.swift  # apps() + screenshot/preview upload flow
+      AppStoreConnectClient.swift  # apps/versions/… + upload flow
       BatchEngine.swift      # orchestration + progress (actor)
     Tests/ForgeCoreTests/    # CropGeometry, AppleSizes, GooglePlay, ASC-auth
   App/                       # SwiftUI app (sidebar of apps → assets → export)
@@ -39,8 +40,8 @@ macos/
     BookmarkStore.swift      # security-scoped file bookmarks
     KeychainStore.swift      # stores the App Store Connect .p8 key
     ContentView.swift
-    AppDetailView.swift      # assets, video thumbnails, live preview, export
-    CropPreview.swift        # "what gets kept" overlay
+    AppDetailView.swift      # assets, WYSIWYG preview, caption, export
+    UploadSheet.swift        # App Store Connect upload (app→version→loc→set)
     SettingsView.swift       # ⌘, — App Store Connect credentials + Test
     ScreenshotForge.entitlements  # sandbox entitlements (opt-in, see project.yml)
   project.yml                # XcodeGen spec (optional, generates the .xcodeproj)
@@ -141,6 +142,6 @@ upload, so videos stay Apple-only.
 - **Asset PNGs & the repo `.gitignore`:** the repo root ignores `*.png`/`*.mov`/…
   so test media never gets committed. If you add an app-icon asset catalog, force
   it in (`git add -f`) or add a scoped un-ignore for `macos/**/Assets.xcassets`.
-- **Roadmap:** ~~preview~~ • ~~Android~~ • ~~device-frame bezel~~ • ~~ASC auth + upload
-  flow~~ • ~~video thumbnails~~ • wire the ASC upload UI (set navigation + button) •
-  real device-frame mockups • title/subtitle captions • Fastlane `deliver`.
+- **Roadmap:** ~~preview~~ • ~~Android~~ • ~~device-frame bezel~~ • ~~ASC auth + upload~~ •
+  ~~video thumbnails~~ • ~~ASC upload UI~~ • ~~captions~~ • ~~WYSIWYG preview~~ •
+  real device-frame mockups • per-screenshot captions • Fastlane `deliver`.

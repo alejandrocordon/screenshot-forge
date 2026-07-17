@@ -104,54 +104,114 @@ struct AppDetailView: View {
         }
     }
 
-    /// Representative portrait screenshot size per Apple device, for the preview.
-    private var previewTargets: [DeviceSize] {
-        AppleSizes.screenshots.filter { !$0.isLandscape }
+    /// First screenshot, or a video if there are no screenshots.
+    private var previewAsset: Asset? {
+        project.sortedAssets.first { $0.kind == .image }
+            ?? project.sortedAssets.first { $0.kind == .video }
     }
 
-    private var firstScreenshot: Asset? {
-        project.sortedAssets.first { $0.kind == .image }
+    /// Portrait sizes for the previewed asset (screenshot vs app-preview video).
+    private var previewTargets: [DeviceSize] {
+        guard let asset = previewAsset else { return [] }
+        let table = asset.kind == .image ? AppleSizes.screenshots : AppleSizes.videos
+        return table.filter { !$0.isLandscape }
+    }
+
+    /// Re-render the preview whenever the asset, size, or output options change.
+    private var previewKey: String {
+        let id = previewAsset?.persistentModelID.hashValue ?? 0
+        return "\(id)|\(previewSizeID)|\(frameScreenshots)|\(caption)"
     }
 
     private var previewBox: some View {
-        GroupBox("Crop preview") {
+        GroupBox("Preview (what you'll export)") {
             VStack(alignment: .leading, spacing: 8) {
-                if let previewImage {
+                if !previewTargets.isEmpty {
                     Picker("Device", selection: $previewSizeID) {
                         ForEach(previewTargets) { size in
                             Text("\(size.device) — \(size.fileTag)").tag(size.id)
                         }
                     }
                     .frame(maxWidth: 340)
-
-                    let target = previewTargets.first { $0.id == previewSizeID } ?? previewTargets.first
-                    if let target {
-                        CropPreview(image: previewImage, target: target.pixelSize)
-                            .frame(height: 240)
-                            .background(Color.black.opacity(0.12))
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                    }
+                }
+                if let previewImage {
+                    Image(nsImage: previewImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 260)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 } else {
-                    Text("Add a screenshot to preview how it will be cropped.")
+                    Text("Add a screenshot or video to preview the output.")
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 8)
                 }
             }
         }
-        .task(id: firstScreenshot?.persistentModelID) { await loadPreview() }
+        .task(id: previewKey) { await loadPreview() }
     }
 
     private func loadPreview() async {
-        guard let asset = firstScreenshot, let (url, started) = asset.resolvedURL() else {
-            previewImage = nil
-            return
-        }
-        defer { if started { url.stopAccessingSecurityScopedResource() } }
-        previewImage = NSImage(contentsOf: url)
-        if previewSizeID.isEmpty {
+        guard let asset = previewAsset else { previewImage = nil; return }
+        if !previewTargets.contains(where: { $0.id == previewSizeID }) {
             previewSizeID = previewTargets.first?.id ?? ""
         }
+        guard let target = previewTargets.first(where: { $0.id == previewSizeID }),
+              let (url, started) = asset.resolvedURL() else { previewImage = nil; return }
+
+        let options = ExportOptions(
+            frameScreenshots: frameScreenshots,
+            caption: caption.isEmpty ? nil : caption
+        )
+        let kind = asset.kind
+        let size = target.pixelSize
+        previewImage = await Task.detached(priority: .userInitiated) {
+            defer { if started { url.stopAccessingSecurityScopedResource() } }
+            return Self.renderPreview(url: url, kind: kind, target: size, options: options)
+        }.value
+    }
+
+    /// Render the real output (crop / bezel / caption; video → first frame) to
+    /// an NSImage via a temp PNG.
+    private static func renderPreview(
+        url: URL, kind: AssetKind, target: PixelSize, options: ExportOptions
+    ) -> NSImage? {
+        let tmp = FileManager.default.temporaryDirectory
+            .appendingPathComponent("preview-\(UUID().uuidString)", isDirectory: true)
+        try? FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: tmp) }
+
+        // A URL to a still image to feed the renderers.
+        var sourceURL = url
+        if kind == .video {
+            guard let frame = AssetThumbnail.firstFrame(of: url),
+                  let framePNG = writePNG(frame, into: tmp) else { return nil }
+            sourceURL = framePNG
+        }
+
+        let out = tmp.appendingPathComponent("out.png")
+        do {
+            if kind == .image, let caption = options.caption, !caption.isEmpty {
+                try CaptionRenderer.render(source: sourceURL, to: target,
+                                           caption: caption, style: options.captionStyle, output: out)
+            } else if kind == .image, options.frameScreenshots {
+                try BezelRenderer.renderFramed(source: sourceURL, to: target,
+                                               style: options.frameStyle, output: out)
+            } else {
+                try ImageCropper.crop(source: sourceURL, to: target, output: out)
+            }
+        } catch {
+            return nil
+        }
+        return NSImage(contentsOf: out)
+    }
+
+    private static func writePNG(_ image: NSImage, into dir: URL) -> URL? {
+        guard let tiff = image.tiffRepresentation,
+              let rep = NSBitmapImageRep(data: tiff),
+              let data = rep.representation(using: .png, properties: [:]) else { return nil }
+        let url = dir.appendingPathComponent("frame.png")
+        return (try? data.write(to: url)) != nil ? url : nil
     }
 
     private var appleDevicesBox: some View {
@@ -357,8 +417,8 @@ struct AssetThumbnail: View {
         }
     }
 
-    /// Extract a poster frame from a video for its thumbnail.
-    private static func firstFrame(of url: URL) -> NSImage? {
+    /// Extract a poster frame from a video (thumbnail + preview).
+    static func firstFrame(of url: URL) -> NSImage? {
         let asset = AVURLAsset(url: url)
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
