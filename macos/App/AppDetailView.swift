@@ -253,20 +253,24 @@ struct AppDetailView: View {
         let devices = AppleDevice.allCases.filter { selectedDevices.contains($0) }
         let googleDevices = GooglePlayDevice.allCases.filter { selectedGoogleDevices.contains($0) }
 
-        let outcome = await engine.run(
+        var finalOutcome = BatchOutcome()
+        for await event in engine.run(
             inputs: urls,
             appleDevices: devices,
             googlePlayDevices: googleDevices,
             outputRoot: outputRoot,
             options: ExportOptions(frameScreenshots: frameScreenshots)
-        ) { update in
-            Task { @MainActor in
+        ) {
+            switch event {
+            case .progress(let update):
                 progress = update.fraction
                 statusText = update.message
+            case .finished(let outcome):
+                finalOutcome = outcome
             }
         }
 
-        statusText = "Done — \(outcome.processed) generated, \(outcome.failures.count) errors"
+        statusText = "Done — \(finalOutcome.processed) generated, \(finalOutcome.failures.count) errors"
         NSWorkspace.shared.open(outputRoot)
     }
 }
